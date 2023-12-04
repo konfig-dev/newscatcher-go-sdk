@@ -23,7 +23,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-sdks/v3/go"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
 )
 
 func main() {
@@ -113,7 +113,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-sdks/v3/go"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
 )
 
 func main() {

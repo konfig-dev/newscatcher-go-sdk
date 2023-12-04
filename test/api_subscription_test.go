@@ -13,7 +13,7 @@ import (
     "testing"
     // "github.com/stretchr/testify/assert"
     // "github.com/stretchr/testify/require"
-    // newscatcherapi "github.com/konfig-dev/newscatcher-sdks/v3/go"
+    // newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
 )
 
 func Test_newscatcherapi_SubscriptionApiService(t *testing.T) {

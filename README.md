@@ -8,7 +8,7 @@
 Add to your project:
 
 ```shell
-go get github.com/konfig-dev/newscatcher-sdks/v3/go
+go get github.com/konfig-dev/newscatcher-go-sdk/tree/main
 ```
 
 ## Getting Started
@@ -19,7 +19,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-sdks/v3/go"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
 )
 
 func main() {

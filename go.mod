@@ -1,4 +1,4 @@
-module github.com/konfig-dev/newscatcher-sdks/v3/go
+module github.com/konfig-dev/newscatcher-go-sdk/tree/main
 
 go 1.13
 
