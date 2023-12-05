@@ -5068,7 +5068,6 @@ components:
           type: string
         type: array
       - type: string
-      default: []
       example: []
       title: All Links
       x-konfig-original-example: []
@@ -5078,7 +5077,6 @@ components:
           type: string
         type: array
       - type: string
-      default: []
       example: []
       title: All Domain Links
       x-konfig-original-example: []

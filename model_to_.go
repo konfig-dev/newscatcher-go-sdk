@@ -19,37 +19,37 @@ import (
 
 // To struct for To
 type To struct {
-	string *string
-	time.Time *time.Time
+	String *string
+	Time_Time *time.Time
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
 func (dst *To) UnmarshalJSON(data []byte) error {
 	var err error
 	// try to unmarshal JSON data into string
-	err = json.Unmarshal(data, &dst.string);
+	err = json.Unmarshal(data, &dst.String);
 	if err == nil {
-		jsonstring, _ := json.Marshal(dst.string)
-		if string(jsonstring) == "{}" { // empty struct
-			dst.string = nil
+		jsonString, _ := json.Marshal(dst.String)
+		if string(jsonString) == "{}" { // empty struct
+			dst.String = nil
 		} else {
-			return nil // data stored in dst.string, return on the first match
+			return nil // data stored in dst.String, return on the first match
 		}
 	} else {
-		dst.string = nil
+		dst.String = nil
 	}
 
 	// try to unmarshal JSON data into time.Time
-	err = json.Unmarshal(data, &dst.time.Time);
+	err = json.Unmarshal(data, &dst.Time_Time);
 	if err == nil {
-		jsontime.Time, _ := json.Marshal(dst.time.Time)
-		if string(jsontime.Time) == "{}" { // empty struct
-			dst.time.Time = nil
+		jsonTime_Time, _ := json.Marshal(dst.Time_Time)
+		if string(jsonTime_Time) == "{}" { // empty struct
+			dst.Time_Time = nil
 		} else {
-			return nil // data stored in dst.time.Time, return on the first match
+			return nil // data stored in dst.Time_Time, return on the first match
 		}
 	} else {
-		dst.time.Time = nil
+		dst.Time_Time = nil
 	}
 
 	return fmt.Errorf("data failed to match schemas in anyOf(To)")
@@ -57,12 +57,12 @@ func (dst *To) UnmarshalJSON(data []byte) error {
 
 // Marshal data from the first non-nil pointers in the struct to JSON
 func (src *To) MarshalJSON() ([]byte, error) {
-	if src.string != nil {
-		return json.Marshal(&src.string)
+	if src.String != nil {
+		return json.Marshal(&src.String)
 	}
 
-	if src.time.Time != nil {
-		return json.Marshal(&src.time.Time)
+	if src.Time_Time != nil {
+		return json.Marshal(&src.Time_Time)
 	}
 
 	return nil, nil // no data in anyOf schemas

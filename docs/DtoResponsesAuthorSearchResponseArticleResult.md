@@ -30,8 +30,8 @@ Name | Type | Description | Notes
 **WordCount** | Pointer to **int32** |  | [optional] [default to 0]
 **IsOpinion** | Pointer to **bool** |  | [optional] 
 **TwitterAccount** | Pointer to **string** |  | [optional] 
-**AllLinks** | Pointer to [**AllLinksProperty**](AllLinksProperty.md) |  | [optional] [default to []]
-**AllDomainLinks** | Pointer to [**AllDomainLinksProperty**](AllDomainLinksProperty.md) |  | [optional] [default to []]
+**AllLinks** | Pointer to [**AllLinksProperty**](AllLinksProperty.md) |  | [optional] 
+**AllDomainLinks** | Pointer to [**AllDomainLinksProperty**](AllDomainLinksProperty.md) |  | [optional] 
 **Nlp** | Pointer to **map[string]interface{}** |  | [optional] [default to {}]
 **Id** | **string** |  | 
 **Score** | **float32** |  | 

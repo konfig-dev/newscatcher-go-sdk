@@ -66,10 +66,6 @@ func NewDtoResponsesMoreLikeThisResponseArticleResult(title string, link string,
 	this.Content = content
 	var wordCount int32 = 0
 	this.WordCount = &wordCount
-	var allLinks AllLinksProperty = []
-	this.AllLinks = &allLinks
-	var allDomainLinks AllDomainLinksProperty = []
-	this.AllDomainLinks = &allDomainLinks
 	this.Id = id
 	this.Score = score
 	return &this
@@ -82,10 +78,6 @@ func NewDtoResponsesMoreLikeThisResponseArticleResultWithDefaults() *DtoResponse
 	this := DtoResponsesMoreLikeThisResponseArticleResult{}
 	var wordCount int32 = 0
 	this.WordCount = &wordCount
-	var allLinks AllLinksProperty = []
-	this.AllLinks = &allLinks
-	var allDomainLinks AllDomainLinksProperty = []
-	this.AllDomainLinks = &allDomainLinks
 	return &this
 }
 
