@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 

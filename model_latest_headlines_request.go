@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 
@@ -19,29 +19,31 @@ import (
 type LatestHeadlinesRequest struct {
 	When *string `json:"when,omitempty"`
 	ByParseDate *bool `json:"by_parse_date,omitempty"`
-	Lang *string `json:"lang,omitempty"`
-	NotLang *string `json:"not_lang,omitempty"`
-	Countries *string `json:"countries,omitempty"`
-	NotCountries *string `json:"not_countries,omitempty"`
-	Sources *string `json:"sources,omitempty"`
-	PredefinedSources *string `json:"predefined_sources,omitempty"`
-	NotSources *string `json:"not_sources,omitempty"`
+	Lang interface{} `json:"lang,omitempty"`
+	NotLang interface{} `json:"not_lang,omitempty"`
+	Countries interface{} `json:"countries,omitempty"`
+	NotCountries interface{} `json:"not_countries,omitempty"`
+	Sources interface{} `json:"sources,omitempty"`
+	PredefinedSources interface{} `json:"predefined_sources,omitempty"`
+	NotSources interface{} `json:"not_sources,omitempty"`
+	NotAuthorName interface{} `json:"not_author_name,omitempty"`
 	RankedOnly *string `json:"ranked_only,omitempty"`
 	IsHeadline *bool `json:"is_headline,omitempty"`
 	IsPaidContent *bool `json:"is_paid_content,omitempty"`
-	ParentUrl *string `json:"parent_url,omitempty"`
-	Theme *string `json:"theme,omitempty"`
-	AllLinks *string `json:"all_links,omitempty"`
-	AllDomainLinks *string `json:"all_domain_links,omitempty"`
+	ParentUrl interface{} `json:"parent_url,omitempty"`
+	AllLinks interface{} `json:"all_links,omitempty"`
+	AllDomainLinks interface{} `json:"all_domain_links,omitempty"`
 	WordCountMin *int32 `json:"word_count_min,omitempty"`
 	WordCountMax *int32 `json:"word_count_max,omitempty"`
 	Page *int32 `json:"page,omitempty"`
 	PageSize *int32 `json:"page_size,omitempty"`
+	ClusteringVariable *string `json:"clustering_variable,omitempty"`
 	ClusteringEnabled *bool `json:"clustering_enabled,omitempty"`
 	ClusteringThreshold *float32 `json:"clustering_threshold,omitempty"`
-	ClusteringVariable *string `json:"clustering_variable,omitempty"`
 	IncludeNlpData *bool `json:"include_nlp_data,omitempty"`
 	HasNlp *bool `json:"has_nlp,omitempty"`
+	Theme *string `json:"theme,omitempty"`
+	NotTheme *string `json:"not_theme,omitempty"`
 	ORGEntityName *string `json:"ORG_entity_name,omitempty"`
 	PEREntityName *string `json:"PER_entity_name,omitempty"`
 	LOCEntityName *string `json:"LOC_entity_name,omitempty"`
@@ -50,6 +52,8 @@ type LatestHeadlinesRequest struct {
 	TitleSentimentMax *float32 `json:"title_sentiment_max,omitempty"`
 	ContentSentimentMin *float32 `json:"content_sentiment_min,omitempty"`
 	ContentSentimentMax *float32 `json:"content_sentiment_max,omitempty"`
+	IptcTags interface{} `json:"iptc_tags,omitempty"`
+	NotIptcTags interface{} `json:"not_iptc_tags,omitempty"`
 }
 
 // NewLatestHeadlinesRequest instantiates a new LatestHeadlinesRequest object
@@ -149,228 +153,268 @@ func (o *LatestHeadlinesRequest) SetByParseDate(v bool) {
 	o.ByParseDate = &v
 }
 
-// GetLang returns the Lang field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetLang() string {
-	if o == nil || isNil(o.Lang) {
-		var ret string
+// GetLang returns the Lang field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetLang() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Lang
+	return o.Lang
 }
 
 // GetLangOk returns a tuple with the Lang field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetLangOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetLangOk() (*interface{}, bool) {
 	if o == nil || isNil(o.Lang) {
     return nil, false
 	}
-	return o.Lang, true
+	return &o.Lang, true
 }
 
 // HasLang returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasLang() bool {
-	if o != nil && !isNil(o.Lang) {
+	if o != nil && isNil(o.Lang) {
 		return true
 	}
 
 	return false
 }
 
-// SetLang gets a reference to the given string and assigns it to the Lang field.
-func (o *LatestHeadlinesRequest) SetLang(v string) {
-	o.Lang = &v
+// SetLang gets a reference to the given interface{} and assigns it to the Lang field.
+func (o *LatestHeadlinesRequest) SetLang(v interface{}) {
+	o.Lang = v
 }
 
-// GetNotLang returns the NotLang field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetNotLang() string {
-	if o == nil || isNil(o.NotLang) {
-		var ret string
+// GetNotLang returns the NotLang field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetNotLang() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.NotLang
+	return o.NotLang
 }
 
 // GetNotLangOk returns a tuple with the NotLang field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetNotLangOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetNotLangOk() (*interface{}, bool) {
 	if o == nil || isNil(o.NotLang) {
     return nil, false
 	}
-	return o.NotLang, true
+	return &o.NotLang, true
 }
 
 // HasNotLang returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasNotLang() bool {
-	if o != nil && !isNil(o.NotLang) {
+	if o != nil && isNil(o.NotLang) {
 		return true
 	}
 
 	return false
 }
 
-// SetNotLang gets a reference to the given string and assigns it to the NotLang field.
-func (o *LatestHeadlinesRequest) SetNotLang(v string) {
-	o.NotLang = &v
+// SetNotLang gets a reference to the given interface{} and assigns it to the NotLang field.
+func (o *LatestHeadlinesRequest) SetNotLang(v interface{}) {
+	o.NotLang = v
 }
 
-// GetCountries returns the Countries field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetCountries() string {
-	if o == nil || isNil(o.Countries) {
-		var ret string
+// GetCountries returns the Countries field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetCountries() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Countries
+	return o.Countries
 }
 
 // GetCountriesOk returns a tuple with the Countries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetCountriesOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetCountriesOk() (*interface{}, bool) {
 	if o == nil || isNil(o.Countries) {
     return nil, false
 	}
-	return o.Countries, true
+	return &o.Countries, true
 }
 
 // HasCountries returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasCountries() bool {
-	if o != nil && !isNil(o.Countries) {
+	if o != nil && isNil(o.Countries) {
 		return true
 	}
 
 	return false
 }
 
-// SetCountries gets a reference to the given string and assigns it to the Countries field.
-func (o *LatestHeadlinesRequest) SetCountries(v string) {
-	o.Countries = &v
+// SetCountries gets a reference to the given interface{} and assigns it to the Countries field.
+func (o *LatestHeadlinesRequest) SetCountries(v interface{}) {
+	o.Countries = v
 }
 
-// GetNotCountries returns the NotCountries field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetNotCountries() string {
-	if o == nil || isNil(o.NotCountries) {
-		var ret string
+// GetNotCountries returns the NotCountries field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetNotCountries() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.NotCountries
+	return o.NotCountries
 }
 
 // GetNotCountriesOk returns a tuple with the NotCountries field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetNotCountriesOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetNotCountriesOk() (*interface{}, bool) {
 	if o == nil || isNil(o.NotCountries) {
     return nil, false
 	}
-	return o.NotCountries, true
+	return &o.NotCountries, true
 }
 
 // HasNotCountries returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasNotCountries() bool {
-	if o != nil && !isNil(o.NotCountries) {
+	if o != nil && isNil(o.NotCountries) {
 		return true
 	}
 
 	return false
 }
 
-// SetNotCountries gets a reference to the given string and assigns it to the NotCountries field.
-func (o *LatestHeadlinesRequest) SetNotCountries(v string) {
-	o.NotCountries = &v
+// SetNotCountries gets a reference to the given interface{} and assigns it to the NotCountries field.
+func (o *LatestHeadlinesRequest) SetNotCountries(v interface{}) {
+	o.NotCountries = v
 }
 
-// GetSources returns the Sources field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetSources() string {
-	if o == nil || isNil(o.Sources) {
-		var ret string
+// GetSources returns the Sources field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetSources() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Sources
+	return o.Sources
 }
 
 // GetSourcesOk returns a tuple with the Sources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetSourcesOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetSourcesOk() (*interface{}, bool) {
 	if o == nil || isNil(o.Sources) {
     return nil, false
 	}
-	return o.Sources, true
+	return &o.Sources, true
 }
 
 // HasSources returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasSources() bool {
-	if o != nil && !isNil(o.Sources) {
+	if o != nil && isNil(o.Sources) {
 		return true
 	}
 
 	return false
 }
 
-// SetSources gets a reference to the given string and assigns it to the Sources field.
-func (o *LatestHeadlinesRequest) SetSources(v string) {
-	o.Sources = &v
+// SetSources gets a reference to the given interface{} and assigns it to the Sources field.
+func (o *LatestHeadlinesRequest) SetSources(v interface{}) {
+	o.Sources = v
 }
 
-// GetPredefinedSources returns the PredefinedSources field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetPredefinedSources() string {
-	if o == nil || isNil(o.PredefinedSources) {
-		var ret string
+// GetPredefinedSources returns the PredefinedSources field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetPredefinedSources() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.PredefinedSources
+	return o.PredefinedSources
 }
 
 // GetPredefinedSourcesOk returns a tuple with the PredefinedSources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetPredefinedSourcesOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetPredefinedSourcesOk() (*interface{}, bool) {
 	if o == nil || isNil(o.PredefinedSources) {
     return nil, false
 	}
-	return o.PredefinedSources, true
+	return &o.PredefinedSources, true
 }
 
 // HasPredefinedSources returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasPredefinedSources() bool {
-	if o != nil && !isNil(o.PredefinedSources) {
+	if o != nil && isNil(o.PredefinedSources) {
 		return true
 	}
 
 	return false
 }
 
-// SetPredefinedSources gets a reference to the given string and assigns it to the PredefinedSources field.
-func (o *LatestHeadlinesRequest) SetPredefinedSources(v string) {
-	o.PredefinedSources = &v
+// SetPredefinedSources gets a reference to the given interface{} and assigns it to the PredefinedSources field.
+func (o *LatestHeadlinesRequest) SetPredefinedSources(v interface{}) {
+	o.PredefinedSources = v
 }
 
-// GetNotSources returns the NotSources field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetNotSources() string {
-	if o == nil || isNil(o.NotSources) {
-		var ret string
+// GetNotSources returns the NotSources field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetNotSources() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.NotSources
+	return o.NotSources
 }
 
 // GetNotSourcesOk returns a tuple with the NotSources field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetNotSourcesOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetNotSourcesOk() (*interface{}, bool) {
 	if o == nil || isNil(o.NotSources) {
     return nil, false
 	}
-	return o.NotSources, true
+	return &o.NotSources, true
 }
 
 // HasNotSources returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasNotSources() bool {
-	if o != nil && !isNil(o.NotSources) {
+	if o != nil && isNil(o.NotSources) {
 		return true
 	}
 
 	return false
 }
 
-// SetNotSources gets a reference to the given string and assigns it to the NotSources field.
-func (o *LatestHeadlinesRequest) SetNotSources(v string) {
-	o.NotSources = &v
+// SetNotSources gets a reference to the given interface{} and assigns it to the NotSources field.
+func (o *LatestHeadlinesRequest) SetNotSources(v interface{}) {
+	o.NotSources = v
+}
+
+// GetNotAuthorName returns the NotAuthorName field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetNotAuthorName() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.NotAuthorName
+}
+
+// GetNotAuthorNameOk returns a tuple with the NotAuthorName field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetNotAuthorNameOk() (*interface{}, bool) {
+	if o == nil || isNil(o.NotAuthorName) {
+    return nil, false
+	}
+	return &o.NotAuthorName, true
+}
+
+// HasNotAuthorName returns a boolean if a field has been set.
+func (o *LatestHeadlinesRequest) HasNotAuthorName() bool {
+	if o != nil && isNil(o.NotAuthorName) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotAuthorName gets a reference to the given interface{} and assigns it to the NotAuthorName field.
+func (o *LatestHeadlinesRequest) SetNotAuthorName(v interface{}) {
+	o.NotAuthorName = v
 }
 
 // GetRankedOnly returns the RankedOnly field value if set, zero value otherwise.
@@ -469,132 +513,103 @@ func (o *LatestHeadlinesRequest) SetIsPaidContent(v bool) {
 	o.IsPaidContent = &v
 }
 
-// GetParentUrl returns the ParentUrl field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetParentUrl() string {
-	if o == nil || isNil(o.ParentUrl) {
-		var ret string
+// GetParentUrl returns the ParentUrl field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetParentUrl() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.ParentUrl
+	return o.ParentUrl
 }
 
 // GetParentUrlOk returns a tuple with the ParentUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetParentUrlOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetParentUrlOk() (*interface{}, bool) {
 	if o == nil || isNil(o.ParentUrl) {
     return nil, false
 	}
-	return o.ParentUrl, true
+	return &o.ParentUrl, true
 }
 
 // HasParentUrl returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasParentUrl() bool {
-	if o != nil && !isNil(o.ParentUrl) {
+	if o != nil && isNil(o.ParentUrl) {
 		return true
 	}
 
 	return false
 }
 
-// SetParentUrl gets a reference to the given string and assigns it to the ParentUrl field.
-func (o *LatestHeadlinesRequest) SetParentUrl(v string) {
-	o.ParentUrl = &v
+// SetParentUrl gets a reference to the given interface{} and assigns it to the ParentUrl field.
+func (o *LatestHeadlinesRequest) SetParentUrl(v interface{}) {
+	o.ParentUrl = v
 }
 
-// GetTheme returns the Theme field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetTheme() string {
-	if o == nil || isNil(o.Theme) {
-		var ret string
+// GetAllLinks returns the AllLinks field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetAllLinks() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.Theme
-}
-
-// GetThemeOk returns a tuple with the Theme field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetThemeOk() (*string, bool) {
-	if o == nil || isNil(o.Theme) {
-    return nil, false
-	}
-	return o.Theme, true
-}
-
-// HasTheme returns a boolean if a field has been set.
-func (o *LatestHeadlinesRequest) HasTheme() bool {
-	if o != nil && !isNil(o.Theme) {
-		return true
-	}
-
-	return false
-}
-
-// SetTheme gets a reference to the given string and assigns it to the Theme field.
-func (o *LatestHeadlinesRequest) SetTheme(v string) {
-	o.Theme = &v
-}
-
-// GetAllLinks returns the AllLinks field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetAllLinks() string {
-	if o == nil || isNil(o.AllLinks) {
-		var ret string
-		return ret
-	}
-	return *o.AllLinks
+	return o.AllLinks
 }
 
 // GetAllLinksOk returns a tuple with the AllLinks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetAllLinksOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetAllLinksOk() (*interface{}, bool) {
 	if o == nil || isNil(o.AllLinks) {
     return nil, false
 	}
-	return o.AllLinks, true
+	return &o.AllLinks, true
 }
 
 // HasAllLinks returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasAllLinks() bool {
-	if o != nil && !isNil(o.AllLinks) {
+	if o != nil && isNil(o.AllLinks) {
 		return true
 	}
 
 	return false
 }
 
-// SetAllLinks gets a reference to the given string and assigns it to the AllLinks field.
-func (o *LatestHeadlinesRequest) SetAllLinks(v string) {
-	o.AllLinks = &v
+// SetAllLinks gets a reference to the given interface{} and assigns it to the AllLinks field.
+func (o *LatestHeadlinesRequest) SetAllLinks(v interface{}) {
+	o.AllLinks = v
 }
 
-// GetAllDomainLinks returns the AllDomainLinks field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetAllDomainLinks() string {
-	if o == nil || isNil(o.AllDomainLinks) {
-		var ret string
+// GetAllDomainLinks returns the AllDomainLinks field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetAllDomainLinks() interface{} {
+	if o == nil {
+		var ret interface{}
 		return ret
 	}
-	return *o.AllDomainLinks
+	return o.AllDomainLinks
 }
 
 // GetAllDomainLinksOk returns a tuple with the AllDomainLinks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetAllDomainLinksOk() (*string, bool) {
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetAllDomainLinksOk() (*interface{}, bool) {
 	if o == nil || isNil(o.AllDomainLinks) {
     return nil, false
 	}
-	return o.AllDomainLinks, true
+	return &o.AllDomainLinks, true
 }
 
 // HasAllDomainLinks returns a boolean if a field has been set.
 func (o *LatestHeadlinesRequest) HasAllDomainLinks() bool {
-	if o != nil && !isNil(o.AllDomainLinks) {
+	if o != nil && isNil(o.AllDomainLinks) {
 		return true
 	}
 
 	return false
 }
 
-// SetAllDomainLinks gets a reference to the given string and assigns it to the AllDomainLinks field.
-func (o *LatestHeadlinesRequest) SetAllDomainLinks(v string) {
-	o.AllDomainLinks = &v
+// SetAllDomainLinks gets a reference to the given interface{} and assigns it to the AllDomainLinks field.
+func (o *LatestHeadlinesRequest) SetAllDomainLinks(v interface{}) {
+	o.AllDomainLinks = v
 }
 
 // GetWordCountMin returns the WordCountMin field value if set, zero value otherwise.
@@ -725,6 +740,38 @@ func (o *LatestHeadlinesRequest) SetPageSize(v int32) {
 	o.PageSize = &v
 }
 
+// GetClusteringVariable returns the ClusteringVariable field value if set, zero value otherwise.
+func (o *LatestHeadlinesRequest) GetClusteringVariable() string {
+	if o == nil || isNil(o.ClusteringVariable) {
+		var ret string
+		return ret
+	}
+	return *o.ClusteringVariable
+}
+
+// GetClusteringVariableOk returns a tuple with the ClusteringVariable field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LatestHeadlinesRequest) GetClusteringVariableOk() (*string, bool) {
+	if o == nil || isNil(o.ClusteringVariable) {
+    return nil, false
+	}
+	return o.ClusteringVariable, true
+}
+
+// HasClusteringVariable returns a boolean if a field has been set.
+func (o *LatestHeadlinesRequest) HasClusteringVariable() bool {
+	if o != nil && !isNil(o.ClusteringVariable) {
+		return true
+	}
+
+	return false
+}
+
+// SetClusteringVariable gets a reference to the given string and assigns it to the ClusteringVariable field.
+func (o *LatestHeadlinesRequest) SetClusteringVariable(v string) {
+	o.ClusteringVariable = &v
+}
+
 // GetClusteringEnabled returns the ClusteringEnabled field value if set, zero value otherwise.
 func (o *LatestHeadlinesRequest) GetClusteringEnabled() bool {
 	if o == nil || isNil(o.ClusteringEnabled) {
@@ -789,38 +836,6 @@ func (o *LatestHeadlinesRequest) SetClusteringThreshold(v float32) {
 	o.ClusteringThreshold = &v
 }
 
-// GetClusteringVariable returns the ClusteringVariable field value if set, zero value otherwise.
-func (o *LatestHeadlinesRequest) GetClusteringVariable() string {
-	if o == nil || isNil(o.ClusteringVariable) {
-		var ret string
-		return ret
-	}
-	return *o.ClusteringVariable
-}
-
-// GetClusteringVariableOk returns a tuple with the ClusteringVariable field value if set, nil otherwise
-// and a boolean to check if the value has been set.
-func (o *LatestHeadlinesRequest) GetClusteringVariableOk() (*string, bool) {
-	if o == nil || isNil(o.ClusteringVariable) {
-    return nil, false
-	}
-	return o.ClusteringVariable, true
-}
-
-// HasClusteringVariable returns a boolean if a field has been set.
-func (o *LatestHeadlinesRequest) HasClusteringVariable() bool {
-	if o != nil && !isNil(o.ClusteringVariable) {
-		return true
-	}
-
-	return false
-}
-
-// SetClusteringVariable gets a reference to the given string and assigns it to the ClusteringVariable field.
-func (o *LatestHeadlinesRequest) SetClusteringVariable(v string) {
-	o.ClusteringVariable = &v
-}
-
 // GetIncludeNlpData returns the IncludeNlpData field value if set, zero value otherwise.
 func (o *LatestHeadlinesRequest) GetIncludeNlpData() bool {
 	if o == nil || isNil(o.IncludeNlpData) {
@@ -883,6 +898,70 @@ func (o *LatestHeadlinesRequest) HasHasNlp() bool {
 // SetHasNlp gets a reference to the given bool and assigns it to the HasNlp field.
 func (o *LatestHeadlinesRequest) SetHasNlp(v bool) {
 	o.HasNlp = &v
+}
+
+// GetTheme returns the Theme field value if set, zero value otherwise.
+func (o *LatestHeadlinesRequest) GetTheme() string {
+	if o == nil || isNil(o.Theme) {
+		var ret string
+		return ret
+	}
+	return *o.Theme
+}
+
+// GetThemeOk returns a tuple with the Theme field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LatestHeadlinesRequest) GetThemeOk() (*string, bool) {
+	if o == nil || isNil(o.Theme) {
+    return nil, false
+	}
+	return o.Theme, true
+}
+
+// HasTheme returns a boolean if a field has been set.
+func (o *LatestHeadlinesRequest) HasTheme() bool {
+	if o != nil && !isNil(o.Theme) {
+		return true
+	}
+
+	return false
+}
+
+// SetTheme gets a reference to the given string and assigns it to the Theme field.
+func (o *LatestHeadlinesRequest) SetTheme(v string) {
+	o.Theme = &v
+}
+
+// GetNotTheme returns the NotTheme field value if set, zero value otherwise.
+func (o *LatestHeadlinesRequest) GetNotTheme() string {
+	if o == nil || isNil(o.NotTheme) {
+		var ret string
+		return ret
+	}
+	return *o.NotTheme
+}
+
+// GetNotThemeOk returns a tuple with the NotTheme field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LatestHeadlinesRequest) GetNotThemeOk() (*string, bool) {
+	if o == nil || isNil(o.NotTheme) {
+    return nil, false
+	}
+	return o.NotTheme, true
+}
+
+// HasNotTheme returns a boolean if a field has been set.
+func (o *LatestHeadlinesRequest) HasNotTheme() bool {
+	if o != nil && !isNil(o.NotTheme) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotTheme gets a reference to the given string and assigns it to the NotTheme field.
+func (o *LatestHeadlinesRequest) SetNotTheme(v string) {
+	o.NotTheme = &v
 }
 
 // GetORGEntityName returns the ORGEntityName field value if set, zero value otherwise.
@@ -1141,6 +1220,72 @@ func (o *LatestHeadlinesRequest) SetContentSentimentMax(v float32) {
 	o.ContentSentimentMax = &v
 }
 
+// GetIptcTags returns the IptcTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetIptcTags() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.IptcTags
+}
+
+// GetIptcTagsOk returns a tuple with the IptcTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetIptcTagsOk() (*interface{}, bool) {
+	if o == nil || isNil(o.IptcTags) {
+    return nil, false
+	}
+	return &o.IptcTags, true
+}
+
+// HasIptcTags returns a boolean if a field has been set.
+func (o *LatestHeadlinesRequest) HasIptcTags() bool {
+	if o != nil && isNil(o.IptcTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetIptcTags gets a reference to the given interface{} and assigns it to the IptcTags field.
+func (o *LatestHeadlinesRequest) SetIptcTags(v interface{}) {
+	o.IptcTags = v
+}
+
+// GetNotIptcTags returns the NotIptcTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetNotIptcTags() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.NotIptcTags
+}
+
+// GetNotIptcTagsOk returns a tuple with the NotIptcTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetNotIptcTagsOk() (*interface{}, bool) {
+	if o == nil || isNil(o.NotIptcTags) {
+    return nil, false
+	}
+	return &o.NotIptcTags, true
+}
+
+// HasNotIptcTags returns a boolean if a field has been set.
+func (o *LatestHeadlinesRequest) HasNotIptcTags() bool {
+	if o != nil && isNil(o.NotIptcTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotIptcTags gets a reference to the given interface{} and assigns it to the NotIptcTags field.
+func (o *LatestHeadlinesRequest) SetNotIptcTags(v interface{}) {
+	o.NotIptcTags = v
+}
+
 func (o LatestHeadlinesRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.When) {
@@ -1149,26 +1294,29 @@ func (o LatestHeadlinesRequest) MarshalJSON() ([]byte, error) {
 	if !isNil(o.ByParseDate) {
 		toSerialize["by_parse_date"] = o.ByParseDate
 	}
-	if !isNil(o.Lang) {
+	if o.Lang != nil {
 		toSerialize["lang"] = o.Lang
 	}
-	if !isNil(o.NotLang) {
+	if o.NotLang != nil {
 		toSerialize["not_lang"] = o.NotLang
 	}
-	if !isNil(o.Countries) {
+	if o.Countries != nil {
 		toSerialize["countries"] = o.Countries
 	}
-	if !isNil(o.NotCountries) {
+	if o.NotCountries != nil {
 		toSerialize["not_countries"] = o.NotCountries
 	}
-	if !isNil(o.Sources) {
+	if o.Sources != nil {
 		toSerialize["sources"] = o.Sources
 	}
-	if !isNil(o.PredefinedSources) {
+	if o.PredefinedSources != nil {
 		toSerialize["predefined_sources"] = o.PredefinedSources
 	}
-	if !isNil(o.NotSources) {
+	if o.NotSources != nil {
 		toSerialize["not_sources"] = o.NotSources
+	}
+	if o.NotAuthorName != nil {
+		toSerialize["not_author_name"] = o.NotAuthorName
 	}
 	if !isNil(o.RankedOnly) {
 		toSerialize["ranked_only"] = o.RankedOnly
@@ -1179,16 +1327,13 @@ func (o LatestHeadlinesRequest) MarshalJSON() ([]byte, error) {
 	if !isNil(o.IsPaidContent) {
 		toSerialize["is_paid_content"] = o.IsPaidContent
 	}
-	if !isNil(o.ParentUrl) {
+	if o.ParentUrl != nil {
 		toSerialize["parent_url"] = o.ParentUrl
 	}
-	if !isNil(o.Theme) {
-		toSerialize["theme"] = o.Theme
-	}
-	if !isNil(o.AllLinks) {
+	if o.AllLinks != nil {
 		toSerialize["all_links"] = o.AllLinks
 	}
-	if !isNil(o.AllDomainLinks) {
+	if o.AllDomainLinks != nil {
 		toSerialize["all_domain_links"] = o.AllDomainLinks
 	}
 	if !isNil(o.WordCountMin) {
@@ -1203,20 +1348,26 @@ func (o LatestHeadlinesRequest) MarshalJSON() ([]byte, error) {
 	if !isNil(o.PageSize) {
 		toSerialize["page_size"] = o.PageSize
 	}
+	if !isNil(o.ClusteringVariable) {
+		toSerialize["clustering_variable"] = o.ClusteringVariable
+	}
 	if !isNil(o.ClusteringEnabled) {
 		toSerialize["clustering_enabled"] = o.ClusteringEnabled
 	}
 	if !isNil(o.ClusteringThreshold) {
 		toSerialize["clustering_threshold"] = o.ClusteringThreshold
 	}
-	if !isNil(o.ClusteringVariable) {
-		toSerialize["clustering_variable"] = o.ClusteringVariable
-	}
 	if !isNil(o.IncludeNlpData) {
 		toSerialize["include_nlp_data"] = o.IncludeNlpData
 	}
 	if !isNil(o.HasNlp) {
 		toSerialize["has_nlp"] = o.HasNlp
+	}
+	if !isNil(o.Theme) {
+		toSerialize["theme"] = o.Theme
+	}
+	if !isNil(o.NotTheme) {
+		toSerialize["not_theme"] = o.NotTheme
 	}
 	if !isNil(o.ORGEntityName) {
 		toSerialize["ORG_entity_name"] = o.ORGEntityName
@@ -1241,6 +1392,12 @@ func (o LatestHeadlinesRequest) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.ContentSentimentMax) {
 		toSerialize["content_sentiment_max"] = o.ContentSentimentMax
+	}
+	if o.IptcTags != nil {
+		toSerialize["iptc_tags"] = o.IptcTags
+	}
+	if o.NotIptcTags != nil {
+		toSerialize["not_iptc_tags"] = o.NotIptcTags
 	}
 	return json.Marshal(toSerialize)
 }

@@ -23,7 +23,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -38,13 +38,13 @@ func main() {
     request.IncludeSimilarDocuments(false)
     request.SimilarDocumentsNumber(5)
     request.SimilarDocumentsFields(""title,content"")
-    request.PredefinedSources("predefinedSources_example")
-    request.Sources("sources_example")
-    request.NotSources("notSources_example")
-    request.Lang("lang_example")
-    request.NotLang("notLang_example")
-    request.Countries("countries_example")
-    request.NotCountries("notCountries_example")
+    request.PredefinedSources()
+    request.Sources()
+    request.NotSources()
+    request.Lang()
+    request.NotLang()
+    request.Countries()
+    request.NotCountries()
     request.From(from)
     request.To(to)
     request.ByParseDate(false)
@@ -55,9 +55,9 @@ func main() {
     request.ToRank(56)
     request.IsHeadline(true)
     request.IsPaidContent(true)
-    request.ParentUrl("parentUrl_example")
-    request.AllLinks("allLinks_example")
-    request.AllDomainLinks("allDomainLinks_example")
+    request.ParentUrl()
+    request.AllLinks()
+    request.AllDomainLinks()
     request.WordCountMin(56)
     request.WordCountMax(56)
     request.Page(1)
@@ -65,11 +65,14 @@ func main() {
     request.IncludeNlpData(true)
     request.HasNlp(true)
     request.Theme("theme_example")
+    request.NotTheme("notTheme_example")
     request.NerName("nerName_example")
     request.TitleSentimentMin(8.14)
     request.TitleSentimentMax(8.14)
     request.ContentSentimentMin(8.14)
     request.ContentSentimentMax(8.14)
+    request.IptcTags()
+    request.NotIptcTags()
     
     resp, httpRes, err := request.Execute()
 
@@ -108,7 +111,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -126,13 +129,13 @@ func main() {
     moreLikeThisRequest.SetIncludeSimilarDocuments(false)
     moreLikeThisRequest.SetSimilarDocumentsNumber(5)
     moreLikeThisRequest.SetSimilarDocumentsFields("title,content")
-    moreLikeThisRequest.SetPredefinedSources("null")
-    moreLikeThisRequest.SetSources("null")
-    moreLikeThisRequest.SetNotSources("null")
-    moreLikeThisRequest.SetLang("null")
-    moreLikeThisRequest.SetNotLang("null")
-    moreLikeThisRequest.SetCountries("null")
-    moreLikeThisRequest.SetNotCountries("null")
+    moreLikeThisRequest.SetPredefinedSources(null)
+    moreLikeThisRequest.SetSources(null)
+    moreLikeThisRequest.SetNotSources(null)
+    moreLikeThisRequest.SetLang(null)
+    moreLikeThisRequest.SetNotLang(null)
+    moreLikeThisRequest.SetCountries(null)
+    moreLikeThisRequest.SetNotCountries(null)
     moreLikeThisRequest.SetFrom(from)
     moreLikeThisRequest.SetTo(to)
     moreLikeThisRequest.SetByParseDate(false)
@@ -143,9 +146,9 @@ func main() {
     moreLikeThisRequest.SetToRank(null)
     moreLikeThisRequest.SetIsHeadline(null)
     moreLikeThisRequest.SetIsPaidContent(null)
-    moreLikeThisRequest.SetParentUrl("null")
-    moreLikeThisRequest.SetAllLinks("null")
-    moreLikeThisRequest.SetAllDomainLinks("null")
+    moreLikeThisRequest.SetParentUrl(null)
+    moreLikeThisRequest.SetAllLinks(null)
+    moreLikeThisRequest.SetAllDomainLinks(null)
     moreLikeThisRequest.SetWordCountMin(null)
     moreLikeThisRequest.SetWordCountMax(null)
     moreLikeThisRequest.SetPage(1)
@@ -153,11 +156,14 @@ func main() {
     moreLikeThisRequest.SetIncludeNlpData(null)
     moreLikeThisRequest.SetHasNlp(null)
     moreLikeThisRequest.SetTheme("null")
+    moreLikeThisRequest.SetNotTheme("null")
     moreLikeThisRequest.SetNerName("null")
     moreLikeThisRequest.SetTitleSentimentMin(null)
     moreLikeThisRequest.SetTitleSentimentMax(null)
     moreLikeThisRequest.SetContentSentimentMin(null)
     moreLikeThisRequest.SetContentSentimentMax(null)
+    moreLikeThisRequest.SetIptcTags(null)
+    moreLikeThisRequest.SetNotIptcTags(null)
     
     request := client.SearchSimilarApi.Post(
         moreLikeThisRequest,

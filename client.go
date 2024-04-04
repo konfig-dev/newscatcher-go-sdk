@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 
@@ -42,7 +42,7 @@ var (
 	xmlCheck  = regexp.MustCompile(`(?i:(?:application|text)/xml)`)
 )
 
-// APIClient manages communication with the NewsCatcher-V3 Production API API vBeta-3.0.0
+// APIClient manages communication with the NewsCatcher-V3 Production API API v3.2.16
 // In most cases there should be only one, shared, APIClient.
 type APIClient struct {
 	cfg    *Configuration
@@ -55,6 +55,8 @@ type APIClient struct {
 	LatestHeadlinesApi *LatestHeadlinesApiService
 
 	SearchApi *SearchApiService
+
+	SearchLinkApi *SearchLinkApiService
 
 	SearchSimilarApi *SearchSimilarApiService
 
@@ -82,6 +84,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.AuthorsApi = (*AuthorsApiService)(&c.common)
 	c.LatestHeadlinesApi = (*LatestHeadlinesApiService)(&c.common)
 	c.SearchApi = (*SearchApiService)(&c.common)
+	c.SearchLinkApi = (*SearchLinkApiService)(&c.common)
 	c.SearchSimilarApi = (*SearchSimilarApiService)(&c.common)
 	c.SourcesApi = (*SourcesApiService)(&c.common)
 	c.SubscriptionApi = (*SubscriptionApiService)(&c.common)

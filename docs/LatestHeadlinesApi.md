@@ -23,7 +23,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -35,29 +35,31 @@ func main() {
     )
     request.When(""7d"")
     request.ByParseDate(false)
-    request.Lang("lang_example")
-    request.NotLang("notLang_example")
-    request.Countries("countries_example")
-    request.NotCountries("notCountries_example")
-    request.Sources("sources_example")
-    request.PredefinedSources("predefinedSources_example")
-    request.NotSources("notSources_example")
+    request.Lang()
+    request.NotLang()
+    request.Countries()
+    request.NotCountries()
+    request.Sources()
+    request.PredefinedSources()
+    request.NotSources()
+    request.NotAuthorName()
     request.RankedOnly("rankedOnly_example")
     request.IsHeadline(true)
     request.IsPaidContent(true)
-    request.ParentUrl("parentUrl_example")
-    request.Theme("theme_example")
-    request.AllLinks("allLinks_example")
-    request.AllDomainLinks("allDomainLinks_example")
+    request.ParentUrl()
+    request.AllLinks()
+    request.AllDomainLinks()
     request.WordCountMin(56)
     request.WordCountMax(56)
     request.Page(1)
     request.PageSize(100)
+    request.ClusteringVariable("clusteringVariable_example")
     request.ClusteringEnabled(true)
     request.ClusteringThreshold(8.14)
-    request.ClusteringVariable("clusteringVariable_example")
     request.IncludeNlpData(true)
     request.HasNlp(true)
+    request.Theme("theme_example")
+    request.NotTheme("notTheme_example")
     request.ORGEntityName("oRGEntityName_example")
     request.PEREntityName("pEREntityName_example")
     request.LOCEntityName("lOCEntityName_example")
@@ -66,6 +68,8 @@ func main() {
     request.TitleSentimentMax(8.14)
     request.ContentSentimentMin(8.14)
     request.ContentSentimentMax(8.14)
+    request.IptcTags()
+    request.NotIptcTags()
     
     resp, httpRes, err := request.Execute()
 
@@ -106,7 +110,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -118,29 +122,31 @@ func main() {
     latestHeadlinesRequest := *newscatcherapi.NewLatestHeadlinesRequest()
     latestHeadlinesRequest.SetWhen("7d")
     latestHeadlinesRequest.SetByParseDate(false)
-    latestHeadlinesRequest.SetLang("null")
-    latestHeadlinesRequest.SetNotLang("null")
-    latestHeadlinesRequest.SetCountries("null")
-    latestHeadlinesRequest.SetNotCountries("null")
-    latestHeadlinesRequest.SetSources("null")
-    latestHeadlinesRequest.SetPredefinedSources("null")
-    latestHeadlinesRequest.SetNotSources("null")
+    latestHeadlinesRequest.SetLang(null)
+    latestHeadlinesRequest.SetNotLang(null)
+    latestHeadlinesRequest.SetCountries(null)
+    latestHeadlinesRequest.SetNotCountries(null)
+    latestHeadlinesRequest.SetSources(null)
+    latestHeadlinesRequest.SetPredefinedSources(null)
+    latestHeadlinesRequest.SetNotSources(null)
+    latestHeadlinesRequest.SetNotAuthorName(null)
     latestHeadlinesRequest.SetRankedOnly("null")
     latestHeadlinesRequest.SetIsHeadline(null)
     latestHeadlinesRequest.SetIsPaidContent(null)
-    latestHeadlinesRequest.SetParentUrl("null")
-    latestHeadlinesRequest.SetTheme("null")
-    latestHeadlinesRequest.SetAllLinks("null")
-    latestHeadlinesRequest.SetAllDomainLinks("null")
+    latestHeadlinesRequest.SetParentUrl(null)
+    latestHeadlinesRequest.SetAllLinks(null)
+    latestHeadlinesRequest.SetAllDomainLinks(null)
     latestHeadlinesRequest.SetWordCountMin(null)
     latestHeadlinesRequest.SetWordCountMax(null)
     latestHeadlinesRequest.SetPage(1)
     latestHeadlinesRequest.SetPageSize(100)
+    latestHeadlinesRequest.SetClusteringVariable("null")
     latestHeadlinesRequest.SetClusteringEnabled(null)
     latestHeadlinesRequest.SetClusteringThreshold(null)
-    latestHeadlinesRequest.SetClusteringVariable("null")
     latestHeadlinesRequest.SetIncludeNlpData(null)
     latestHeadlinesRequest.SetHasNlp(null)
+    latestHeadlinesRequest.SetTheme("null")
+    latestHeadlinesRequest.SetNotTheme("null")
     latestHeadlinesRequest.SetORGEntityName("null")
     latestHeadlinesRequest.SetPEREntityName("null")
     latestHeadlinesRequest.SetLOCEntityName("null")
@@ -149,6 +155,8 @@ func main() {
     latestHeadlinesRequest.SetTitleSentimentMax(null)
     latestHeadlinesRequest.SetContentSentimentMin(null)
     latestHeadlinesRequest.SetContentSentimentMax(null)
+    latestHeadlinesRequest.SetIptcTags(null)
+    latestHeadlinesRequest.SetNotIptcTags(null)
     
     request := client.LatestHeadlinesApi.Post(
         latestHeadlinesRequest,

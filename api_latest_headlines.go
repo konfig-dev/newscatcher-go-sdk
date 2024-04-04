@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 
@@ -28,29 +28,31 @@ type LatestHeadlinesApiGetRequest struct {
 	ApiService *LatestHeadlinesApiService
 	when *string
 	byParseDate *bool
-	lang *string
-	notLang *string
-	countries *string
-	notCountries *string
-	sources *string
-	predefinedSources *string
-	notSources *string
+	lang *interface{}
+	notLang *interface{}
+	countries *interface{}
+	notCountries *interface{}
+	sources *interface{}
+	predefinedSources *interface{}
+	notSources *interface{}
+	notAuthorName *interface{}
 	rankedOnly *string
 	isHeadline *bool
 	isPaidContent *bool
-	parentUrl *string
-	theme *string
-	allLinks *string
-	allDomainLinks *string
+	parentUrl *interface{}
+	allLinks *interface{}
+	allDomainLinks *interface{}
 	wordCountMin *int32
 	wordCountMax *int32
 	page *int32
 	pageSize *int32
+	clusteringVariable *string
 	clusteringEnabled *bool
 	clusteringThreshold *float32
-	clusteringVariable *string
 	includeNlpData *bool
 	hasNlp *bool
+	theme *string
+	notTheme *string
 	oRGEntityName *string
 	pEREntityName *string
 	lOCEntityName *string
@@ -59,6 +61,8 @@ type LatestHeadlinesApiGetRequest struct {
 	titleSentimentMax *float32
 	contentSentimentMin *float32
 	contentSentimentMax *float32
+	iptcTags *interface{}
+	notIptcTags *interface{}
 }
 
 func (r *LatestHeadlinesApiGetRequest) When(when string) *LatestHeadlinesApiGetRequest {
@@ -71,38 +75,43 @@ func (r *LatestHeadlinesApiGetRequest) ByParseDate(byParseDate bool) *LatestHead
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) Lang(lang string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) Lang(lang interface{}) *LatestHeadlinesApiGetRequest {
 	r.lang = &lang
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) NotLang(notLang string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) NotLang(notLang interface{}) *LatestHeadlinesApiGetRequest {
 	r.notLang = &notLang
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) Countries(countries string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) Countries(countries interface{}) *LatestHeadlinesApiGetRequest {
 	r.countries = &countries
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) NotCountries(notCountries string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) NotCountries(notCountries interface{}) *LatestHeadlinesApiGetRequest {
 	r.notCountries = &notCountries
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) Sources(sources string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) Sources(sources interface{}) *LatestHeadlinesApiGetRequest {
 	r.sources = &sources
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) PredefinedSources(predefinedSources string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) PredefinedSources(predefinedSources interface{}) *LatestHeadlinesApiGetRequest {
 	r.predefinedSources = &predefinedSources
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) NotSources(notSources string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) NotSources(notSources interface{}) *LatestHeadlinesApiGetRequest {
 	r.notSources = &notSources
+	return r
+}
+
+func (r *LatestHeadlinesApiGetRequest) NotAuthorName(notAuthorName interface{}) *LatestHeadlinesApiGetRequest {
+	r.notAuthorName = &notAuthorName
 	return r
 }
 
@@ -121,22 +130,17 @@ func (r *LatestHeadlinesApiGetRequest) IsPaidContent(isPaidContent bool) *Latest
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) ParentUrl(parentUrl string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) ParentUrl(parentUrl interface{}) *LatestHeadlinesApiGetRequest {
 	r.parentUrl = &parentUrl
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) Theme(theme string) *LatestHeadlinesApiGetRequest {
-	r.theme = &theme
-	return r
-}
-
-func (r *LatestHeadlinesApiGetRequest) AllLinks(allLinks string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) AllLinks(allLinks interface{}) *LatestHeadlinesApiGetRequest {
 	r.allLinks = &allLinks
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) AllDomainLinks(allDomainLinks string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) AllDomainLinks(allDomainLinks interface{}) *LatestHeadlinesApiGetRequest {
 	r.allDomainLinks = &allDomainLinks
 	return r
 }
@@ -161,6 +165,11 @@ func (r *LatestHeadlinesApiGetRequest) PageSize(pageSize int32) *LatestHeadlines
 	return r
 }
 
+func (r *LatestHeadlinesApiGetRequest) ClusteringVariable(clusteringVariable string) *LatestHeadlinesApiGetRequest {
+	r.clusteringVariable = &clusteringVariable
+	return r
+}
+
 func (r *LatestHeadlinesApiGetRequest) ClusteringEnabled(clusteringEnabled bool) *LatestHeadlinesApiGetRequest {
 	r.clusteringEnabled = &clusteringEnabled
 	return r
@@ -171,11 +180,6 @@ func (r *LatestHeadlinesApiGetRequest) ClusteringThreshold(clusteringThreshold f
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) ClusteringVariable(clusteringVariable string) *LatestHeadlinesApiGetRequest {
-	r.clusteringVariable = &clusteringVariable
-	return r
-}
-
 func (r *LatestHeadlinesApiGetRequest) IncludeNlpData(includeNlpData bool) *LatestHeadlinesApiGetRequest {
 	r.includeNlpData = &includeNlpData
 	return r
@@ -183,6 +187,16 @@ func (r *LatestHeadlinesApiGetRequest) IncludeNlpData(includeNlpData bool) *Late
 
 func (r *LatestHeadlinesApiGetRequest) HasNlp(hasNlp bool) *LatestHeadlinesApiGetRequest {
 	r.hasNlp = &hasNlp
+	return r
+}
+
+func (r *LatestHeadlinesApiGetRequest) Theme(theme string) *LatestHeadlinesApiGetRequest {
+	r.theme = &theme
+	return r
+}
+
+func (r *LatestHeadlinesApiGetRequest) NotTheme(notTheme string) *LatestHeadlinesApiGetRequest {
+	r.notTheme = &notTheme
 	return r
 }
 
@@ -223,6 +237,16 @@ func (r *LatestHeadlinesApiGetRequest) ContentSentimentMin(contentSentimentMin f
 
 func (r *LatestHeadlinesApiGetRequest) ContentSentimentMax(contentSentimentMax float32) *LatestHeadlinesApiGetRequest {
 	r.contentSentimentMax = &contentSentimentMax
+	return r
+}
+
+func (r *LatestHeadlinesApiGetRequest) IptcTags(iptcTags interface{}) *LatestHeadlinesApiGetRequest {
+	r.iptcTags = &iptcTags
+	return r
+}
+
+func (r *LatestHeadlinesApiGetRequest) NotIptcTags(notIptcTags interface{}) *LatestHeadlinesApiGetRequest {
+	r.notIptcTags = &notIptcTags
 	return r
 }
 
@@ -305,6 +329,9 @@ func (a *LatestHeadlinesApiService) GetExecute(r LatestHeadlinesApiGetRequest) (
 	if r.notSources != nil {
 		localVarQueryParams.Add("not_sources", parameterToString(*r.notSources, ""))
 	}
+	if r.notAuthorName != nil {
+		localVarQueryParams.Add("not_author_name", parameterToString(*r.notAuthorName, ""))
+	}
 	if r.rankedOnly != nil {
 		localVarQueryParams.Add("ranked_only", parameterToString(*r.rankedOnly, ""))
 	}
@@ -316,9 +343,6 @@ func (a *LatestHeadlinesApiService) GetExecute(r LatestHeadlinesApiGetRequest) (
 	}
 	if r.parentUrl != nil {
 		localVarQueryParams.Add("parent_url", parameterToString(*r.parentUrl, ""))
-	}
-	if r.theme != nil {
-		localVarQueryParams.Add("theme", parameterToString(*r.theme, ""))
 	}
 	if r.allLinks != nil {
 		localVarQueryParams.Add("all_links", parameterToString(*r.allLinks, ""))
@@ -338,20 +362,26 @@ func (a *LatestHeadlinesApiService) GetExecute(r LatestHeadlinesApiGetRequest) (
 	if r.pageSize != nil {
 		localVarQueryParams.Add("page_size", parameterToString(*r.pageSize, ""))
 	}
+	if r.clusteringVariable != nil {
+		localVarQueryParams.Add("clustering_variable", parameterToString(*r.clusteringVariable, ""))
+	}
 	if r.clusteringEnabled != nil {
 		localVarQueryParams.Add("clustering_enabled", parameterToString(*r.clusteringEnabled, ""))
 	}
 	if r.clusteringThreshold != nil {
 		localVarQueryParams.Add("clustering_threshold", parameterToString(*r.clusteringThreshold, ""))
 	}
-	if r.clusteringVariable != nil {
-		localVarQueryParams.Add("clustering_variable", parameterToString(*r.clusteringVariable, ""))
-	}
 	if r.includeNlpData != nil {
 		localVarQueryParams.Add("include_nlp_data", parameterToString(*r.includeNlpData, ""))
 	}
 	if r.hasNlp != nil {
 		localVarQueryParams.Add("has_nlp", parameterToString(*r.hasNlp, ""))
+	}
+	if r.theme != nil {
+		localVarQueryParams.Add("theme", parameterToString(*r.theme, ""))
+	}
+	if r.notTheme != nil {
+		localVarQueryParams.Add("not_theme", parameterToString(*r.notTheme, ""))
 	}
 	if r.oRGEntityName != nil {
 		localVarQueryParams.Add("ORG_entity_name", parameterToString(*r.oRGEntityName, ""))
@@ -377,6 +407,12 @@ func (a *LatestHeadlinesApiService) GetExecute(r LatestHeadlinesApiGetRequest) (
 	if r.contentSentimentMax != nil {
 		localVarQueryParams.Add("content_sentiment_max", parameterToString(*r.contentSentimentMax, ""))
 	}
+	if r.iptcTags != nil {
+		localVarQueryParams.Add("iptc_tags", parameterToString(*r.iptcTags, ""))
+	}
+	if r.notIptcTags != nil {
+		localVarQueryParams.Add("not_iptc_tags", parameterToString(*r.notIptcTags, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -400,7 +436,7 @@ func (a *LatestHeadlinesApiService) GetExecute(r LatestHeadlinesApiGetRequest) (
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}
@@ -528,7 +564,7 @@ func (a *LatestHeadlinesApiService) PostExecute(r LatestHeadlinesApiPostRequest)
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}

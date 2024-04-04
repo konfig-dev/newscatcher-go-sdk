@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 
@@ -18,15 +18,15 @@ import (
 // SourceResponse struct for SourceResponse
 type SourceResponse struct {
 	Message string `json:"message"`
-	Sources []string `json:"sources"`
-	UserInput UserInput `json:"user_input"`
+	Sources []SourcesPropertyInner `json:"sources"`
+	UserInput map[string]interface{} `json:"user_input"`
 }
 
 // NewSourceResponse instantiates a new SourceResponse object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewSourceResponse(message string, sources []string, userInput UserInput) *SourceResponse {
+func NewSourceResponse(message string, sources []SourcesPropertyInner, userInput map[string]interface{}) *SourceResponse {
 	this := SourceResponse{}
 	this.Message = message
 	this.Sources = sources
@@ -67,9 +67,9 @@ func (o *SourceResponse) SetMessage(v string) {
 }
 
 // GetSources returns the Sources field value
-func (o *SourceResponse) GetSources() []string {
+func (o *SourceResponse) GetSources() []SourcesPropertyInner {
 	if o == nil {
-		var ret []string
+		var ret []SourcesPropertyInner
 		return ret
 	}
 
@@ -78,7 +78,7 @@ func (o *SourceResponse) GetSources() []string {
 
 // GetSourcesOk returns a tuple with the Sources field value
 // and a boolean to check if the value has been set.
-func (o *SourceResponse) GetSourcesOk() ([]string, bool) {
+func (o *SourceResponse) GetSourcesOk() ([]SourcesPropertyInner, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -86,14 +86,14 @@ func (o *SourceResponse) GetSourcesOk() ([]string, bool) {
 }
 
 // SetSources sets field value
-func (o *SourceResponse) SetSources(v []string) {
+func (o *SourceResponse) SetSources(v []SourcesPropertyInner) {
 	o.Sources = v
 }
 
 // GetUserInput returns the UserInput field value
-func (o *SourceResponse) GetUserInput() UserInput {
+func (o *SourceResponse) GetUserInput() map[string]interface{} {
 	if o == nil {
-		var ret UserInput
+		var ret map[string]interface{}
 		return ret
 	}
 
@@ -102,15 +102,15 @@ func (o *SourceResponse) GetUserInput() UserInput {
 
 // GetUserInputOk returns a tuple with the UserInput field value
 // and a boolean to check if the value has been set.
-func (o *SourceResponse) GetUserInputOk() (*UserInput, bool) {
+func (o *SourceResponse) GetUserInputOk() (map[string]interface{}, bool) {
 	if o == nil {
-    return nil, false
+    return map[string]interface{}{}, false
 	}
-	return &o.UserInput, true
+	return o.UserInput, true
 }
 
 // SetUserInput sets field value
-func (o *SourceResponse) SetUserInput(v UserInput) {
+func (o *SourceResponse) SetUserInput(v map[string]interface{}) {
 	o.UserInput = v
 }
 

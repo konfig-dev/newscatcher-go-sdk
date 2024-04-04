@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 
@@ -28,6 +28,12 @@ type SourcesApiGetRequest struct {
 	ApiService *SourcesApiService
 	lang *string
 	countries *string
+	predefinedSources *string
+	includeAdditionalInfo *bool
+	fromRank *int32
+	toRank *int32
+	sourceName *interface{}
+	sourceUrl *string
 }
 
 func (r *SourcesApiGetRequest) Lang(lang string) *SourcesApiGetRequest {
@@ -37,6 +43,36 @@ func (r *SourcesApiGetRequest) Lang(lang string) *SourcesApiGetRequest {
 
 func (r *SourcesApiGetRequest) Countries(countries string) *SourcesApiGetRequest {
 	r.countries = &countries
+	return r
+}
+
+func (r *SourcesApiGetRequest) PredefinedSources(predefinedSources string) *SourcesApiGetRequest {
+	r.predefinedSources = &predefinedSources
+	return r
+}
+
+func (r *SourcesApiGetRequest) IncludeAdditionalInfo(includeAdditionalInfo bool) *SourcesApiGetRequest {
+	r.includeAdditionalInfo = &includeAdditionalInfo
+	return r
+}
+
+func (r *SourcesApiGetRequest) FromRank(fromRank int32) *SourcesApiGetRequest {
+	r.fromRank = &fromRank
+	return r
+}
+
+func (r *SourcesApiGetRequest) ToRank(toRank int32) *SourcesApiGetRequest {
+	r.toRank = &toRank
+	return r
+}
+
+func (r *SourcesApiGetRequest) SourceName(sourceName interface{}) *SourcesApiGetRequest {
+	r.sourceName = &sourceName
+	return r
+}
+
+func (r *SourcesApiGetRequest) SourceUrl(sourceUrl string) *SourcesApiGetRequest {
+	r.sourceUrl = &sourceUrl
 	return r
 }
 
@@ -86,6 +122,24 @@ func (a *SourcesApiService) GetExecute(r SourcesApiGetRequest) (*SourceResponse,
 	if r.countries != nil {
 		localVarQueryParams.Add("countries", parameterToString(*r.countries, ""))
 	}
+	if r.predefinedSources != nil {
+		localVarQueryParams.Add("predefined_sources", parameterToString(*r.predefinedSources, ""))
+	}
+	if r.includeAdditionalInfo != nil {
+		localVarQueryParams.Add("include_additional_info", parameterToString(*r.includeAdditionalInfo, ""))
+	}
+	if r.fromRank != nil {
+		localVarQueryParams.Add("from_rank", parameterToString(*r.fromRank, ""))
+	}
+	if r.toRank != nil {
+		localVarQueryParams.Add("to_rank", parameterToString(*r.toRank, ""))
+	}
+	if r.sourceName != nil {
+		localVarQueryParams.Add("source_name", parameterToString(*r.sourceName, ""))
+	}
+	if r.sourceUrl != nil {
+		localVarQueryParams.Add("source_url", parameterToString(*r.sourceUrl, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -109,7 +163,7 @@ func (a *SourcesApiService) GetExecute(r SourcesApiGetRequest) (*SourceResponse,
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}
@@ -237,7 +291,7 @@ func (a *SourcesApiService) PostExecute(r SourcesApiPostRequest) (*SourceRespons
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}

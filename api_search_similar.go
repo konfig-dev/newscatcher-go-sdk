@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 
@@ -31,13 +31,13 @@ type SearchSimilarApiGetRequest struct {
 	includeSimilarDocuments *bool
 	similarDocumentsNumber *int32
 	similarDocumentsFields *string
-	predefinedSources *string
-	sources *string
-	notSources *string
-	lang *string
-	notLang *string
-	countries *string
-	notCountries *string
+	predefinedSources *interface{}
+	sources *interface{}
+	notSources *interface{}
+	lang *interface{}
+	notLang *interface{}
+	countries *interface{}
+	notCountries *interface{}
 	from *From
 	to *To
 	byParseDate *bool
@@ -48,9 +48,9 @@ type SearchSimilarApiGetRequest struct {
 	toRank *int32
 	isHeadline *bool
 	isPaidContent *bool
-	parentUrl *string
-	allLinks *string
-	allDomainLinks *string
+	parentUrl *interface{}
+	allLinks *interface{}
+	allDomainLinks *interface{}
 	wordCountMin *int32
 	wordCountMax *int32
 	page *int32
@@ -58,11 +58,14 @@ type SearchSimilarApiGetRequest struct {
 	includeNlpData *bool
 	hasNlp *bool
 	theme *string
+	notTheme *string
 	nerName *string
 	titleSentimentMin *float32
 	titleSentimentMax *float32
 	contentSentimentMin *float32
 	contentSentimentMax *float32
+	iptcTags *interface{}
+	notIptcTags *interface{}
 }
 
 func (r *SearchSimilarApiGetRequest) SearchIn(searchIn string) *SearchSimilarApiGetRequest {
@@ -85,37 +88,37 @@ func (r *SearchSimilarApiGetRequest) SimilarDocumentsFields(similarDocumentsFiel
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) PredefinedSources(predefinedSources string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) PredefinedSources(predefinedSources interface{}) *SearchSimilarApiGetRequest {
 	r.predefinedSources = &predefinedSources
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) Sources(sources string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) Sources(sources interface{}) *SearchSimilarApiGetRequest {
 	r.sources = &sources
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) NotSources(notSources string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) NotSources(notSources interface{}) *SearchSimilarApiGetRequest {
 	r.notSources = &notSources
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) Lang(lang string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) Lang(lang interface{}) *SearchSimilarApiGetRequest {
 	r.lang = &lang
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) NotLang(notLang string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) NotLang(notLang interface{}) *SearchSimilarApiGetRequest {
 	r.notLang = &notLang
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) Countries(countries string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) Countries(countries interface{}) *SearchSimilarApiGetRequest {
 	r.countries = &countries
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) NotCountries(notCountries string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) NotCountries(notCountries interface{}) *SearchSimilarApiGetRequest {
 	r.notCountries = &notCountries
 	return r
 }
@@ -170,17 +173,17 @@ func (r *SearchSimilarApiGetRequest) IsPaidContent(isPaidContent bool) *SearchSi
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) ParentUrl(parentUrl string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) ParentUrl(parentUrl interface{}) *SearchSimilarApiGetRequest {
 	r.parentUrl = &parentUrl
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) AllLinks(allLinks string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) AllLinks(allLinks interface{}) *SearchSimilarApiGetRequest {
 	r.allLinks = &allLinks
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) AllDomainLinks(allDomainLinks string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) AllDomainLinks(allDomainLinks interface{}) *SearchSimilarApiGetRequest {
 	r.allDomainLinks = &allDomainLinks
 	return r
 }
@@ -220,6 +223,11 @@ func (r *SearchSimilarApiGetRequest) Theme(theme string) *SearchSimilarApiGetReq
 	return r
 }
 
+func (r *SearchSimilarApiGetRequest) NotTheme(notTheme string) *SearchSimilarApiGetRequest {
+	r.notTheme = &notTheme
+	return r
+}
+
 func (r *SearchSimilarApiGetRequest) NerName(nerName string) *SearchSimilarApiGetRequest {
 	r.nerName = &nerName
 	return r
@@ -242,6 +250,16 @@ func (r *SearchSimilarApiGetRequest) ContentSentimentMin(contentSentimentMin flo
 
 func (r *SearchSimilarApiGetRequest) ContentSentimentMax(contentSentimentMax float32) *SearchSimilarApiGetRequest {
 	r.contentSentimentMax = &contentSentimentMax
+	return r
+}
+
+func (r *SearchSimilarApiGetRequest) IptcTags(iptcTags interface{}) *SearchSimilarApiGetRequest {
+	r.iptcTags = &iptcTags
+	return r
+}
+
+func (r *SearchSimilarApiGetRequest) NotIptcTags(notIptcTags interface{}) *SearchSimilarApiGetRequest {
+	r.notIptcTags = &notIptcTags
 	return r
 }
 
@@ -396,6 +414,9 @@ func (a *SearchSimilarApiService) GetExecute(r SearchSimilarApiGetRequest) (*Sea
 	if r.theme != nil {
 		localVarQueryParams.Add("theme", parameterToString(*r.theme, ""))
 	}
+	if r.notTheme != nil {
+		localVarQueryParams.Add("not_theme", parameterToString(*r.notTheme, ""))
+	}
 	if r.nerName != nil {
 		localVarQueryParams.Add("ner_name", parameterToString(*r.nerName, ""))
 	}
@@ -410,6 +431,12 @@ func (a *SearchSimilarApiService) GetExecute(r SearchSimilarApiGetRequest) (*Sea
 	}
 	if r.contentSentimentMax != nil {
 		localVarQueryParams.Add("content_sentiment_max", parameterToString(*r.contentSentimentMax, ""))
+	}
+	if r.iptcTags != nil {
+		localVarQueryParams.Add("iptc_tags", parameterToString(*r.iptcTags, ""))
+	}
+	if r.notIptcTags != nil {
+		localVarQueryParams.Add("not_iptc_tags", parameterToString(*r.notIptcTags, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -434,7 +461,7 @@ func (a *SearchSimilarApiService) GetExecute(r SearchSimilarApiGetRequest) (*Sea
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}
@@ -562,7 +589,7 @@ func (a *SearchSimilarApiService) PostExecute(r SearchSimilarApiPostRequest) (*S
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}

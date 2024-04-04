@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 
@@ -27,13 +27,14 @@ type AuthorsApiGetRequest struct {
 	ctx context.Context
 	ApiService *AuthorsApiService
 	authorName string
-	sources *string
-	predefinedSources *string
-	notSources *string
-	lang *string
-	notLang *string
-	countries *string
-	notCountries *string
+	notAuthorName *string
+	sources *interface{}
+	predefinedSources *interface{}
+	notSources *interface{}
+	lang *interface{}
+	notLang *interface{}
+	countries *interface{}
+	notCountries *interface{}
 	from *From
 	to *To
 	publishedDatePrecision *string
@@ -44,9 +45,9 @@ type AuthorsApiGetRequest struct {
 	toRank *int32
 	isHeadline *bool
 	isPaidContent *bool
-	parentUrl *string
-	allLinks *string
-	allDomainLinks *string
+	parentUrl *interface{}
+	allLinks *interface{}
+	allDomainLinks *interface{}
 	wordCountMin *int32
 	wordCountMax *int32
 	page *int32
@@ -54,44 +55,52 @@ type AuthorsApiGetRequest struct {
 	includeNlpData *bool
 	hasNlp *bool
 	theme *string
+	notTheme *string
 	nerName *string
 	titleSentimentMin *float32
 	titleSentimentMax *float32
 	contentSentimentMin *float32
 	contentSentimentMax *float32
+	iptcTags *interface{}
+	notIptcTags *interface{}
 }
 
-func (r *AuthorsApiGetRequest) Sources(sources string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) NotAuthorName(notAuthorName string) *AuthorsApiGetRequest {
+	r.notAuthorName = &notAuthorName
+	return r
+}
+
+func (r *AuthorsApiGetRequest) Sources(sources interface{}) *AuthorsApiGetRequest {
 	r.sources = &sources
 	return r
 }
 
-func (r *AuthorsApiGetRequest) PredefinedSources(predefinedSources string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) PredefinedSources(predefinedSources interface{}) *AuthorsApiGetRequest {
 	r.predefinedSources = &predefinedSources
 	return r
 }
 
-func (r *AuthorsApiGetRequest) NotSources(notSources string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) NotSources(notSources interface{}) *AuthorsApiGetRequest {
 	r.notSources = &notSources
 	return r
 }
 
-func (r *AuthorsApiGetRequest) Lang(lang string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) Lang(lang interface{}) *AuthorsApiGetRequest {
 	r.lang = &lang
 	return r
 }
 
-func (r *AuthorsApiGetRequest) NotLang(notLang string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) NotLang(notLang interface{}) *AuthorsApiGetRequest {
 	r.notLang = &notLang
 	return r
 }
 
-func (r *AuthorsApiGetRequest) Countries(countries string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) Countries(countries interface{}) *AuthorsApiGetRequest {
 	r.countries = &countries
 	return r
 }
 
-func (r *AuthorsApiGetRequest) NotCountries(notCountries string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) NotCountries(notCountries interface{}) *AuthorsApiGetRequest {
 	r.notCountries = &notCountries
 	return r
 }
@@ -146,17 +155,17 @@ func (r *AuthorsApiGetRequest) IsPaidContent(isPaidContent bool) *AuthorsApiGetR
 	return r
 }
 
-func (r *AuthorsApiGetRequest) ParentUrl(parentUrl string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) ParentUrl(parentUrl interface{}) *AuthorsApiGetRequest {
 	r.parentUrl = &parentUrl
 	return r
 }
 
-func (r *AuthorsApiGetRequest) AllLinks(allLinks string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) AllLinks(allLinks interface{}) *AuthorsApiGetRequest {
 	r.allLinks = &allLinks
 	return r
 }
 
-func (r *AuthorsApiGetRequest) AllDomainLinks(allDomainLinks string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) AllDomainLinks(allDomainLinks interface{}) *AuthorsApiGetRequest {
 	r.allDomainLinks = &allDomainLinks
 	return r
 }
@@ -196,6 +205,11 @@ func (r *AuthorsApiGetRequest) Theme(theme string) *AuthorsApiGetRequest {
 	return r
 }
 
+func (r *AuthorsApiGetRequest) NotTheme(notTheme string) *AuthorsApiGetRequest {
+	r.notTheme = &notTheme
+	return r
+}
+
 func (r *AuthorsApiGetRequest) NerName(nerName string) *AuthorsApiGetRequest {
 	r.nerName = &nerName
 	return r
@@ -218,6 +232,16 @@ func (r *AuthorsApiGetRequest) ContentSentimentMin(contentSentimentMin float32) 
 
 func (r *AuthorsApiGetRequest) ContentSentimentMax(contentSentimentMax float32) *AuthorsApiGetRequest {
 	r.contentSentimentMax = &contentSentimentMax
+	return r
+}
+
+func (r *AuthorsApiGetRequest) IptcTags(iptcTags interface{}) *AuthorsApiGetRequest {
+	r.iptcTags = &iptcTags
+	return r
+}
+
+func (r *AuthorsApiGetRequest) NotIptcTags(notIptcTags interface{}) *AuthorsApiGetRequest {
+	r.notIptcTags = &notIptcTags
 	return r
 }
 
@@ -276,6 +300,9 @@ func (a *AuthorsApiService) GetExecute(r AuthorsApiGetRequest) (*AuthorsGetRespo
 	}
 
 	localVarQueryParams.Add("author_name", parameterToString(r.authorName, ""))
+	if r.notAuthorName != nil {
+		localVarQueryParams.Add("not_author_name", parameterToString(*r.notAuthorName, ""))
+	}
 	if r.sources != nil {
 		localVarQueryParams.Add("sources", parameterToString(*r.sources, ""))
 	}
@@ -357,6 +384,9 @@ func (a *AuthorsApiService) GetExecute(r AuthorsApiGetRequest) (*AuthorsGetRespo
 	if r.theme != nil {
 		localVarQueryParams.Add("theme", parameterToString(*r.theme, ""))
 	}
+	if r.notTheme != nil {
+		localVarQueryParams.Add("not_theme", parameterToString(*r.notTheme, ""))
+	}
 	if r.nerName != nil {
 		localVarQueryParams.Add("ner_name", parameterToString(*r.nerName, ""))
 	}
@@ -371,6 +401,12 @@ func (a *AuthorsApiService) GetExecute(r AuthorsApiGetRequest) (*AuthorsGetRespo
 	}
 	if r.contentSentimentMax != nil {
 		localVarQueryParams.Add("content_sentiment_max", parameterToString(*r.contentSentimentMax, ""))
+	}
+	if r.iptcTags != nil {
+		localVarQueryParams.Add("iptc_tags", parameterToString(*r.iptcTags, ""))
+	}
+	if r.notIptcTags != nil {
+		localVarQueryParams.Add("not_iptc_tags", parameterToString(*r.notIptcTags, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
@@ -395,7 +431,7 @@ func (a *AuthorsApiService) GetExecute(r AuthorsApiGetRequest) (*AuthorsGetRespo
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}
@@ -523,7 +559,7 @@ func (a *AuthorsApiService) PostExecute(r AuthorsApiPostRequest) (*AuthorsPostRe
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}

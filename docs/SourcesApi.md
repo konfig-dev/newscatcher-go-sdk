@@ -23,7 +23,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -35,6 +35,12 @@ func main() {
     )
     request.Lang("lang_example")
     request.Countries("countries_example")
+    request.PredefinedSources("predefinedSources_example")
+    request.IncludeAdditionalInfo(true)
+    request.FromRank(56)
+    request.ToRank(56)
+    request.SourceName()
+    request.SourceUrl("sourceUrl_example")
     
     resp, httpRes, err := request.Execute()
 
@@ -69,7 +75,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -81,6 +87,12 @@ func main() {
     sourcesRequest := *newscatcherapi.NewSourcesRequest()
     sourcesRequest.SetLang("null")
     sourcesRequest.SetCountries("null")
+    sourcesRequest.SetPredefinedSources("null")
+    sourcesRequest.SetIncludeAdditionalInfo(null)
+    sourcesRequest.SetFromRank(null)
+    sourcesRequest.SetToRank(null)
+    sourcesRequest.SetSourceName(null)
+    sourcesRequest.SetSourceUrl("null")
     
     request := client.SourcesApi.Post(
         sourcesRequest,

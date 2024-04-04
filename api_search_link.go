@@ -20,54 +20,96 @@ import (
 )
 
 
-// SubscriptionApiService SubscriptionApi service
-type SubscriptionApiService service
+// SearchLinkApiService SearchLinkApi service
+type SearchLinkApiService service
 
-type SubscriptionApiGetRequest struct {
+type SearchLinkApiGetRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionApiService
+	ApiService *SearchLinkApiService
+	ids *interface{}
+	links *interface{}
+	page *int32
+	pageSize *int32
 }
 
-func (r SubscriptionApiGetRequest) Execute() (*SubscriptionResponse, *http.Response, error) {
+func (r *SearchLinkApiGetRequest) Ids(ids interface{}) *SearchLinkApiGetRequest {
+	r.ids = &ids
+	return r
+}
+
+func (r *SearchLinkApiGetRequest) Links(links interface{}) *SearchLinkApiGetRequest {
+	r.links = &links
+	return r
+}
+
+func (r *SearchLinkApiGetRequest) Page(page int32) *SearchLinkApiGetRequest {
+	r.page = &page
+	return r
+}
+
+func (r *SearchLinkApiGetRequest) PageSize(pageSize int32) *SearchLinkApiGetRequest {
+	r.pageSize = &pageSize
+	return r
+}
+
+func (r SearchLinkApiGetRequest) Execute() (*DtoResponsesSearchResponseSearchResponse, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
 /*
-Get [Get] Get My Plan Info
+Get [Get] Search For Articles By Id Or Link
 
-This endpoint allows you to get info about your subscription plan.
+This endpoint allows you to search for articles. You can search for articles by id(s) or link(s).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return SubscriptionApiGetRequest
+ @return SearchLinkApiGetRequest
 */
-func (a *SubscriptionApiService) Get() SubscriptionApiGetRequest {
-	return SubscriptionApiGetRequest{
+func (a *SearchLinkApiService) Get() SearchLinkApiGetRequest {
+	return SearchLinkApiGetRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
 	}
 }
 
 // Execute executes the request
-//  @return SubscriptionResponse
-func (a *SubscriptionApiService) GetExecute(r SubscriptionApiGetRequest) (*SubscriptionResponse, *http.Response, error) {
+//  @return DtoResponsesSearchResponseSearchResponse
+func (a *SearchLinkApiService) GetExecute(r SearchLinkApiGetRequest) (*DtoResponsesSearchResponseSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SubscriptionResponse
+		localVarReturnValue  *DtoResponsesSearchResponseSearchResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SubscriptionApiService.Get")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchLinkApiService.Get")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/subscription"
+	localVarPath := localBasePath + "/api/search_by_link"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
+	if *r.page < 0 {
+		return localVarReturnValue, nil, reportError("page must be greater than 0")
+	}
+	if *r.pageSize < 0 {
+		return localVarReturnValue, nil, reportError("pageSize must be greater than 0")
+	}
 
+	if r.ids != nil {
+		localVarQueryParams.Add("ids", parameterToString(*r.ids, ""))
+	}
+	if r.links != nil {
+		localVarQueryParams.Add("links", parameterToString(*r.links, ""))
+	}
+	if r.page != nil {
+		localVarQueryParams.Add("page", parameterToString(*r.page, ""))
+	}
+	if r.pageSize != nil {
+		localVarQueryParams.Add("page_size", parameterToString(*r.pageSize, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -146,53 +188,56 @@ func (a *SubscriptionApiService) GetExecute(r SubscriptionApiGetRequest) (*Subsc
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
-type SubscriptionApiPostRequest struct {
+type SearchLinkApiPostRequest struct {
 	ctx context.Context
-	ApiService *SubscriptionApiService
+	ApiService *SearchLinkApiService
+	searchURLRequest SearchURLRequest
 }
 
-func (r SubscriptionApiPostRequest) Execute() (*SubscriptionResponse, *http.Response, error) {
+func (r SearchLinkApiPostRequest) Execute() (*DtoResponsesSearchResponseSearchResponse, *http.Response, error) {
 	return r.ApiService.PostExecute(r)
 }
 
 /*
-Post [Post] Get My Plan Info
+Post [Post] Search For Articles Request
 
-This endpoint allows you to get info about your subscription plan.
+This endpoint allows you to search for articles. You can search for articles by id(s) or link(s).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return SubscriptionApiPostRequest
+ @param searchURLRequest
+ @return SearchLinkApiPostRequest
 */
-func (a *SubscriptionApiService) Post() SubscriptionApiPostRequest {
-	return SubscriptionApiPostRequest{
+func (a *SearchLinkApiService) Post(searchURLRequest SearchURLRequest) SearchLinkApiPostRequest {
+	return SearchLinkApiPostRequest{
 		ApiService: a,
 		ctx: a.client.cfg.Context,
+		searchURLRequest: searchURLRequest,
 	}
 }
 
 // Execute executes the request
-//  @return SubscriptionResponse
-func (a *SubscriptionApiService) PostExecute(r SubscriptionApiPostRequest) (*SubscriptionResponse, *http.Response, error) {
+//  @return DtoResponsesSearchResponseSearchResponse
+func (a *SearchLinkApiService) PostExecute(r SearchLinkApiPostRequest) (*DtoResponsesSearchResponseSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SubscriptionResponse
+		localVarReturnValue  *DtoResponsesSearchResponseSearchResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SubscriptionApiService.Post")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchLinkApiService.Post")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/subscription"
+	localVarPath := localBasePath + "/api/search_by_link"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
 
 	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
+	localVarHTTPContentTypes := []string{"application/json"}
 
 	// set Content-Type header
 	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
@@ -208,6 +253,8 @@ func (a *SubscriptionApiService) PostExecute(r SubscriptionApiPostRequest) (*Sub
 	if localVarHTTPHeaderAccept != "" {
 		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
 	}
+	// body params
+	localVarPostBody = r.searchURLRequest
 	if r.ctx != nil {
 		// API Key Authentication
 		if auth, ok := r.ctx.Value(ContextAPIKeys).(map[string]APIKey); ok {

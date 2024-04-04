@@ -23,7 +23,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -35,13 +35,14 @@ func main() {
         "q_example",
     )
     request.SearchIn(""title_content"")
-    request.PredefinedSources("predefinedSources_example")
-    request.Sources("sources_example")
-    request.NotSources("notSources_example")
-    request.Lang("lang_example")
-    request.NotLang("notLang_example")
-    request.Countries("countries_example")
-    request.NotCountries("notCountries_example")
+    request.PredefinedSources()
+    request.Sources()
+    request.NotSources()
+    request.Lang()
+    request.NotLang()
+    request.Countries()
+    request.NotCountries()
+    request.NotAuthorName()
     request.From(from)
     request.To(to)
     request.PublishedDatePrecision("publishedDatePrecision_example")
@@ -52,19 +53,20 @@ func main() {
     request.ToRank(56)
     request.IsHeadline(true)
     request.IsPaidContent(true)
-    request.ParentUrl("parentUrl_example")
-    request.AllLinks("allLinks_example")
-    request.AllDomainLinks("allDomainLinks_example")
+    request.ParentUrl()
+    request.AllLinks()
+    request.AllDomainLinks()
     request.WordCountMin(56)
     request.WordCountMax(56)
     request.Page(1)
     request.PageSize(100)
+    request.ClusteringVariable("clusteringVariable_example")
     request.ClusteringEnabled(true)
     request.ClusteringThreshold(8.14)
-    request.ClusteringVariable("clusteringVariable_example")
     request.IncludeNlpData(true)
     request.HasNlp(true)
     request.Theme("theme_example")
+    request.NotTheme("notTheme_example")
     request.ORGEntityName("oRGEntityName_example")
     request.PEREntityName("pEREntityName_example")
     request.LOCEntityName("lOCEntityName_example")
@@ -73,6 +75,10 @@ func main() {
     request.TitleSentimentMax(8.14)
     request.ContentSentimentMin(8.14)
     request.ContentSentimentMax(8.14)
+    request.IptcTags()
+    request.NotIptcTags()
+    request.SourceName()
+    request.IabTags()
     
     resp, httpRes, err := request.Execute()
 
@@ -113,7 +119,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -128,13 +134,14 @@ func main() {
         "null",
     )
     searchRequest.SetSearchIn("title_content")
-    searchRequest.SetPredefinedSources("null")
-    searchRequest.SetSources("null")
-    searchRequest.SetNotSources("null")
-    searchRequest.SetLang("null")
-    searchRequest.SetNotLang("null")
-    searchRequest.SetCountries("null")
-    searchRequest.SetNotCountries("null")
+    searchRequest.SetPredefinedSources(null)
+    searchRequest.SetSources(null)
+    searchRequest.SetNotSources(null)
+    searchRequest.SetLang(null)
+    searchRequest.SetNotLang(null)
+    searchRequest.SetCountries(null)
+    searchRequest.SetNotCountries(null)
+    searchRequest.SetNotAuthorName(null)
     searchRequest.SetFrom(from)
     searchRequest.SetTo(to)
     searchRequest.SetPublishedDatePrecision("null")
@@ -145,19 +152,20 @@ func main() {
     searchRequest.SetToRank(null)
     searchRequest.SetIsHeadline(null)
     searchRequest.SetIsPaidContent(null)
-    searchRequest.SetParentUrl("null")
-    searchRequest.SetAllLinks("null")
-    searchRequest.SetAllDomainLinks("null")
+    searchRequest.SetParentUrl(null)
+    searchRequest.SetAllLinks(null)
+    searchRequest.SetAllDomainLinks(null)
     searchRequest.SetWordCountMin(null)
     searchRequest.SetWordCountMax(null)
     searchRequest.SetPage(1)
     searchRequest.SetPageSize(100)
+    searchRequest.SetClusteringVariable("null")
     searchRequest.SetClusteringEnabled(null)
     searchRequest.SetClusteringThreshold(null)
-    searchRequest.SetClusteringVariable("null")
     searchRequest.SetIncludeNlpData(null)
     searchRequest.SetHasNlp(null)
     searchRequest.SetTheme("null")
+    searchRequest.SetNotTheme("null")
     searchRequest.SetORGEntityName("null")
     searchRequest.SetPEREntityName("null")
     searchRequest.SetLOCEntityName("null")
@@ -166,6 +174,10 @@ func main() {
     searchRequest.SetTitleSentimentMax(null)
     searchRequest.SetContentSentimentMin(null)
     searchRequest.SetContentSentimentMax(null)
+    searchRequest.SetIptcTags(null)
+    searchRequest.SetNotIptcTags(null)
+    searchRequest.SetSourceName(null)
+    searchRequest.SetIabTags(null)
     
     request := client.SearchApi.Post(
         searchRequest,

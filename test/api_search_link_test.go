@@ -1,7 +1,7 @@
 /*
 NewsCatcher-V3 Production API
 
-Testing SourcesApiService
+Testing SearchLinkApiService
 
 */
 
@@ -16,7 +16,7 @@ import (
     // newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
-func Test_newscatcherapi_SourcesApiService(t *testing.T) {
+func Test_newscatcherapi_SearchLinkApiService(t *testing.T) {
 
     // configuration := newscatcherapi.NewConfiguration()
     // configuration.SetHost("http://127.0.0.1:4010")
@@ -25,18 +25,14 @@ func Test_newscatcherapi_SourcesApiService(t *testing.T) {
     client := newscatcherapi.NewAPIClient(configuration)
     */
 
-    t.Run("Test SourcesApiService Get", func(t *testing.T) {
+    t.Run("Test SearchLinkApiService Get", func(t *testing.T) {
         /* TODO: ENG-1367 Fix parameter values for Go SDK generated tests
-        request := client.SourcesApi.Get(
+        request := client.SearchLinkApi.Get(
         )
-        request.Lang("lang_example")
-        request.Countries("countries_example")
-        request.PredefinedSources("predefinedSources_example")
-        request.IncludeAdditionalInfo(true)
-        request.FromRank(56)
-        request.ToRank(56)
-        request.SourceName()
-        request.SourceUrl("sourceUrl_example")
+        request.Ids()
+        request.Links()
+        request.Page(1)
+        request.PageSize(100)
         
         resp, httpRes, err := request.Execute()
 
@@ -46,21 +42,17 @@ func Test_newscatcherapi_SourcesApiService(t *testing.T) {
         */
     })
 
-    t.Run("Test SourcesApiService Post", func(t *testing.T) {
+    t.Run("Test SearchLinkApiService Post", func(t *testing.T) {
         /* TODO: ENG-1367 Fix parameter values for Go SDK generated tests
         
-        sourcesRequest := *newscatcherapi.NewSourcesRequest()
-        sourcesRequest.SetLang("null")
-        sourcesRequest.SetCountries("null")
-        sourcesRequest.SetPredefinedSources("null")
-        sourcesRequest.SetIncludeAdditionalInfo(null)
-        sourcesRequest.SetFromRank(null)
-        sourcesRequest.SetToRank(null)
-        sourcesRequest.SetSourceName(null)
-        sourcesRequest.SetSourceUrl("null")
+        searchURLRequest := *newscatcherapi.NewSearchURLRequest()
+        searchURLRequest.SetIds(null)
+        searchURLRequest.SetLinks(null)
+        searchURLRequest.SetPage(1)
+        searchURLRequest.SetPageSize(100)
         
-        request := client.SourcesApi.Post(
-            sourcesRequest,
+        request := client.SearchLinkApi.Post(
+            searchURLRequest,
         )
         
         resp, httpRes, err := request.Execute()

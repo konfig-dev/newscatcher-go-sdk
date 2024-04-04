@@ -23,7 +23,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -34,13 +34,14 @@ func main() {
     request := client.AuthorsApi.Get(
         "authorName_example",
     )
-    request.Sources("sources_example")
-    request.PredefinedSources("predefinedSources_example")
-    request.NotSources("notSources_example")
-    request.Lang("lang_example")
-    request.NotLang("notLang_example")
-    request.Countries("countries_example")
-    request.NotCountries("notCountries_example")
+    request.NotAuthorName("notAuthorName_example")
+    request.Sources()
+    request.PredefinedSources()
+    request.NotSources()
+    request.Lang()
+    request.NotLang()
+    request.Countries()
+    request.NotCountries()
     request.From(from)
     request.To(to)
     request.PublishedDatePrecision("publishedDatePrecision_example")
@@ -51,9 +52,9 @@ func main() {
     request.ToRank(56)
     request.IsHeadline(true)
     request.IsPaidContent(true)
-    request.ParentUrl("parentUrl_example")
-    request.AllLinks("allLinks_example")
-    request.AllDomainLinks("allDomainLinks_example")
+    request.ParentUrl()
+    request.AllLinks()
+    request.AllDomainLinks()
     request.WordCountMin(56)
     request.WordCountMax(56)
     request.Page(1)
@@ -61,11 +62,14 @@ func main() {
     request.IncludeNlpData(true)
     request.HasNlp(true)
     request.Theme("theme_example")
+    request.NotTheme("notTheme_example")
     request.NerName("nerName_example")
     request.TitleSentimentMin(8.14)
     request.TitleSentimentMax(8.14)
     request.ContentSentimentMin(8.14)
     request.ContentSentimentMax(8.14)
+    request.IptcTags()
+    request.NotIptcTags()
     
     resp, httpRes, err := request.Execute()
 
@@ -104,7 +108,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -118,13 +122,14 @@ func main() {
     authorSearchRequest := *newscatcherapi.NewAuthorSearchRequest(
         "null",
     )
-    authorSearchRequest.SetSources("null")
-    authorSearchRequest.SetPredefinedSources("null")
-    authorSearchRequest.SetNotSources("null")
-    authorSearchRequest.SetLang("null")
-    authorSearchRequest.SetNotLang("null")
-    authorSearchRequest.SetCountries("null")
-    authorSearchRequest.SetNotCountries("null")
+    authorSearchRequest.SetNotAuthorName("null")
+    authorSearchRequest.SetSources(null)
+    authorSearchRequest.SetPredefinedSources(null)
+    authorSearchRequest.SetNotSources(null)
+    authorSearchRequest.SetLang(null)
+    authorSearchRequest.SetNotLang(null)
+    authorSearchRequest.SetCountries(null)
+    authorSearchRequest.SetNotCountries(null)
     authorSearchRequest.SetFrom(from)
     authorSearchRequest.SetTo(to)
     authorSearchRequest.SetPublishedDatePrecision("null")
@@ -135,9 +140,9 @@ func main() {
     authorSearchRequest.SetToRank(null)
     authorSearchRequest.SetIsHeadline(null)
     authorSearchRequest.SetIsPaidContent(null)
-    authorSearchRequest.SetParentUrl("null")
-    authorSearchRequest.SetAllLinks("null")
-    authorSearchRequest.SetAllDomainLinks("null")
+    authorSearchRequest.SetParentUrl(null)
+    authorSearchRequest.SetAllLinks(null)
+    authorSearchRequest.SetAllDomainLinks(null)
     authorSearchRequest.SetWordCountMin(null)
     authorSearchRequest.SetWordCountMax(null)
     authorSearchRequest.SetPage(1)
@@ -145,11 +150,14 @@ func main() {
     authorSearchRequest.SetIncludeNlpData(null)
     authorSearchRequest.SetHasNlp(null)
     authorSearchRequest.SetTheme("null")
+    authorSearchRequest.SetNotTheme("null")
     authorSearchRequest.SetNerName("null")
     authorSearchRequest.SetTitleSentimentMin(null)
     authorSearchRequest.SetTitleSentimentMax(null)
     authorSearchRequest.SetContentSentimentMin(null)
     authorSearchRequest.SetContentSentimentMax(null)
+    authorSearchRequest.SetIptcTags(null)
+    authorSearchRequest.SetNotIptcTags(null)
     
     request := client.AuthorsApi.Post(
         authorSearchRequest,

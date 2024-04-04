@@ -6,29 +6,31 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **When** | Pointer to **string** |  | [optional] [default to "7d"]
 **ByParseDate** | Pointer to **bool** |  | [optional] [default to false]
-**Lang** | Pointer to **string** |  | [optional] 
-**NotLang** | Pointer to **string** |  | [optional] 
-**Countries** | Pointer to **string** |  | [optional] 
-**NotCountries** | Pointer to **string** |  | [optional] 
-**Sources** | Pointer to **string** |  | [optional] 
-**PredefinedSources** | Pointer to **string** |  | [optional] 
-**NotSources** | Pointer to **string** |  | [optional] 
+**Lang** | Pointer to **interface{}** |  | [optional] 
+**NotLang** | Pointer to **interface{}** |  | [optional] 
+**Countries** | Pointer to **interface{}** |  | [optional] 
+**NotCountries** | Pointer to **interface{}** |  | [optional] 
+**Sources** | Pointer to **interface{}** |  | [optional] 
+**PredefinedSources** | Pointer to **interface{}** |  | [optional] 
+**NotSources** | Pointer to **interface{}** |  | [optional] 
+**NotAuthorName** | Pointer to **interface{}** |  | [optional] 
 **RankedOnly** | Pointer to **string** |  | [optional] 
 **IsHeadline** | Pointer to **bool** |  | [optional] 
 **IsPaidContent** | Pointer to **bool** |  | [optional] 
-**ParentUrl** | Pointer to **string** |  | [optional] 
-**Theme** | Pointer to **string** |  | [optional] 
-**AllLinks** | Pointer to **string** |  | [optional] 
-**AllDomainLinks** | Pointer to **string** |  | [optional] 
+**ParentUrl** | Pointer to **interface{}** |  | [optional] 
+**AllLinks** | Pointer to **interface{}** |  | [optional] 
+**AllDomainLinks** | Pointer to **interface{}** |  | [optional] 
 **WordCountMin** | Pointer to **int32** |  | [optional] 
 **WordCountMax** | Pointer to **int32** |  | [optional] 
 **Page** | Pointer to **int32** |  | [optional] [default to 1]
 **PageSize** | Pointer to **int32** |  | [optional] [default to 100]
+**ClusteringVariable** | Pointer to **string** |  | [optional] 
 **ClusteringEnabled** | Pointer to **bool** |  | [optional] 
 **ClusteringThreshold** | Pointer to **float32** |  | [optional] 
-**ClusteringVariable** | Pointer to **string** |  | [optional] 
 **IncludeNlpData** | Pointer to **bool** |  | [optional] 
 **HasNlp** | Pointer to **bool** |  | [optional] 
+**Theme** | Pointer to **string** |  | [optional] 
+**NotTheme** | Pointer to **string** |  | [optional] 
 **ORGEntityName** | Pointer to **string** |  | [optional] 
 **PEREntityName** | Pointer to **string** |  | [optional] 
 **LOCEntityName** | Pointer to **string** |  | [optional] 
@@ -37,6 +39,8 @@ Name | Type | Description | Notes
 **TitleSentimentMax** | Pointer to **float32** |  | [optional] 
 **ContentSentimentMin** | Pointer to **float32** |  | [optional] 
 **ContentSentimentMax** | Pointer to **float32** |  | [optional] 
+**IptcTags** | Pointer to **interface{}** |  | [optional] 
+**NotIptcTags** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
@@ -109,20 +113,20 @@ HasByParseDate returns a boolean if a field has been set.
 
 ### GetLang
 
-`func (o *LatestHeadlinesRequest) GetLang() string`
+`func (o *LatestHeadlinesRequest) GetLang() interface{}`
 
 GetLang returns the Lang field if non-nil, zero value otherwise.
 
 ### GetLangOk
 
-`func (o *LatestHeadlinesRequest) GetLangOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetLangOk() (*interface{}, bool)`
 
 GetLangOk returns a tuple with the Lang field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLang
 
-`func (o *LatestHeadlinesRequest) SetLang(v string)`
+`func (o *LatestHeadlinesRequest) SetLang(v interface{})`
 
 SetLang sets Lang field to given value.
 
@@ -132,22 +136,32 @@ SetLang sets Lang field to given value.
 
 HasLang returns a boolean if a field has been set.
 
+### SetLangNil
+
+`func (o *LatestHeadlinesRequest) SetLangNil(b bool)`
+
+ SetLangNil sets the value for Lang to be an explicit nil
+
+### UnsetLang
+`func (o *LatestHeadlinesRequest) UnsetLang()`
+
+UnsetLang ensures that no value is present for Lang, not even an explicit nil
 ### GetNotLang
 
-`func (o *LatestHeadlinesRequest) GetNotLang() string`
+`func (o *LatestHeadlinesRequest) GetNotLang() interface{}`
 
 GetNotLang returns the NotLang field if non-nil, zero value otherwise.
 
 ### GetNotLangOk
 
-`func (o *LatestHeadlinesRequest) GetNotLangOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetNotLangOk() (*interface{}, bool)`
 
 GetNotLangOk returns a tuple with the NotLang field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotLang
 
-`func (o *LatestHeadlinesRequest) SetNotLang(v string)`
+`func (o *LatestHeadlinesRequest) SetNotLang(v interface{})`
 
 SetNotLang sets NotLang field to given value.
 
@@ -157,22 +171,32 @@ SetNotLang sets NotLang field to given value.
 
 HasNotLang returns a boolean if a field has been set.
 
+### SetNotLangNil
+
+`func (o *LatestHeadlinesRequest) SetNotLangNil(b bool)`
+
+ SetNotLangNil sets the value for NotLang to be an explicit nil
+
+### UnsetNotLang
+`func (o *LatestHeadlinesRequest) UnsetNotLang()`
+
+UnsetNotLang ensures that no value is present for NotLang, not even an explicit nil
 ### GetCountries
 
-`func (o *LatestHeadlinesRequest) GetCountries() string`
+`func (o *LatestHeadlinesRequest) GetCountries() interface{}`
 
 GetCountries returns the Countries field if non-nil, zero value otherwise.
 
 ### GetCountriesOk
 
-`func (o *LatestHeadlinesRequest) GetCountriesOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetCountriesOk() (*interface{}, bool)`
 
 GetCountriesOk returns a tuple with the Countries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCountries
 
-`func (o *LatestHeadlinesRequest) SetCountries(v string)`
+`func (o *LatestHeadlinesRequest) SetCountries(v interface{})`
 
 SetCountries sets Countries field to given value.
 
@@ -182,22 +206,32 @@ SetCountries sets Countries field to given value.
 
 HasCountries returns a boolean if a field has been set.
 
+### SetCountriesNil
+
+`func (o *LatestHeadlinesRequest) SetCountriesNil(b bool)`
+
+ SetCountriesNil sets the value for Countries to be an explicit nil
+
+### UnsetCountries
+`func (o *LatestHeadlinesRequest) UnsetCountries()`
+
+UnsetCountries ensures that no value is present for Countries, not even an explicit nil
 ### GetNotCountries
 
-`func (o *LatestHeadlinesRequest) GetNotCountries() string`
+`func (o *LatestHeadlinesRequest) GetNotCountries() interface{}`
 
 GetNotCountries returns the NotCountries field if non-nil, zero value otherwise.
 
 ### GetNotCountriesOk
 
-`func (o *LatestHeadlinesRequest) GetNotCountriesOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetNotCountriesOk() (*interface{}, bool)`
 
 GetNotCountriesOk returns a tuple with the NotCountries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotCountries
 
-`func (o *LatestHeadlinesRequest) SetNotCountries(v string)`
+`func (o *LatestHeadlinesRequest) SetNotCountries(v interface{})`
 
 SetNotCountries sets NotCountries field to given value.
 
@@ -207,22 +241,32 @@ SetNotCountries sets NotCountries field to given value.
 
 HasNotCountries returns a boolean if a field has been set.
 
+### SetNotCountriesNil
+
+`func (o *LatestHeadlinesRequest) SetNotCountriesNil(b bool)`
+
+ SetNotCountriesNil sets the value for NotCountries to be an explicit nil
+
+### UnsetNotCountries
+`func (o *LatestHeadlinesRequest) UnsetNotCountries()`
+
+UnsetNotCountries ensures that no value is present for NotCountries, not even an explicit nil
 ### GetSources
 
-`func (o *LatestHeadlinesRequest) GetSources() string`
+`func (o *LatestHeadlinesRequest) GetSources() interface{}`
 
 GetSources returns the Sources field if non-nil, zero value otherwise.
 
 ### GetSourcesOk
 
-`func (o *LatestHeadlinesRequest) GetSourcesOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetSourcesOk() (*interface{}, bool)`
 
 GetSourcesOk returns a tuple with the Sources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSources
 
-`func (o *LatestHeadlinesRequest) SetSources(v string)`
+`func (o *LatestHeadlinesRequest) SetSources(v interface{})`
 
 SetSources sets Sources field to given value.
 
@@ -232,22 +276,32 @@ SetSources sets Sources field to given value.
 
 HasSources returns a boolean if a field has been set.
 
+### SetSourcesNil
+
+`func (o *LatestHeadlinesRequest) SetSourcesNil(b bool)`
+
+ SetSourcesNil sets the value for Sources to be an explicit nil
+
+### UnsetSources
+`func (o *LatestHeadlinesRequest) UnsetSources()`
+
+UnsetSources ensures that no value is present for Sources, not even an explicit nil
 ### GetPredefinedSources
 
-`func (o *LatestHeadlinesRequest) GetPredefinedSources() string`
+`func (o *LatestHeadlinesRequest) GetPredefinedSources() interface{}`
 
 GetPredefinedSources returns the PredefinedSources field if non-nil, zero value otherwise.
 
 ### GetPredefinedSourcesOk
 
-`func (o *LatestHeadlinesRequest) GetPredefinedSourcesOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetPredefinedSourcesOk() (*interface{}, bool)`
 
 GetPredefinedSourcesOk returns a tuple with the PredefinedSources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPredefinedSources
 
-`func (o *LatestHeadlinesRequest) SetPredefinedSources(v string)`
+`func (o *LatestHeadlinesRequest) SetPredefinedSources(v interface{})`
 
 SetPredefinedSources sets PredefinedSources field to given value.
 
@@ -257,22 +311,32 @@ SetPredefinedSources sets PredefinedSources field to given value.
 
 HasPredefinedSources returns a boolean if a field has been set.
 
+### SetPredefinedSourcesNil
+
+`func (o *LatestHeadlinesRequest) SetPredefinedSourcesNil(b bool)`
+
+ SetPredefinedSourcesNil sets the value for PredefinedSources to be an explicit nil
+
+### UnsetPredefinedSources
+`func (o *LatestHeadlinesRequest) UnsetPredefinedSources()`
+
+UnsetPredefinedSources ensures that no value is present for PredefinedSources, not even an explicit nil
 ### GetNotSources
 
-`func (o *LatestHeadlinesRequest) GetNotSources() string`
+`func (o *LatestHeadlinesRequest) GetNotSources() interface{}`
 
 GetNotSources returns the NotSources field if non-nil, zero value otherwise.
 
 ### GetNotSourcesOk
 
-`func (o *LatestHeadlinesRequest) GetNotSourcesOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetNotSourcesOk() (*interface{}, bool)`
 
 GetNotSourcesOk returns a tuple with the NotSources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotSources
 
-`func (o *LatestHeadlinesRequest) SetNotSources(v string)`
+`func (o *LatestHeadlinesRequest) SetNotSources(v interface{})`
 
 SetNotSources sets NotSources field to given value.
 
@@ -282,6 +346,51 @@ SetNotSources sets NotSources field to given value.
 
 HasNotSources returns a boolean if a field has been set.
 
+### SetNotSourcesNil
+
+`func (o *LatestHeadlinesRequest) SetNotSourcesNil(b bool)`
+
+ SetNotSourcesNil sets the value for NotSources to be an explicit nil
+
+### UnsetNotSources
+`func (o *LatestHeadlinesRequest) UnsetNotSources()`
+
+UnsetNotSources ensures that no value is present for NotSources, not even an explicit nil
+### GetNotAuthorName
+
+`func (o *LatestHeadlinesRequest) GetNotAuthorName() interface{}`
+
+GetNotAuthorName returns the NotAuthorName field if non-nil, zero value otherwise.
+
+### GetNotAuthorNameOk
+
+`func (o *LatestHeadlinesRequest) GetNotAuthorNameOk() (*interface{}, bool)`
+
+GetNotAuthorNameOk returns a tuple with the NotAuthorName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotAuthorName
+
+`func (o *LatestHeadlinesRequest) SetNotAuthorName(v interface{})`
+
+SetNotAuthorName sets NotAuthorName field to given value.
+
+### HasNotAuthorName
+
+`func (o *LatestHeadlinesRequest) HasNotAuthorName() bool`
+
+HasNotAuthorName returns a boolean if a field has been set.
+
+### SetNotAuthorNameNil
+
+`func (o *LatestHeadlinesRequest) SetNotAuthorNameNil(b bool)`
+
+ SetNotAuthorNameNil sets the value for NotAuthorName to be an explicit nil
+
+### UnsetNotAuthorName
+`func (o *LatestHeadlinesRequest) UnsetNotAuthorName()`
+
+UnsetNotAuthorName ensures that no value is present for NotAuthorName, not even an explicit nil
 ### GetRankedOnly
 
 `func (o *LatestHeadlinesRequest) GetRankedOnly() string`
@@ -359,20 +468,20 @@ HasIsPaidContent returns a boolean if a field has been set.
 
 ### GetParentUrl
 
-`func (o *LatestHeadlinesRequest) GetParentUrl() string`
+`func (o *LatestHeadlinesRequest) GetParentUrl() interface{}`
 
 GetParentUrl returns the ParentUrl field if non-nil, zero value otherwise.
 
 ### GetParentUrlOk
 
-`func (o *LatestHeadlinesRequest) GetParentUrlOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetParentUrlOk() (*interface{}, bool)`
 
 GetParentUrlOk returns a tuple with the ParentUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParentUrl
 
-`func (o *LatestHeadlinesRequest) SetParentUrl(v string)`
+`func (o *LatestHeadlinesRequest) SetParentUrl(v interface{})`
 
 SetParentUrl sets ParentUrl field to given value.
 
@@ -382,47 +491,32 @@ SetParentUrl sets ParentUrl field to given value.
 
 HasParentUrl returns a boolean if a field has been set.
 
-### GetTheme
+### SetParentUrlNil
 
-`func (o *LatestHeadlinesRequest) GetTheme() string`
+`func (o *LatestHeadlinesRequest) SetParentUrlNil(b bool)`
 
-GetTheme returns the Theme field if non-nil, zero value otherwise.
+ SetParentUrlNil sets the value for ParentUrl to be an explicit nil
 
-### GetThemeOk
+### UnsetParentUrl
+`func (o *LatestHeadlinesRequest) UnsetParentUrl()`
 
-`func (o *LatestHeadlinesRequest) GetThemeOk() (*string, bool)`
-
-GetThemeOk returns a tuple with the Theme field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetTheme
-
-`func (o *LatestHeadlinesRequest) SetTheme(v string)`
-
-SetTheme sets Theme field to given value.
-
-### HasTheme
-
-`func (o *LatestHeadlinesRequest) HasTheme() bool`
-
-HasTheme returns a boolean if a field has been set.
-
+UnsetParentUrl ensures that no value is present for ParentUrl, not even an explicit nil
 ### GetAllLinks
 
-`func (o *LatestHeadlinesRequest) GetAllLinks() string`
+`func (o *LatestHeadlinesRequest) GetAllLinks() interface{}`
 
 GetAllLinks returns the AllLinks field if non-nil, zero value otherwise.
 
 ### GetAllLinksOk
 
-`func (o *LatestHeadlinesRequest) GetAllLinksOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetAllLinksOk() (*interface{}, bool)`
 
 GetAllLinksOk returns a tuple with the AllLinks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllLinks
 
-`func (o *LatestHeadlinesRequest) SetAllLinks(v string)`
+`func (o *LatestHeadlinesRequest) SetAllLinks(v interface{})`
 
 SetAllLinks sets AllLinks field to given value.
 
@@ -432,22 +526,32 @@ SetAllLinks sets AllLinks field to given value.
 
 HasAllLinks returns a boolean if a field has been set.
 
+### SetAllLinksNil
+
+`func (o *LatestHeadlinesRequest) SetAllLinksNil(b bool)`
+
+ SetAllLinksNil sets the value for AllLinks to be an explicit nil
+
+### UnsetAllLinks
+`func (o *LatestHeadlinesRequest) UnsetAllLinks()`
+
+UnsetAllLinks ensures that no value is present for AllLinks, not even an explicit nil
 ### GetAllDomainLinks
 
-`func (o *LatestHeadlinesRequest) GetAllDomainLinks() string`
+`func (o *LatestHeadlinesRequest) GetAllDomainLinks() interface{}`
 
 GetAllDomainLinks returns the AllDomainLinks field if non-nil, zero value otherwise.
 
 ### GetAllDomainLinksOk
 
-`func (o *LatestHeadlinesRequest) GetAllDomainLinksOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetAllDomainLinksOk() (*interface{}, bool)`
 
 GetAllDomainLinksOk returns a tuple with the AllDomainLinks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllDomainLinks
 
-`func (o *LatestHeadlinesRequest) SetAllDomainLinks(v string)`
+`func (o *LatestHeadlinesRequest) SetAllDomainLinks(v interface{})`
 
 SetAllDomainLinks sets AllDomainLinks field to given value.
 
@@ -457,6 +561,16 @@ SetAllDomainLinks sets AllDomainLinks field to given value.
 
 HasAllDomainLinks returns a boolean if a field has been set.
 
+### SetAllDomainLinksNil
+
+`func (o *LatestHeadlinesRequest) SetAllDomainLinksNil(b bool)`
+
+ SetAllDomainLinksNil sets the value for AllDomainLinks to be an explicit nil
+
+### UnsetAllDomainLinks
+`func (o *LatestHeadlinesRequest) UnsetAllDomainLinks()`
+
+UnsetAllDomainLinks ensures that no value is present for AllDomainLinks, not even an explicit nil
 ### GetWordCountMin
 
 `func (o *LatestHeadlinesRequest) GetWordCountMin() int32`
@@ -557,6 +671,31 @@ SetPageSize sets PageSize field to given value.
 
 HasPageSize returns a boolean if a field has been set.
 
+### GetClusteringVariable
+
+`func (o *LatestHeadlinesRequest) GetClusteringVariable() string`
+
+GetClusteringVariable returns the ClusteringVariable field if non-nil, zero value otherwise.
+
+### GetClusteringVariableOk
+
+`func (o *LatestHeadlinesRequest) GetClusteringVariableOk() (*string, bool)`
+
+GetClusteringVariableOk returns a tuple with the ClusteringVariable field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusteringVariable
+
+`func (o *LatestHeadlinesRequest) SetClusteringVariable(v string)`
+
+SetClusteringVariable sets ClusteringVariable field to given value.
+
+### HasClusteringVariable
+
+`func (o *LatestHeadlinesRequest) HasClusteringVariable() bool`
+
+HasClusteringVariable returns a boolean if a field has been set.
+
 ### GetClusteringEnabled
 
 `func (o *LatestHeadlinesRequest) GetClusteringEnabled() bool`
@@ -607,31 +746,6 @@ SetClusteringThreshold sets ClusteringThreshold field to given value.
 
 HasClusteringThreshold returns a boolean if a field has been set.
 
-### GetClusteringVariable
-
-`func (o *LatestHeadlinesRequest) GetClusteringVariable() string`
-
-GetClusteringVariable returns the ClusteringVariable field if non-nil, zero value otherwise.
-
-### GetClusteringVariableOk
-
-`func (o *LatestHeadlinesRequest) GetClusteringVariableOk() (*string, bool)`
-
-GetClusteringVariableOk returns a tuple with the ClusteringVariable field if it's non-nil, zero value otherwise
-and a boolean to check if the value has been set.
-
-### SetClusteringVariable
-
-`func (o *LatestHeadlinesRequest) SetClusteringVariable(v string)`
-
-SetClusteringVariable sets ClusteringVariable field to given value.
-
-### HasClusteringVariable
-
-`func (o *LatestHeadlinesRequest) HasClusteringVariable() bool`
-
-HasClusteringVariable returns a boolean if a field has been set.
-
 ### GetIncludeNlpData
 
 `func (o *LatestHeadlinesRequest) GetIncludeNlpData() bool`
@@ -681,6 +795,56 @@ SetHasNlp sets HasNlp field to given value.
 `func (o *LatestHeadlinesRequest) HasHasNlp() bool`
 
 HasHasNlp returns a boolean if a field has been set.
+
+### GetTheme
+
+`func (o *LatestHeadlinesRequest) GetTheme() string`
+
+GetTheme returns the Theme field if non-nil, zero value otherwise.
+
+### GetThemeOk
+
+`func (o *LatestHeadlinesRequest) GetThemeOk() (*string, bool)`
+
+GetThemeOk returns a tuple with the Theme field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTheme
+
+`func (o *LatestHeadlinesRequest) SetTheme(v string)`
+
+SetTheme sets Theme field to given value.
+
+### HasTheme
+
+`func (o *LatestHeadlinesRequest) HasTheme() bool`
+
+HasTheme returns a boolean if a field has been set.
+
+### GetNotTheme
+
+`func (o *LatestHeadlinesRequest) GetNotTheme() string`
+
+GetNotTheme returns the NotTheme field if non-nil, zero value otherwise.
+
+### GetNotThemeOk
+
+`func (o *LatestHeadlinesRequest) GetNotThemeOk() (*string, bool)`
+
+GetNotThemeOk returns a tuple with the NotTheme field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotTheme
+
+`func (o *LatestHeadlinesRequest) SetNotTheme(v string)`
+
+SetNotTheme sets NotTheme field to given value.
+
+### HasNotTheme
+
+`func (o *LatestHeadlinesRequest) HasNotTheme() bool`
+
+HasNotTheme returns a boolean if a field has been set.
 
 ### GetORGEntityName
 
@@ -882,6 +1046,76 @@ SetContentSentimentMax sets ContentSentimentMax field to given value.
 
 HasContentSentimentMax returns a boolean if a field has been set.
 
+### GetIptcTags
+
+`func (o *LatestHeadlinesRequest) GetIptcTags() interface{}`
+
+GetIptcTags returns the IptcTags field if non-nil, zero value otherwise.
+
+### GetIptcTagsOk
+
+`func (o *LatestHeadlinesRequest) GetIptcTagsOk() (*interface{}, bool)`
+
+GetIptcTagsOk returns a tuple with the IptcTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIptcTags
+
+`func (o *LatestHeadlinesRequest) SetIptcTags(v interface{})`
+
+SetIptcTags sets IptcTags field to given value.
+
+### HasIptcTags
+
+`func (o *LatestHeadlinesRequest) HasIptcTags() bool`
+
+HasIptcTags returns a boolean if a field has been set.
+
+### SetIptcTagsNil
+
+`func (o *LatestHeadlinesRequest) SetIptcTagsNil(b bool)`
+
+ SetIptcTagsNil sets the value for IptcTags to be an explicit nil
+
+### UnsetIptcTags
+`func (o *LatestHeadlinesRequest) UnsetIptcTags()`
+
+UnsetIptcTags ensures that no value is present for IptcTags, not even an explicit nil
+### GetNotIptcTags
+
+`func (o *LatestHeadlinesRequest) GetNotIptcTags() interface{}`
+
+GetNotIptcTags returns the NotIptcTags field if non-nil, zero value otherwise.
+
+### GetNotIptcTagsOk
+
+`func (o *LatestHeadlinesRequest) GetNotIptcTagsOk() (*interface{}, bool)`
+
+GetNotIptcTagsOk returns a tuple with the NotIptcTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotIptcTags
+
+`func (o *LatestHeadlinesRequest) SetNotIptcTags(v interface{})`
+
+SetNotIptcTags sets NotIptcTags field to given value.
+
+### HasNotIptcTags
+
+`func (o *LatestHeadlinesRequest) HasNotIptcTags() bool`
+
+HasNotIptcTags returns a boolean if a field has been set.
+
+### SetNotIptcTagsNil
+
+`func (o *LatestHeadlinesRequest) SetNotIptcTagsNil(b bool)`
+
+ SetNotIptcTagsNil sets the value for NotIptcTags to be an explicit nil
+
+### UnsetNotIptcTags
+`func (o *LatestHeadlinesRequest) UnsetNotIptcTags()`
+
+UnsetNotIptcTags ensures that no value is present for NotIptcTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

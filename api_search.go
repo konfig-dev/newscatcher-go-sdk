@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 
@@ -28,13 +28,14 @@ type SearchApiGetRequest struct {
 	ApiService *SearchApiService
 	q string
 	searchIn *string
-	predefinedSources *string
-	sources *string
-	notSources *string
-	lang *string
-	notLang *string
-	countries *string
-	notCountries *string
+	predefinedSources *interface{}
+	sources *interface{}
+	notSources *interface{}
+	lang *interface{}
+	notLang *interface{}
+	countries *interface{}
+	notCountries *interface{}
+	notAuthorName *interface{}
 	from *From
 	to *To
 	publishedDatePrecision *string
@@ -45,19 +46,20 @@ type SearchApiGetRequest struct {
 	toRank *int32
 	isHeadline *bool
 	isPaidContent *bool
-	parentUrl *string
-	allLinks *string
-	allDomainLinks *string
+	parentUrl *interface{}
+	allLinks *interface{}
+	allDomainLinks *interface{}
 	wordCountMin *int32
 	wordCountMax *int32
 	page *int32
 	pageSize *int32
+	clusteringVariable *string
 	clusteringEnabled *bool
 	clusteringThreshold *float32
-	clusteringVariable *string
 	includeNlpData *bool
 	hasNlp *bool
 	theme *string
+	notTheme *string
 	oRGEntityName *string
 	pEREntityName *string
 	lOCEntityName *string
@@ -66,6 +68,10 @@ type SearchApiGetRequest struct {
 	titleSentimentMax *float32
 	contentSentimentMin *float32
 	contentSentimentMax *float32
+	iptcTags *interface{}
+	notIptcTags *interface{}
+	sourceName *interface{}
+	iabTags *interface{}
 }
 
 func (r *SearchApiGetRequest) SearchIn(searchIn string) *SearchApiGetRequest {
@@ -73,38 +79,43 @@ func (r *SearchApiGetRequest) SearchIn(searchIn string) *SearchApiGetRequest {
 	return r
 }
 
-func (r *SearchApiGetRequest) PredefinedSources(predefinedSources string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) PredefinedSources(predefinedSources interface{}) *SearchApiGetRequest {
 	r.predefinedSources = &predefinedSources
 	return r
 }
 
-func (r *SearchApiGetRequest) Sources(sources string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) Sources(sources interface{}) *SearchApiGetRequest {
 	r.sources = &sources
 	return r
 }
 
-func (r *SearchApiGetRequest) NotSources(notSources string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) NotSources(notSources interface{}) *SearchApiGetRequest {
 	r.notSources = &notSources
 	return r
 }
 
-func (r *SearchApiGetRequest) Lang(lang string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) Lang(lang interface{}) *SearchApiGetRequest {
 	r.lang = &lang
 	return r
 }
 
-func (r *SearchApiGetRequest) NotLang(notLang string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) NotLang(notLang interface{}) *SearchApiGetRequest {
 	r.notLang = &notLang
 	return r
 }
 
-func (r *SearchApiGetRequest) Countries(countries string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) Countries(countries interface{}) *SearchApiGetRequest {
 	r.countries = &countries
 	return r
 }
 
-func (r *SearchApiGetRequest) NotCountries(notCountries string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) NotCountries(notCountries interface{}) *SearchApiGetRequest {
 	r.notCountries = &notCountries
+	return r
+}
+
+func (r *SearchApiGetRequest) NotAuthorName(notAuthorName interface{}) *SearchApiGetRequest {
+	r.notAuthorName = &notAuthorName
 	return r
 }
 
@@ -158,17 +169,17 @@ func (r *SearchApiGetRequest) IsPaidContent(isPaidContent bool) *SearchApiGetReq
 	return r
 }
 
-func (r *SearchApiGetRequest) ParentUrl(parentUrl string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) ParentUrl(parentUrl interface{}) *SearchApiGetRequest {
 	r.parentUrl = &parentUrl
 	return r
 }
 
-func (r *SearchApiGetRequest) AllLinks(allLinks string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) AllLinks(allLinks interface{}) *SearchApiGetRequest {
 	r.allLinks = &allLinks
 	return r
 }
 
-func (r *SearchApiGetRequest) AllDomainLinks(allDomainLinks string) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) AllDomainLinks(allDomainLinks interface{}) *SearchApiGetRequest {
 	r.allDomainLinks = &allDomainLinks
 	return r
 }
@@ -193,6 +204,11 @@ func (r *SearchApiGetRequest) PageSize(pageSize int32) *SearchApiGetRequest {
 	return r
 }
 
+func (r *SearchApiGetRequest) ClusteringVariable(clusteringVariable string) *SearchApiGetRequest {
+	r.clusteringVariable = &clusteringVariable
+	return r
+}
+
 func (r *SearchApiGetRequest) ClusteringEnabled(clusteringEnabled bool) *SearchApiGetRequest {
 	r.clusteringEnabled = &clusteringEnabled
 	return r
@@ -200,11 +216,6 @@ func (r *SearchApiGetRequest) ClusteringEnabled(clusteringEnabled bool) *SearchA
 
 func (r *SearchApiGetRequest) ClusteringThreshold(clusteringThreshold float32) *SearchApiGetRequest {
 	r.clusteringThreshold = &clusteringThreshold
-	return r
-}
-
-func (r *SearchApiGetRequest) ClusteringVariable(clusteringVariable string) *SearchApiGetRequest {
-	r.clusteringVariable = &clusteringVariable
 	return r
 }
 
@@ -220,6 +231,11 @@ func (r *SearchApiGetRequest) HasNlp(hasNlp bool) *SearchApiGetRequest {
 
 func (r *SearchApiGetRequest) Theme(theme string) *SearchApiGetRequest {
 	r.theme = &theme
+	return r
+}
+
+func (r *SearchApiGetRequest) NotTheme(notTheme string) *SearchApiGetRequest {
+	r.notTheme = &notTheme
 	return r
 }
 
@@ -260,6 +276,26 @@ func (r *SearchApiGetRequest) ContentSentimentMin(contentSentimentMin float32) *
 
 func (r *SearchApiGetRequest) ContentSentimentMax(contentSentimentMax float32) *SearchApiGetRequest {
 	r.contentSentimentMax = &contentSentimentMax
+	return r
+}
+
+func (r *SearchApiGetRequest) IptcTags(iptcTags interface{}) *SearchApiGetRequest {
+	r.iptcTags = &iptcTags
+	return r
+}
+
+func (r *SearchApiGetRequest) NotIptcTags(notIptcTags interface{}) *SearchApiGetRequest {
+	r.notIptcTags = &notIptcTags
+	return r
+}
+
+func (r *SearchApiGetRequest) SourceName(sourceName interface{}) *SearchApiGetRequest {
+	r.sourceName = &sourceName
+	return r
+}
+
+func (r *SearchApiGetRequest) IabTags(iabTags interface{}) *SearchApiGetRequest {
+	r.iabTags = &iabTags
 	return r
 }
 
@@ -342,6 +378,9 @@ func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*SearchGetResponse
 	if r.notCountries != nil {
 		localVarQueryParams.Add("not_countries", parameterToString(*r.notCountries, ""))
 	}
+	if r.notAuthorName != nil {
+		localVarQueryParams.Add("not_author_name", parameterToString(*r.notAuthorName, ""))
+	}
 	if r.from != nil {
 		localVarQueryParams.Add("from_", parameterToString(*r.from, ""))
 	}
@@ -393,14 +432,14 @@ func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*SearchGetResponse
 	if r.pageSize != nil {
 		localVarQueryParams.Add("page_size", parameterToString(*r.pageSize, ""))
 	}
+	if r.clusteringVariable != nil {
+		localVarQueryParams.Add("clustering_variable", parameterToString(*r.clusteringVariable, ""))
+	}
 	if r.clusteringEnabled != nil {
 		localVarQueryParams.Add("clustering_enabled", parameterToString(*r.clusteringEnabled, ""))
 	}
 	if r.clusteringThreshold != nil {
 		localVarQueryParams.Add("clustering_threshold", parameterToString(*r.clusteringThreshold, ""))
-	}
-	if r.clusteringVariable != nil {
-		localVarQueryParams.Add("clustering_variable", parameterToString(*r.clusteringVariable, ""))
 	}
 	if r.includeNlpData != nil {
 		localVarQueryParams.Add("include_nlp_data", parameterToString(*r.includeNlpData, ""))
@@ -410,6 +449,9 @@ func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*SearchGetResponse
 	}
 	if r.theme != nil {
 		localVarQueryParams.Add("theme", parameterToString(*r.theme, ""))
+	}
+	if r.notTheme != nil {
+		localVarQueryParams.Add("not_theme", parameterToString(*r.notTheme, ""))
 	}
 	if r.oRGEntityName != nil {
 		localVarQueryParams.Add("ORG_entity_name", parameterToString(*r.oRGEntityName, ""))
@@ -435,6 +477,18 @@ func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*SearchGetResponse
 	if r.contentSentimentMax != nil {
 		localVarQueryParams.Add("content_sentiment_max", parameterToString(*r.contentSentimentMax, ""))
 	}
+	if r.iptcTags != nil {
+		localVarQueryParams.Add("iptc_tags", parameterToString(*r.iptcTags, ""))
+	}
+	if r.notIptcTags != nil {
+		localVarQueryParams.Add("not_iptc_tags", parameterToString(*r.notIptcTags, ""))
+	}
+	if r.sourceName != nil {
+		localVarQueryParams.Add("source_name", parameterToString(*r.sourceName, ""))
+	}
+	if r.iabTags != nil {
+		localVarQueryParams.Add("iab_tags", parameterToString(*r.iabTags, ""))
+	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}
 
@@ -458,7 +512,7 @@ func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*SearchGetResponse
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}
@@ -586,7 +640,7 @@ func (a *SearchApiService) PostExecute(r SearchApiPostRequest) (*SearchPostRespo
 			if apiKey, ok := auth["apiKey"]; ok {
 				var key string
 				if apiKey.Prefix != "" {
-					key = apiKey.Prefix + " " + apiKey.Key
+					key = apiKey.Prefix + apiKey.Key
 				} else {
 					key = apiKey.Key
 				}

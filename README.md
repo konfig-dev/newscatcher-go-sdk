@@ -8,7 +8,7 @@
 Add to your project:
 
 ```shell
-go get github.com/konfig-dev/newscatcher-go-sdk/tree/main
+go get github.com/konfig-dev/newscatcher-go-sdk
 ```
 
 ## Getting Started
@@ -19,7 +19,7 @@ package main
 import (
     "fmt"
     "os"
-    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk/tree/main"
+    newscatcherapi "github.com/konfig-dev/newscatcher-go-sdk"
 )
 
 func main() {
@@ -30,13 +30,14 @@ func main() {
     request := client.AuthorsApi.Get(
         "authorName_example",
     )
-    request.Sources("sources_example")
-    request.PredefinedSources("predefinedSources_example")
-    request.NotSources("notSources_example")
-    request.Lang("lang_example")
-    request.NotLang("notLang_example")
-    request.Countries("countries_example")
-    request.NotCountries("notCountries_example")
+    request.NotAuthorName("notAuthorName_example")
+    request.Sources()
+    request.PredefinedSources()
+    request.NotSources()
+    request.Lang()
+    request.NotLang()
+    request.Countries()
+    request.NotCountries()
     request.From(from)
     request.To(to)
     request.PublishedDatePrecision("publishedDatePrecision_example")
@@ -47,9 +48,9 @@ func main() {
     request.ToRank(56)
     request.IsHeadline(true)
     request.IsPaidContent(true)
-    request.ParentUrl("parentUrl_example")
-    request.AllLinks("allLinks_example")
-    request.AllDomainLinks("allDomainLinks_example")
+    request.ParentUrl()
+    request.AllLinks()
+    request.AllDomainLinks()
     request.WordCountMin(56)
     request.WordCountMax(56)
     request.Page(1)
@@ -57,11 +58,14 @@ func main() {
     request.IncludeNlpData(true)
     request.HasNlp(true)
     request.Theme("theme_example")
+    request.NotTheme("notTheme_example")
     request.NerName("nerName_example")
     request.TitleSentimentMin(8.14)
     request.TitleSentimentMax(8.14)
     request.ContentSentimentMin(8.14)
     request.ContentSentimentMax(8.14)
+    request.IptcTags()
+    request.NotIptcTags()
     
     resp, httpRes, err := request.Execute()
 
@@ -79,7 +83,6 @@ func main() {
     fmt.Fprintf(os.Stdout, "Response from `AuthorsGetResponse.Get.Articles`: %v\n", resp.Articles)
     fmt.Fprintf(os.Stdout, "Response from `AuthorsGetResponse.Get.UserInput`: %v\n", resp.UserInput)
 }
-
 ```
 
 ## Documentation for API Endpoints
@@ -94,6 +97,8 @@ Class | Method | HTTP request | Description
 *LatestHeadlinesApi* | [**Post**](docs/LatestHeadlinesApi.md#post) | **Post** /api/latest_headlines | [Post] Search For Latest Headlines Request
 *SearchApi* | [**Get**](docs/SearchApi.md#get) | **Get** /api/search | [Get] Search For Articles Request
 *SearchApi* | [**Post**](docs/SearchApi.md#post) | **Post** /api/search | [Post] Search For Articles Request
+*SearchLinkApi* | [**Get**](docs/SearchLinkApi.md#get) | **Get** /api/search_by_link | [Get] Search For Articles By Id Or Link
+*SearchLinkApi* | [**Post**](docs/SearchLinkApi.md#post) | **Post** /api/search_by_link | [Post] Search For Articles Request
 *SearchSimilarApi* | [**Get**](docs/SearchSimilarApi.md#get) | **Get** /api/search_similar | [Get] Search For Similar Articles Request
 *SearchSimilarApi* | [**Post**](docs/SearchSimilarApi.md#post) | **Post** /api/search_similar | [Post] Search For Similar Articles Request
 *SourcesApi* | [**Get**](docs/SourcesApi.md#get) | **Get** /api/sources | [Get] Search For Sources Request
@@ -104,6 +109,7 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
+ - [AdditionalSourceInfo](docs/AdditionalSourceInfo.md)
  - [AllDomainLinksProperty](docs/AllDomainLinksProperty.md)
  - [AllLinksProperty](docs/AllLinksProperty.md)
  - [AuthorSearchRequest](docs/AuthorSearchRequest.md)
@@ -112,22 +118,16 @@ Class | Method | HTTP request | Description
  - [AuthorsProperty](docs/AuthorsProperty.md)
  - [Cluster](docs/Cluster.md)
  - [ClusteringSearchResponse](docs/ClusteringSearchResponse.md)
- - [CountriesProperty](docs/CountriesProperty.md)
  - [DtoResponsesAuthorSearchResponseArticleResult](docs/DtoResponsesAuthorSearchResponseArticleResult.md)
  - [DtoResponsesAuthorSearchResponseFailedSearchResponse](docs/DtoResponsesAuthorSearchResponseFailedSearchResponse.md)
  - [DtoResponsesAuthorSearchResponseSearchResponse](docs/DtoResponsesAuthorSearchResponseSearchResponse.md)
- - [DtoResponsesLatestHeadlinesResponseArticleResult](docs/DtoResponsesLatestHeadlinesResponseArticleResult.md)
  - [DtoResponsesMoreLikeThisResponseArticleResult](docs/DtoResponsesMoreLikeThisResponseArticleResult.md)
  - [DtoResponsesMoreLikeThisResponseFailedSearchResponse](docs/DtoResponsesMoreLikeThisResponseFailedSearchResponse.md)
  - [DtoResponsesMoreLikeThisResponseSearchResponse](docs/DtoResponsesMoreLikeThisResponseSearchResponse.md)
- - [DtoResponsesSearchResponseArticleResult](docs/DtoResponsesSearchResponseArticleResult.md)
- - [DtoResponsesSearchResponseFailedSearchResponse](docs/DtoResponsesSearchResponseFailedSearchResponse.md)
  - [DtoResponsesSearchResponseSearchResponse](docs/DtoResponsesSearchResponseSearchResponse.md)
- - [FailedLatestHeadlinesResponse](docs/FailedLatestHeadlinesResponse.md)
  - [From](docs/From.md)
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [JournalistsProperty](docs/JournalistsProperty.md)
- - [LangProperty](docs/LangProperty.md)
  - [LatestHeadlinesGetResponse](docs/LatestHeadlinesGetResponse.md)
  - [LatestHeadlinesPostResponse](docs/LatestHeadlinesPostResponse.md)
  - [LatestHeadlinesRequest](docs/LatestHeadlinesRequest.md)
@@ -139,10 +139,12 @@ Class | Method | HTTP request | Description
  - [SearchRequest](docs/SearchRequest.md)
  - [SearchSimilarGetResponse](docs/SearchSimilarGetResponse.md)
  - [SearchSimilarPostResponse](docs/SearchSimilarPostResponse.md)
+ - [SearchURLRequest](docs/SearchURLRequest.md)
  - [SimilarDocument](docs/SimilarDocument.md)
+ - [SourceInfo](docs/SourceInfo.md)
  - [SourceResponse](docs/SourceResponse.md)
+ - [SourcesPropertyInner](docs/SourcesPropertyInner.md)
  - [SourcesRequest](docs/SourcesRequest.md)
  - [SubscriptionResponse](docs/SubscriptionResponse.md)
  - [To](docs/To.md)
- - [UserInput](docs/UserInput.md)
  - [ValidationError](docs/ValidationError.md)

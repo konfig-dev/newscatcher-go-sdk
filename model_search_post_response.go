@@ -3,7 +3,7 @@ NewsCatcher-V3 Production API
 
 <img src='https://uploads-ssl.webflow.com/6429857b17973b636c2195c5/646c6f1eb774ff2f2997bec5_newscatcher_.svg' width='286' height='35' /> <br>  <br>Visit our website  <a href='https://newscatcherapi.com'>https://newscatcherapi.com</a>
 
-API version: Beta-3.0.0
+API version: 3.2.16
 Contact: maksym@newscatcherapi.com
 */
 
@@ -19,7 +19,6 @@ import (
 // SearchPostResponse struct for SearchPostResponse
 type SearchPostResponse struct {
 	ClusteringSearchResponse *ClusteringSearchResponse
-	DtoResponsesSearchResponseFailedSearchResponse *DtoResponsesSearchResponseFailedSearchResponse
 	DtoResponsesSearchResponseSearchResponse *DtoResponsesSearchResponseSearchResponse
 }
 
@@ -37,19 +36,6 @@ func (dst *SearchPostResponse) UnmarshalJSON(data []byte) error {
 		}
 	} else {
 		dst.ClusteringSearchResponse = nil
-	}
-
-	// try to unmarshal JSON data into DtoResponsesSearchResponseFailedSearchResponse
-	err = json.Unmarshal(data, &dst.DtoResponsesSearchResponseFailedSearchResponse);
-	if err == nil {
-		jsonDtoResponsesSearchResponseFailedSearchResponse, _ := json.Marshal(dst.DtoResponsesSearchResponseFailedSearchResponse)
-		if string(jsonDtoResponsesSearchResponseFailedSearchResponse) == "{}" { // empty struct
-			dst.DtoResponsesSearchResponseFailedSearchResponse = nil
-		} else {
-			return nil // data stored in dst.DtoResponsesSearchResponseFailedSearchResponse, return on the first match
-		}
-	} else {
-		dst.DtoResponsesSearchResponseFailedSearchResponse = nil
 	}
 
 	// try to unmarshal JSON data into DtoResponsesSearchResponseSearchResponse
@@ -72,10 +58,6 @@ func (dst *SearchPostResponse) UnmarshalJSON(data []byte) error {
 func (src *SearchPostResponse) MarshalJSON() ([]byte, error) {
 	if src.ClusteringSearchResponse != nil {
 		return json.Marshal(&src.ClusteringSearchResponse)
-	}
-
-	if src.DtoResponsesSearchResponseFailedSearchResponse != nil {
-		return json.Marshal(&src.DtoResponsesSearchResponseFailedSearchResponse)
 	}
 
 	if src.DtoResponsesSearchResponseSearchResponse != nil {

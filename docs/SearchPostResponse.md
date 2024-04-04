@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **Page** | **int32** |  | 
 **TotalPages** | **int32** |  | 
 **PageSize** | **int32** |  | 
-**Articles** | [**[]DtoResponsesSearchResponseArticleResult**](DtoResponsesSearchResponseArticleResult.md) |  | [default to []]
+**Articles** | **[]map[string]interface{}** |  | 
 **UserInput** | **map[string]interface{}** |  | 
 **ClustersCount** | **int32** |  | 
 **Clusters** | [**[]Cluster**](Cluster.md) |  | 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewSearchPostResponse
 
-`func NewSearchPostResponse(totalHits int32, page int32, totalPages int32, pageSize int32, articles []DtoResponsesSearchResponseArticleResult, userInput map[string]interface{}, clustersCount int32, clusters []Cluster, ) *SearchPostResponse`
+`func NewSearchPostResponse(totalHits int32, page int32, totalPages int32, pageSize int32, articles []map[string]interface{}, userInput map[string]interface{}, clustersCount int32, clusters []Cluster, ) *SearchPostResponse`
 
 NewSearchPostResponse instantiates a new SearchPostResponse object
 This constructor will assign default values to properties that have it defined,
@@ -140,20 +140,20 @@ SetPageSize sets PageSize field to given value.
 
 ### GetArticles
 
-`func (o *SearchPostResponse) GetArticles() []DtoResponsesSearchResponseArticleResult`
+`func (o *SearchPostResponse) GetArticles() []map[string]interface{}`
 
 GetArticles returns the Articles field if non-nil, zero value otherwise.
 
 ### GetArticlesOk
 
-`func (o *SearchPostResponse) GetArticlesOk() (*[]DtoResponsesSearchResponseArticleResult, bool)`
+`func (o *SearchPostResponse) GetArticlesOk() (*[]map[string]interface{}, bool)`
 
 GetArticlesOk returns a tuple with the Articles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetArticles
 
-`func (o *SearchPostResponse) SetArticles(v []DtoResponsesSearchResponseArticleResult)`
+`func (o *SearchPostResponse) SetArticles(v []map[string]interface{})`
 
 SetArticles sets Articles field to given value.
 

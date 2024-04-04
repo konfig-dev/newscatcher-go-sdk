@@ -5,14 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Message** | **string** |  | 
-**Sources** | **[]string** |  | 
-**UserInput** | [**UserInput**](UserInput.md) |  | 
+**Sources** | [**[]SourcesPropertyInner**](SourcesPropertyInner.md) |  | 
+**UserInput** | **map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewSourceResponse
 
-`func NewSourceResponse(message string, sources []string, userInput UserInput, ) *SourceResponse`
+`func NewSourceResponse(message string, sources []SourcesPropertyInner, userInput map[string]interface{}, ) *SourceResponse`
 
 NewSourceResponse instantiates a new SourceResponse object
 This constructor will assign default values to properties that have it defined,
@@ -49,40 +49,40 @@ SetMessage sets Message field to given value.
 
 ### GetSources
 
-`func (o *SourceResponse) GetSources() []string`
+`func (o *SourceResponse) GetSources() []SourcesPropertyInner`
 
 GetSources returns the Sources field if non-nil, zero value otherwise.
 
 ### GetSourcesOk
 
-`func (o *SourceResponse) GetSourcesOk() (*[]string, bool)`
+`func (o *SourceResponse) GetSourcesOk() (*[]SourcesPropertyInner, bool)`
 
 GetSourcesOk returns a tuple with the Sources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSources
 
-`func (o *SourceResponse) SetSources(v []string)`
+`func (o *SourceResponse) SetSources(v []SourcesPropertyInner)`
 
 SetSources sets Sources field to given value.
 
 
 ### GetUserInput
 
-`func (o *SourceResponse) GetUserInput() UserInput`
+`func (o *SourceResponse) GetUserInput() map[string]interface{}`
 
 GetUserInput returns the UserInput field if non-nil, zero value otherwise.
 
 ### GetUserInputOk
 
-`func (o *SourceResponse) GetUserInputOk() (*UserInput, bool)`
+`func (o *SourceResponse) GetUserInputOk() (*map[string]interface{}, bool)`
 
 GetUserInputOk returns a tuple with the UserInput field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserInput
 
-`func (o *SourceResponse) SetUserInput(v UserInput)`
+`func (o *SourceResponse) SetUserInput(v map[string]interface{})`
 
 SetUserInput sets UserInput field to given value.
 

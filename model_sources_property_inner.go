@@ -16,26 +16,26 @@ import (
 	"fmt"
 )
 
-// AuthorsProperty struct for AuthorsProperty
-type AuthorsProperty struct {
-	StringArray *[]string
+// SourcesPropertyInner struct for SourcesPropertyInner
+type SourcesPropertyInner struct {
+	SourceInfo *SourceInfo
 	String *string
 }
 
 // Unmarshal JSON data into any of the pointers in the struct
-func (dst *AuthorsProperty) UnmarshalJSON(data []byte) error {
+func (dst *SourcesPropertyInner) UnmarshalJSON(data []byte) error {
 	var err error
-	// try to unmarshal JSON data into []string
-	err = json.Unmarshal(data, &dst.StringArray);
+	// try to unmarshal JSON data into SourceInfo
+	err = json.Unmarshal(data, &dst.SourceInfo);
 	if err == nil {
-		jsonStringArray, _ := json.Marshal(dst.StringArray)
-		if string(jsonStringArray) == "{}" { // empty struct
-			dst.StringArray = nil
+		jsonSourceInfo, _ := json.Marshal(dst.SourceInfo)
+		if string(jsonSourceInfo) == "{}" { // empty struct
+			dst.SourceInfo = nil
 		} else {
-			return nil // data stored in dst.StringArray, return on the first match
+			return nil // data stored in dst.SourceInfo, return on the first match
 		}
 	} else {
-		dst.StringArray = nil
+		dst.SourceInfo = nil
 	}
 
 	// try to unmarshal JSON data into string
@@ -51,13 +51,13 @@ func (dst *AuthorsProperty) UnmarshalJSON(data []byte) error {
 		dst.String = nil
 	}
 
-	return fmt.Errorf("data failed to match schemas in anyOf(AuthorsProperty)")
+	return fmt.Errorf("data failed to match schemas in anyOf(SourcesPropertyInner)")
 }
 
 // Marshal data from the first non-nil pointers in the struct to JSON
-func (src *AuthorsProperty) MarshalJSON() ([]byte, error) {
-	if src.StringArray != nil {
-		return json.Marshal(&src.StringArray)
+func (src *SourcesPropertyInner) MarshalJSON() ([]byte, error) {
+	if src.SourceInfo != nil {
+		return json.Marshal(&src.SourceInfo)
 	}
 
 	if src.String != nil {
@@ -67,38 +67,38 @@ func (src *AuthorsProperty) MarshalJSON() ([]byte, error) {
 	return nil, nil // no data in anyOf schemas
 }
 
-type NullableAuthorsProperty struct {
-	value *AuthorsProperty
+type NullableSourcesPropertyInner struct {
+	value *SourcesPropertyInner
 	isSet bool
 }
 
-func (v NullableAuthorsProperty) Get() *AuthorsProperty {
+func (v NullableSourcesPropertyInner) Get() *SourcesPropertyInner {
 	return v.value
 }
 
-func (v *NullableAuthorsProperty) Set(val *AuthorsProperty) {
+func (v *NullableSourcesPropertyInner) Set(val *SourcesPropertyInner) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableAuthorsProperty) IsSet() bool {
+func (v NullableSourcesPropertyInner) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableAuthorsProperty) Unset() {
+func (v *NullableSourcesPropertyInner) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableAuthorsProperty(val *AuthorsProperty) *NullableAuthorsProperty {
-	return &NullableAuthorsProperty{value: val, isSet: true}
+func NewNullableSourcesPropertyInner(val *SourcesPropertyInner) *NullableSourcesPropertyInner {
+	return &NullableSourcesPropertyInner{value: val, isSet: true}
 }
 
-func (v NullableAuthorsProperty) MarshalJSON() ([]byte, error) {
+func (v NullableSourcesPropertyInner) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableAuthorsProperty) UnmarshalJSON(src []byte) error {
+func (v *NullableSourcesPropertyInner) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

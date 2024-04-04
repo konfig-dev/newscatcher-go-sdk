@@ -5,13 +5,14 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AuthorName** | **string** |  | 
-**Sources** | Pointer to **string** |  | [optional] 
-**PredefinedSources** | Pointer to **string** |  | [optional] 
-**NotSources** | Pointer to **string** |  | [optional] 
-**Lang** | Pointer to **string** |  | [optional] 
-**NotLang** | Pointer to **string** |  | [optional] 
-**Countries** | Pointer to **string** |  | [optional] 
-**NotCountries** | Pointer to **string** |  | [optional] 
+**NotAuthorName** | Pointer to **string** |  | [optional] 
+**Sources** | Pointer to **interface{}** |  | [optional] 
+**PredefinedSources** | Pointer to **interface{}** |  | [optional] 
+**NotSources** | Pointer to **interface{}** |  | [optional] 
+**Lang** | Pointer to **interface{}** |  | [optional] 
+**NotLang** | Pointer to **interface{}** |  | [optional] 
+**Countries** | Pointer to **interface{}** |  | [optional] 
+**NotCountries** | Pointer to **interface{}** |  | [optional] 
 **From** | Pointer to [**From**](From.md) |  | [optional] 
 **To** | Pointer to [**To**](To.md) |  | [optional] 
 **PublishedDatePrecision** | Pointer to **string** |  | [optional] 
@@ -22,9 +23,9 @@ Name | Type | Description | Notes
 **ToRank** | Pointer to **int32** |  | [optional] 
 **IsHeadline** | Pointer to **bool** |  | [optional] 
 **IsPaidContent** | Pointer to **bool** |  | [optional] 
-**ParentUrl** | Pointer to **string** |  | [optional] 
-**AllLinks** | Pointer to **string** |  | [optional] 
-**AllDomainLinks** | Pointer to **string** |  | [optional] 
+**ParentUrl** | Pointer to **interface{}** |  | [optional] 
+**AllLinks** | Pointer to **interface{}** |  | [optional] 
+**AllDomainLinks** | Pointer to **interface{}** |  | [optional] 
 **WordCountMin** | Pointer to **int32** |  | [optional] 
 **WordCountMax** | Pointer to **int32** |  | [optional] 
 **Page** | Pointer to **int32** |  | [optional] [default to 1]
@@ -32,11 +33,14 @@ Name | Type | Description | Notes
 **IncludeNlpData** | Pointer to **bool** |  | [optional] 
 **HasNlp** | Pointer to **bool** |  | [optional] 
 **Theme** | Pointer to **string** |  | [optional] 
+**NotTheme** | Pointer to **string** |  | [optional] 
 **NerName** | Pointer to **string** |  | [optional] 
 **TitleSentimentMin** | Pointer to **float32** |  | [optional] 
 **TitleSentimentMax** | Pointer to **float32** |  | [optional] 
 **ContentSentimentMin** | Pointer to **float32** |  | [optional] 
 **ContentSentimentMax** | Pointer to **float32** |  | [optional] 
+**IptcTags** | Pointer to **interface{}** |  | [optional] 
+**NotIptcTags** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
@@ -77,22 +81,47 @@ and a boolean to check if the value has been set.
 SetAuthorName sets AuthorName field to given value.
 
 
+### GetNotAuthorName
+
+`func (o *AuthorSearchRequest) GetNotAuthorName() string`
+
+GetNotAuthorName returns the NotAuthorName field if non-nil, zero value otherwise.
+
+### GetNotAuthorNameOk
+
+`func (o *AuthorSearchRequest) GetNotAuthorNameOk() (*string, bool)`
+
+GetNotAuthorNameOk returns a tuple with the NotAuthorName field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotAuthorName
+
+`func (o *AuthorSearchRequest) SetNotAuthorName(v string)`
+
+SetNotAuthorName sets NotAuthorName field to given value.
+
+### HasNotAuthorName
+
+`func (o *AuthorSearchRequest) HasNotAuthorName() bool`
+
+HasNotAuthorName returns a boolean if a field has been set.
+
 ### GetSources
 
-`func (o *AuthorSearchRequest) GetSources() string`
+`func (o *AuthorSearchRequest) GetSources() interface{}`
 
 GetSources returns the Sources field if non-nil, zero value otherwise.
 
 ### GetSourcesOk
 
-`func (o *AuthorSearchRequest) GetSourcesOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetSourcesOk() (*interface{}, bool)`
 
 GetSourcesOk returns a tuple with the Sources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetSources
 
-`func (o *AuthorSearchRequest) SetSources(v string)`
+`func (o *AuthorSearchRequest) SetSources(v interface{})`
 
 SetSources sets Sources field to given value.
 
@@ -102,22 +131,32 @@ SetSources sets Sources field to given value.
 
 HasSources returns a boolean if a field has been set.
 
+### SetSourcesNil
+
+`func (o *AuthorSearchRequest) SetSourcesNil(b bool)`
+
+ SetSourcesNil sets the value for Sources to be an explicit nil
+
+### UnsetSources
+`func (o *AuthorSearchRequest) UnsetSources()`
+
+UnsetSources ensures that no value is present for Sources, not even an explicit nil
 ### GetPredefinedSources
 
-`func (o *AuthorSearchRequest) GetPredefinedSources() string`
+`func (o *AuthorSearchRequest) GetPredefinedSources() interface{}`
 
 GetPredefinedSources returns the PredefinedSources field if non-nil, zero value otherwise.
 
 ### GetPredefinedSourcesOk
 
-`func (o *AuthorSearchRequest) GetPredefinedSourcesOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetPredefinedSourcesOk() (*interface{}, bool)`
 
 GetPredefinedSourcesOk returns a tuple with the PredefinedSources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPredefinedSources
 
-`func (o *AuthorSearchRequest) SetPredefinedSources(v string)`
+`func (o *AuthorSearchRequest) SetPredefinedSources(v interface{})`
 
 SetPredefinedSources sets PredefinedSources field to given value.
 
@@ -127,22 +166,32 @@ SetPredefinedSources sets PredefinedSources field to given value.
 
 HasPredefinedSources returns a boolean if a field has been set.
 
+### SetPredefinedSourcesNil
+
+`func (o *AuthorSearchRequest) SetPredefinedSourcesNil(b bool)`
+
+ SetPredefinedSourcesNil sets the value for PredefinedSources to be an explicit nil
+
+### UnsetPredefinedSources
+`func (o *AuthorSearchRequest) UnsetPredefinedSources()`
+
+UnsetPredefinedSources ensures that no value is present for PredefinedSources, not even an explicit nil
 ### GetNotSources
 
-`func (o *AuthorSearchRequest) GetNotSources() string`
+`func (o *AuthorSearchRequest) GetNotSources() interface{}`
 
 GetNotSources returns the NotSources field if non-nil, zero value otherwise.
 
 ### GetNotSourcesOk
 
-`func (o *AuthorSearchRequest) GetNotSourcesOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetNotSourcesOk() (*interface{}, bool)`
 
 GetNotSourcesOk returns a tuple with the NotSources field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotSources
 
-`func (o *AuthorSearchRequest) SetNotSources(v string)`
+`func (o *AuthorSearchRequest) SetNotSources(v interface{})`
 
 SetNotSources sets NotSources field to given value.
 
@@ -152,22 +201,32 @@ SetNotSources sets NotSources field to given value.
 
 HasNotSources returns a boolean if a field has been set.
 
+### SetNotSourcesNil
+
+`func (o *AuthorSearchRequest) SetNotSourcesNil(b bool)`
+
+ SetNotSourcesNil sets the value for NotSources to be an explicit nil
+
+### UnsetNotSources
+`func (o *AuthorSearchRequest) UnsetNotSources()`
+
+UnsetNotSources ensures that no value is present for NotSources, not even an explicit nil
 ### GetLang
 
-`func (o *AuthorSearchRequest) GetLang() string`
+`func (o *AuthorSearchRequest) GetLang() interface{}`
 
 GetLang returns the Lang field if non-nil, zero value otherwise.
 
 ### GetLangOk
 
-`func (o *AuthorSearchRequest) GetLangOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetLangOk() (*interface{}, bool)`
 
 GetLangOk returns a tuple with the Lang field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetLang
 
-`func (o *AuthorSearchRequest) SetLang(v string)`
+`func (o *AuthorSearchRequest) SetLang(v interface{})`
 
 SetLang sets Lang field to given value.
 
@@ -177,22 +236,32 @@ SetLang sets Lang field to given value.
 
 HasLang returns a boolean if a field has been set.
 
+### SetLangNil
+
+`func (o *AuthorSearchRequest) SetLangNil(b bool)`
+
+ SetLangNil sets the value for Lang to be an explicit nil
+
+### UnsetLang
+`func (o *AuthorSearchRequest) UnsetLang()`
+
+UnsetLang ensures that no value is present for Lang, not even an explicit nil
 ### GetNotLang
 
-`func (o *AuthorSearchRequest) GetNotLang() string`
+`func (o *AuthorSearchRequest) GetNotLang() interface{}`
 
 GetNotLang returns the NotLang field if non-nil, zero value otherwise.
 
 ### GetNotLangOk
 
-`func (o *AuthorSearchRequest) GetNotLangOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetNotLangOk() (*interface{}, bool)`
 
 GetNotLangOk returns a tuple with the NotLang field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotLang
 
-`func (o *AuthorSearchRequest) SetNotLang(v string)`
+`func (o *AuthorSearchRequest) SetNotLang(v interface{})`
 
 SetNotLang sets NotLang field to given value.
 
@@ -202,22 +271,32 @@ SetNotLang sets NotLang field to given value.
 
 HasNotLang returns a boolean if a field has been set.
 
+### SetNotLangNil
+
+`func (o *AuthorSearchRequest) SetNotLangNil(b bool)`
+
+ SetNotLangNil sets the value for NotLang to be an explicit nil
+
+### UnsetNotLang
+`func (o *AuthorSearchRequest) UnsetNotLang()`
+
+UnsetNotLang ensures that no value is present for NotLang, not even an explicit nil
 ### GetCountries
 
-`func (o *AuthorSearchRequest) GetCountries() string`
+`func (o *AuthorSearchRequest) GetCountries() interface{}`
 
 GetCountries returns the Countries field if non-nil, zero value otherwise.
 
 ### GetCountriesOk
 
-`func (o *AuthorSearchRequest) GetCountriesOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetCountriesOk() (*interface{}, bool)`
 
 GetCountriesOk returns a tuple with the Countries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetCountries
 
-`func (o *AuthorSearchRequest) SetCountries(v string)`
+`func (o *AuthorSearchRequest) SetCountries(v interface{})`
 
 SetCountries sets Countries field to given value.
 
@@ -227,22 +306,32 @@ SetCountries sets Countries field to given value.
 
 HasCountries returns a boolean if a field has been set.
 
+### SetCountriesNil
+
+`func (o *AuthorSearchRequest) SetCountriesNil(b bool)`
+
+ SetCountriesNil sets the value for Countries to be an explicit nil
+
+### UnsetCountries
+`func (o *AuthorSearchRequest) UnsetCountries()`
+
+UnsetCountries ensures that no value is present for Countries, not even an explicit nil
 ### GetNotCountries
 
-`func (o *AuthorSearchRequest) GetNotCountries() string`
+`func (o *AuthorSearchRequest) GetNotCountries() interface{}`
 
 GetNotCountries returns the NotCountries field if non-nil, zero value otherwise.
 
 ### GetNotCountriesOk
 
-`func (o *AuthorSearchRequest) GetNotCountriesOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetNotCountriesOk() (*interface{}, bool)`
 
 GetNotCountriesOk returns a tuple with the NotCountries field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetNotCountries
 
-`func (o *AuthorSearchRequest) SetNotCountries(v string)`
+`func (o *AuthorSearchRequest) SetNotCountries(v interface{})`
 
 SetNotCountries sets NotCountries field to given value.
 
@@ -252,6 +341,16 @@ SetNotCountries sets NotCountries field to given value.
 
 HasNotCountries returns a boolean if a field has been set.
 
+### SetNotCountriesNil
+
+`func (o *AuthorSearchRequest) SetNotCountriesNil(b bool)`
+
+ SetNotCountriesNil sets the value for NotCountries to be an explicit nil
+
+### UnsetNotCountries
+`func (o *AuthorSearchRequest) UnsetNotCountries()`
+
+UnsetNotCountries ensures that no value is present for NotCountries, not even an explicit nil
 ### GetFrom
 
 `func (o *AuthorSearchRequest) GetFrom() From`
@@ -504,20 +603,20 @@ HasIsPaidContent returns a boolean if a field has been set.
 
 ### GetParentUrl
 
-`func (o *AuthorSearchRequest) GetParentUrl() string`
+`func (o *AuthorSearchRequest) GetParentUrl() interface{}`
 
 GetParentUrl returns the ParentUrl field if non-nil, zero value otherwise.
 
 ### GetParentUrlOk
 
-`func (o *AuthorSearchRequest) GetParentUrlOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetParentUrlOk() (*interface{}, bool)`
 
 GetParentUrlOk returns a tuple with the ParentUrl field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetParentUrl
 
-`func (o *AuthorSearchRequest) SetParentUrl(v string)`
+`func (o *AuthorSearchRequest) SetParentUrl(v interface{})`
 
 SetParentUrl sets ParentUrl field to given value.
 
@@ -527,22 +626,32 @@ SetParentUrl sets ParentUrl field to given value.
 
 HasParentUrl returns a boolean if a field has been set.
 
+### SetParentUrlNil
+
+`func (o *AuthorSearchRequest) SetParentUrlNil(b bool)`
+
+ SetParentUrlNil sets the value for ParentUrl to be an explicit nil
+
+### UnsetParentUrl
+`func (o *AuthorSearchRequest) UnsetParentUrl()`
+
+UnsetParentUrl ensures that no value is present for ParentUrl, not even an explicit nil
 ### GetAllLinks
 
-`func (o *AuthorSearchRequest) GetAllLinks() string`
+`func (o *AuthorSearchRequest) GetAllLinks() interface{}`
 
 GetAllLinks returns the AllLinks field if non-nil, zero value otherwise.
 
 ### GetAllLinksOk
 
-`func (o *AuthorSearchRequest) GetAllLinksOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetAllLinksOk() (*interface{}, bool)`
 
 GetAllLinksOk returns a tuple with the AllLinks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllLinks
 
-`func (o *AuthorSearchRequest) SetAllLinks(v string)`
+`func (o *AuthorSearchRequest) SetAllLinks(v interface{})`
 
 SetAllLinks sets AllLinks field to given value.
 
@@ -552,22 +661,32 @@ SetAllLinks sets AllLinks field to given value.
 
 HasAllLinks returns a boolean if a field has been set.
 
+### SetAllLinksNil
+
+`func (o *AuthorSearchRequest) SetAllLinksNil(b bool)`
+
+ SetAllLinksNil sets the value for AllLinks to be an explicit nil
+
+### UnsetAllLinks
+`func (o *AuthorSearchRequest) UnsetAllLinks()`
+
+UnsetAllLinks ensures that no value is present for AllLinks, not even an explicit nil
 ### GetAllDomainLinks
 
-`func (o *AuthorSearchRequest) GetAllDomainLinks() string`
+`func (o *AuthorSearchRequest) GetAllDomainLinks() interface{}`
 
 GetAllDomainLinks returns the AllDomainLinks field if non-nil, zero value otherwise.
 
 ### GetAllDomainLinksOk
 
-`func (o *AuthorSearchRequest) GetAllDomainLinksOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetAllDomainLinksOk() (*interface{}, bool)`
 
 GetAllDomainLinksOk returns a tuple with the AllDomainLinks field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetAllDomainLinks
 
-`func (o *AuthorSearchRequest) SetAllDomainLinks(v string)`
+`func (o *AuthorSearchRequest) SetAllDomainLinks(v interface{})`
 
 SetAllDomainLinks sets AllDomainLinks field to given value.
 
@@ -577,6 +696,16 @@ SetAllDomainLinks sets AllDomainLinks field to given value.
 
 HasAllDomainLinks returns a boolean if a field has been set.
 
+### SetAllDomainLinksNil
+
+`func (o *AuthorSearchRequest) SetAllDomainLinksNil(b bool)`
+
+ SetAllDomainLinksNil sets the value for AllDomainLinks to be an explicit nil
+
+### UnsetAllDomainLinks
+`func (o *AuthorSearchRequest) UnsetAllDomainLinks()`
+
+UnsetAllDomainLinks ensures that no value is present for AllDomainLinks, not even an explicit nil
 ### GetWordCountMin
 
 `func (o *AuthorSearchRequest) GetWordCountMin() int32`
@@ -752,6 +881,31 @@ SetTheme sets Theme field to given value.
 
 HasTheme returns a boolean if a field has been set.
 
+### GetNotTheme
+
+`func (o *AuthorSearchRequest) GetNotTheme() string`
+
+GetNotTheme returns the NotTheme field if non-nil, zero value otherwise.
+
+### GetNotThemeOk
+
+`func (o *AuthorSearchRequest) GetNotThemeOk() (*string, bool)`
+
+GetNotThemeOk returns a tuple with the NotTheme field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotTheme
+
+`func (o *AuthorSearchRequest) SetNotTheme(v string)`
+
+SetNotTheme sets NotTheme field to given value.
+
+### HasNotTheme
+
+`func (o *AuthorSearchRequest) HasNotTheme() bool`
+
+HasNotTheme returns a boolean if a field has been set.
+
 ### GetNerName
 
 `func (o *AuthorSearchRequest) GetNerName() string`
@@ -877,6 +1031,76 @@ SetContentSentimentMax sets ContentSentimentMax field to given value.
 
 HasContentSentimentMax returns a boolean if a field has been set.
 
+### GetIptcTags
+
+`func (o *AuthorSearchRequest) GetIptcTags() interface{}`
+
+GetIptcTags returns the IptcTags field if non-nil, zero value otherwise.
+
+### GetIptcTagsOk
+
+`func (o *AuthorSearchRequest) GetIptcTagsOk() (*interface{}, bool)`
+
+GetIptcTagsOk returns a tuple with the IptcTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIptcTags
+
+`func (o *AuthorSearchRequest) SetIptcTags(v interface{})`
+
+SetIptcTags sets IptcTags field to given value.
+
+### HasIptcTags
+
+`func (o *AuthorSearchRequest) HasIptcTags() bool`
+
+HasIptcTags returns a boolean if a field has been set.
+
+### SetIptcTagsNil
+
+`func (o *AuthorSearchRequest) SetIptcTagsNil(b bool)`
+
+ SetIptcTagsNil sets the value for IptcTags to be an explicit nil
+
+### UnsetIptcTags
+`func (o *AuthorSearchRequest) UnsetIptcTags()`
+
+UnsetIptcTags ensures that no value is present for IptcTags, not even an explicit nil
+### GetNotIptcTags
+
+`func (o *AuthorSearchRequest) GetNotIptcTags() interface{}`
+
+GetNotIptcTags returns the NotIptcTags field if non-nil, zero value otherwise.
+
+### GetNotIptcTagsOk
+
+`func (o *AuthorSearchRequest) GetNotIptcTagsOk() (*interface{}, bool)`
+
+GetNotIptcTagsOk returns a tuple with the NotIptcTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotIptcTags
+
+`func (o *AuthorSearchRequest) SetNotIptcTags(v interface{})`
+
+SetNotIptcTags sets NotIptcTags field to given value.
+
+### HasNotIptcTags
+
+`func (o *AuthorSearchRequest) HasNotIptcTags() bool`
+
+HasNotIptcTags returns a boolean if a field has been set.
+
+### SetNotIptcTagsNil
+
+`func (o *AuthorSearchRequest) SetNotIptcTagsNil(b bool)`
+
+ SetNotIptcTagsNil sets the value for NotIptcTags to be an explicit nil
+
+### UnsetNotIptcTags
+`func (o *AuthorSearchRequest) UnsetNotIptcTags()`
+
+UnsetNotIptcTags ensures that no value is present for NotIptcTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

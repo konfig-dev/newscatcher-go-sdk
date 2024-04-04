@@ -4,21 +4,21 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **string** |  | [optional] [default to "No Matches for your search"]
-**TotalHits** | **int32** |  | [default to 0]
-**Page** | **int32** |  | [default to 0]
-**TotalPages** | **int32** |  | [default to 0]
-**PageSize** | **int32** |  | [default to 0]
+**Status** | Pointer to **string** |  | [optional] [default to "ok"]
+**TotalHits** | **int32** |  | 
+**Page** | **int32** |  | 
+**TotalPages** | **int32** |  | 
+**PageSize** | **int32** |  | 
 **ClustersCount** | **int32** |  | 
 **Clusters** | [**[]Cluster**](Cluster.md) |  | 
 **UserInput** | **map[string]interface{}** |  | 
-**Articles** | [**[]DtoResponsesLatestHeadlinesResponseArticleResult**](DtoResponsesLatestHeadlinesResponseArticleResult.md) |  | [default to []]
+**Articles** | **[]map[string]interface{}** |  | 
 
 ## Methods
 
 ### NewLatestHeadlinesPostResponse
 
-`func NewLatestHeadlinesPostResponse(totalHits int32, page int32, totalPages int32, pageSize int32, clustersCount int32, clusters []Cluster, userInput map[string]interface{}, articles []DtoResponsesLatestHeadlinesResponseArticleResult, ) *LatestHeadlinesPostResponse`
+`func NewLatestHeadlinesPostResponse(totalHits int32, page int32, totalPages int32, pageSize int32, clustersCount int32, clusters []Cluster, userInput map[string]interface{}, articles []map[string]interface{}, ) *LatestHeadlinesPostResponse`
 
 NewLatestHeadlinesPostResponse instantiates a new LatestHeadlinesPostResponse object
 This constructor will assign default values to properties that have it defined,
@@ -200,20 +200,20 @@ SetUserInput sets UserInput field to given value.
 
 ### GetArticles
 
-`func (o *LatestHeadlinesPostResponse) GetArticles() []DtoResponsesLatestHeadlinesResponseArticleResult`
+`func (o *LatestHeadlinesPostResponse) GetArticles() []map[string]interface{}`
 
 GetArticles returns the Articles field if non-nil, zero value otherwise.
 
 ### GetArticlesOk
 
-`func (o *LatestHeadlinesPostResponse) GetArticlesOk() (*[]DtoResponsesLatestHeadlinesResponseArticleResult, bool)`
+`func (o *LatestHeadlinesPostResponse) GetArticlesOk() (*[]map[string]interface{}, bool)`
 
 GetArticlesOk returns a tuple with the Articles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetArticles
 
-`func (o *LatestHeadlinesPostResponse) SetArticles(v []DtoResponsesLatestHeadlinesResponseArticleResult)`
+`func (o *LatestHeadlinesPostResponse) SetArticles(v []map[string]interface{})`
 
 SetArticles sets Articles field to given value.
 
