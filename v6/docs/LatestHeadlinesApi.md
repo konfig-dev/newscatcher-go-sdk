@@ -70,6 +70,8 @@ func main() {
     request.ContentSentimentMax(8.14)
     request.IptcTags()
     request.NotIptcTags()
+    request.IabTags()
+    request.NotIabTags()
     
     resp, httpRes, err := request.Execute()
 
@@ -157,6 +159,8 @@ func main() {
     latestHeadlinesRequest.SetContentSentimentMax(null)
     latestHeadlinesRequest.SetIptcTags(null)
     latestHeadlinesRequest.SetNotIptcTags(null)
+    latestHeadlinesRequest.SetIabTags(null)
+    latestHeadlinesRequest.SetNotIabTags(null)
     
     request := client.LatestHeadlinesApi.Post(
         latestHeadlinesRequest,

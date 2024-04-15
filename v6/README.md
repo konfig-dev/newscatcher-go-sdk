@@ -66,6 +66,8 @@ func main() {
     request.ContentSentimentMax(8.14)
     request.IptcTags()
     request.NotIptcTags()
+    request.IabTags()
+    request.NotIabTags()
     
     resp, httpRes, err := request.Execute()
 

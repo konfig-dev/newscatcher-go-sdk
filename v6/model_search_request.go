@@ -63,6 +63,7 @@ type SearchRequest struct {
 	NotIptcTags interface{} `json:"not_iptc_tags,omitempty"`
 	SourceName interface{} `json:"source_name,omitempty"`
 	IabTags interface{} `json:"iab_tags,omitempty"`
+	NotIabTags interface{} `json:"not_iab_tags,omitempty"`
 }
 
 // NewSearchRequest instantiates a new SearchRequest object
@@ -1582,6 +1583,39 @@ func (o *SearchRequest) SetIabTags(v interface{}) {
 	o.IabTags = v
 }
 
+// GetNotIabTags returns the NotIabTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *SearchRequest) GetNotIabTags() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.NotIabTags
+}
+
+// GetNotIabTagsOk returns a tuple with the NotIabTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *SearchRequest) GetNotIabTagsOk() (*interface{}, bool) {
+	if o == nil || isNil(o.NotIabTags) {
+    return nil, false
+	}
+	return &o.NotIabTags, true
+}
+
+// HasNotIabTags returns a boolean if a field has been set.
+func (o *SearchRequest) HasNotIabTags() bool {
+	if o != nil && isNil(o.NotIabTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotIabTags gets a reference to the given interface{} and assigns it to the NotIabTags field.
+func (o *SearchRequest) SetNotIabTags(v interface{}) {
+	o.NotIabTags = v
+}
+
 func (o SearchRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -1721,6 +1755,9 @@ func (o SearchRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.IabTags != nil {
 		toSerialize["iab_tags"] = o.IabTags
+	}
+	if o.NotIabTags != nil {
+		toSerialize["not_iab_tags"] = o.NotIabTags
 	}
 	return json.Marshal(toSerialize)
 }

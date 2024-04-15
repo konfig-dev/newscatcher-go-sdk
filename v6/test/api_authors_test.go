@@ -66,6 +66,8 @@ func Test_newscatcherapi_AuthorsApiService(t *testing.T) {
         request.ContentSentimentMax(8.14)
         request.IptcTags()
         request.NotIptcTags()
+        request.IabTags()
+        request.NotIabTags()
         
         resp, httpRes, err := request.Execute()
 
@@ -119,6 +121,8 @@ func Test_newscatcherapi_AuthorsApiService(t *testing.T) {
         authorSearchRequest.SetContentSentimentMax(null)
         authorSearchRequest.SetIptcTags(null)
         authorSearchRequest.SetNotIptcTags(null)
+        authorSearchRequest.SetIabTags(null)
+        authorSearchRequest.SetNotIabTags(null)
         
         request := client.AuthorsApi.Post(
             authorSearchRequest,

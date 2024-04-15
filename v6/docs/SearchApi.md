@@ -79,6 +79,7 @@ func main() {
     request.NotIptcTags()
     request.SourceName()
     request.IabTags()
+    request.NotIabTags()
     
     resp, httpRes, err := request.Execute()
 
@@ -178,6 +179,7 @@ func main() {
     searchRequest.SetNotIptcTags(null)
     searchRequest.SetSourceName(null)
     searchRequest.SetIabTags(null)
+    searchRequest.SetNotIabTags(null)
     
     request := client.SearchApi.Post(
         searchRequest,

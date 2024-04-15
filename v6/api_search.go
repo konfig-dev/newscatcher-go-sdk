@@ -72,6 +72,7 @@ type SearchApiGetRequest struct {
 	notIptcTags *interface{}
 	sourceName *interface{}
 	iabTags *interface{}
+	notIabTags *interface{}
 }
 
 func (r *SearchApiGetRequest) SearchIn(searchIn string) *SearchApiGetRequest {
@@ -299,6 +300,11 @@ func (r *SearchApiGetRequest) IabTags(iabTags interface{}) *SearchApiGetRequest 
 	return r
 }
 
+func (r *SearchApiGetRequest) NotIabTags(notIabTags interface{}) *SearchApiGetRequest {
+	r.notIabTags = &notIabTags
+	return r
+}
+
 func (r SearchApiGetRequest) Execute() (*SearchGetResponse, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
@@ -488,6 +494,9 @@ func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*SearchGetResponse
 	}
 	if r.iabTags != nil {
 		localVarQueryParams.Add("iab_tags", parameterToString(*r.iabTags, ""))
+	}
+	if r.notIabTags != nil {
+		localVarQueryParams.Add("not_iab_tags", parameterToString(*r.notIabTags, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

@@ -63,6 +63,8 @@ type LatestHeadlinesApiGetRequest struct {
 	contentSentimentMax *float32
 	iptcTags *interface{}
 	notIptcTags *interface{}
+	iabTags *interface{}
+	notIabTags *interface{}
 }
 
 func (r *LatestHeadlinesApiGetRequest) When(when string) *LatestHeadlinesApiGetRequest {
@@ -250,6 +252,16 @@ func (r *LatestHeadlinesApiGetRequest) NotIptcTags(notIptcTags interface{}) *Lat
 	return r
 }
 
+func (r *LatestHeadlinesApiGetRequest) IabTags(iabTags interface{}) *LatestHeadlinesApiGetRequest {
+	r.iabTags = &iabTags
+	return r
+}
+
+func (r *LatestHeadlinesApiGetRequest) NotIabTags(notIabTags interface{}) *LatestHeadlinesApiGetRequest {
+	r.notIabTags = &notIabTags
+	return r
+}
+
 func (r LatestHeadlinesApiGetRequest) Execute() (*LatestHeadlinesGetResponse, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
@@ -412,6 +424,12 @@ func (a *LatestHeadlinesApiService) GetExecute(r LatestHeadlinesApiGetRequest) (
 	}
 	if r.notIptcTags != nil {
 		localVarQueryParams.Add("not_iptc_tags", parameterToString(*r.notIptcTags, ""))
+	}
+	if r.iabTags != nil {
+		localVarQueryParams.Add("iab_tags", parameterToString(*r.iabTags, ""))
+	}
+	if r.notIabTags != nil {
+		localVarQueryParams.Add("not_iab_tags", parameterToString(*r.notIabTags, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

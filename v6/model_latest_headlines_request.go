@@ -54,6 +54,8 @@ type LatestHeadlinesRequest struct {
 	ContentSentimentMax *float32 `json:"content_sentiment_max,omitempty"`
 	IptcTags interface{} `json:"iptc_tags,omitempty"`
 	NotIptcTags interface{} `json:"not_iptc_tags,omitempty"`
+	IabTags interface{} `json:"iab_tags,omitempty"`
+	NotIabTags interface{} `json:"not_iab_tags,omitempty"`
 }
 
 // NewLatestHeadlinesRequest instantiates a new LatestHeadlinesRequest object
@@ -1286,6 +1288,72 @@ func (o *LatestHeadlinesRequest) SetNotIptcTags(v interface{}) {
 	o.NotIptcTags = v
 }
 
+// GetIabTags returns the IabTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetIabTags() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.IabTags
+}
+
+// GetIabTagsOk returns a tuple with the IabTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetIabTagsOk() (*interface{}, bool) {
+	if o == nil || isNil(o.IabTags) {
+    return nil, false
+	}
+	return &o.IabTags, true
+}
+
+// HasIabTags returns a boolean if a field has been set.
+func (o *LatestHeadlinesRequest) HasIabTags() bool {
+	if o != nil && isNil(o.IabTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetIabTags gets a reference to the given interface{} and assigns it to the IabTags field.
+func (o *LatestHeadlinesRequest) SetIabTags(v interface{}) {
+	o.IabTags = v
+}
+
+// GetNotIabTags returns the NotIabTags field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *LatestHeadlinesRequest) GetNotIabTags() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.NotIabTags
+}
+
+// GetNotIabTagsOk returns a tuple with the NotIabTags field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *LatestHeadlinesRequest) GetNotIabTagsOk() (*interface{}, bool) {
+	if o == nil || isNil(o.NotIabTags) {
+    return nil, false
+	}
+	return &o.NotIabTags, true
+}
+
+// HasNotIabTags returns a boolean if a field has been set.
+func (o *LatestHeadlinesRequest) HasNotIabTags() bool {
+	if o != nil && isNil(o.NotIabTags) {
+		return true
+	}
+
+	return false
+}
+
+// SetNotIabTags gets a reference to the given interface{} and assigns it to the NotIabTags field.
+func (o *LatestHeadlinesRequest) SetNotIabTags(v interface{}) {
+	o.NotIabTags = v
+}
+
 func (o LatestHeadlinesRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.When) {
@@ -1398,6 +1466,12 @@ func (o LatestHeadlinesRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.NotIptcTags != nil {
 		toSerialize["not_iptc_tags"] = o.NotIptcTags
+	}
+	if o.IabTags != nil {
+		toSerialize["iab_tags"] = o.IabTags
+	}
+	if o.NotIabTags != nil {
+		toSerialize["not_iab_tags"] = o.NotIabTags
 	}
 	return json.Marshal(toSerialize)
 }

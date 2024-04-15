@@ -70,6 +70,8 @@ func main() {
     request.ContentSentimentMax(8.14)
     request.IptcTags()
     request.NotIptcTags()
+    request.IabTags()
+    request.NotIabTags()
     
     resp, httpRes, err := request.Execute()
 
@@ -158,6 +160,8 @@ func main() {
     authorSearchRequest.SetContentSentimentMax(null)
     authorSearchRequest.SetIptcTags(null)
     authorSearchRequest.SetNotIptcTags(null)
+    authorSearchRequest.SetIabTags(null)
+    authorSearchRequest.SetNotIabTags(null)
     
     request := client.AuthorsApi.Post(
         authorSearchRequest,

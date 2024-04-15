@@ -41,6 +41,8 @@ Name | Type | Description | Notes
 **ContentSentimentMax** | Pointer to **float32** |  | [optional] 
 **IptcTags** | Pointer to **interface{}** |  | [optional] 
 **NotIptcTags** | Pointer to **interface{}** |  | [optional] 
+**IabTags** | Pointer to **interface{}** |  | [optional] 
+**NotIabTags** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
@@ -1101,6 +1103,76 @@ HasNotIptcTags returns a boolean if a field has been set.
 `func (o *AuthorSearchRequest) UnsetNotIptcTags()`
 
 UnsetNotIptcTags ensures that no value is present for NotIptcTags, not even an explicit nil
+### GetIabTags
+
+`func (o *AuthorSearchRequest) GetIabTags() interface{}`
+
+GetIabTags returns the IabTags field if non-nil, zero value otherwise.
+
+### GetIabTagsOk
+
+`func (o *AuthorSearchRequest) GetIabTagsOk() (*interface{}, bool)`
+
+GetIabTagsOk returns a tuple with the IabTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIabTags
+
+`func (o *AuthorSearchRequest) SetIabTags(v interface{})`
+
+SetIabTags sets IabTags field to given value.
+
+### HasIabTags
+
+`func (o *AuthorSearchRequest) HasIabTags() bool`
+
+HasIabTags returns a boolean if a field has been set.
+
+### SetIabTagsNil
+
+`func (o *AuthorSearchRequest) SetIabTagsNil(b bool)`
+
+ SetIabTagsNil sets the value for IabTags to be an explicit nil
+
+### UnsetIabTags
+`func (o *AuthorSearchRequest) UnsetIabTags()`
+
+UnsetIabTags ensures that no value is present for IabTags, not even an explicit nil
+### GetNotIabTags
+
+`func (o *AuthorSearchRequest) GetNotIabTags() interface{}`
+
+GetNotIabTags returns the NotIabTags field if non-nil, zero value otherwise.
+
+### GetNotIabTagsOk
+
+`func (o *AuthorSearchRequest) GetNotIabTagsOk() (*interface{}, bool)`
+
+GetNotIabTagsOk returns a tuple with the NotIabTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotIabTags
+
+`func (o *AuthorSearchRequest) SetNotIabTags(v interface{})`
+
+SetNotIabTags sets NotIabTags field to given value.
+
+### HasNotIabTags
+
+`func (o *AuthorSearchRequest) HasNotIabTags() bool`
+
+HasNotIabTags returns a boolean if a field has been set.
+
+### SetNotIabTagsNil
+
+`func (o *AuthorSearchRequest) SetNotIabTagsNil(b bool)`
+
+ SetNotIabTagsNil sets the value for NotIabTags to be an explicit nil
+
+### UnsetNotIabTags
+`func (o *AuthorSearchRequest) UnsetNotIabTags()`
+
+UnsetNotIabTags ensures that no value is present for NotIabTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

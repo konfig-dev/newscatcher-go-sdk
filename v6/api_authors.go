@@ -63,6 +63,8 @@ type AuthorsApiGetRequest struct {
 	contentSentimentMax *float32
 	iptcTags *interface{}
 	notIptcTags *interface{}
+	iabTags *interface{}
+	notIabTags *interface{}
 }
 
 func (r *AuthorsApiGetRequest) NotAuthorName(notAuthorName string) *AuthorsApiGetRequest {
@@ -245,6 +247,16 @@ func (r *AuthorsApiGetRequest) NotIptcTags(notIptcTags interface{}) *AuthorsApiG
 	return r
 }
 
+func (r *AuthorsApiGetRequest) IabTags(iabTags interface{}) *AuthorsApiGetRequest {
+	r.iabTags = &iabTags
+	return r
+}
+
+func (r *AuthorsApiGetRequest) NotIabTags(notIabTags interface{}) *AuthorsApiGetRequest {
+	r.notIabTags = &notIabTags
+	return r
+}
+
 func (r AuthorsApiGetRequest) Execute() (*AuthorsGetResponse, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
@@ -407,6 +419,12 @@ func (a *AuthorsApiService) GetExecute(r AuthorsApiGetRequest) (*AuthorsGetRespo
 	}
 	if r.notIptcTags != nil {
 		localVarQueryParams.Add("not_iptc_tags", parameterToString(*r.notIptcTags, ""))
+	}
+	if r.iabTags != nil {
+		localVarQueryParams.Add("iab_tags", parameterToString(*r.iabTags, ""))
+	}
+	if r.notIabTags != nil {
+		localVarQueryParams.Add("not_iab_tags", parameterToString(*r.notIabTags, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

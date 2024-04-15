@@ -41,6 +41,8 @@ Name | Type | Description | Notes
 **ContentSentimentMax** | Pointer to **float32** |  | [optional] 
 **IptcTags** | Pointer to **interface{}** |  | [optional] 
 **NotIptcTags** | Pointer to **interface{}** |  | [optional] 
+**IabTags** | Pointer to **interface{}** |  | [optional] 
+**NotIabTags** | Pointer to **interface{}** |  | [optional] 
 
 ## Methods
 
@@ -1116,6 +1118,76 @@ HasNotIptcTags returns a boolean if a field has been set.
 `func (o *LatestHeadlinesRequest) UnsetNotIptcTags()`
 
 UnsetNotIptcTags ensures that no value is present for NotIptcTags, not even an explicit nil
+### GetIabTags
+
+`func (o *LatestHeadlinesRequest) GetIabTags() interface{}`
+
+GetIabTags returns the IabTags field if non-nil, zero value otherwise.
+
+### GetIabTagsOk
+
+`func (o *LatestHeadlinesRequest) GetIabTagsOk() (*interface{}, bool)`
+
+GetIabTagsOk returns a tuple with the IabTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIabTags
+
+`func (o *LatestHeadlinesRequest) SetIabTags(v interface{})`
+
+SetIabTags sets IabTags field to given value.
+
+### HasIabTags
+
+`func (o *LatestHeadlinesRequest) HasIabTags() bool`
+
+HasIabTags returns a boolean if a field has been set.
+
+### SetIabTagsNil
+
+`func (o *LatestHeadlinesRequest) SetIabTagsNil(b bool)`
+
+ SetIabTagsNil sets the value for IabTags to be an explicit nil
+
+### UnsetIabTags
+`func (o *LatestHeadlinesRequest) UnsetIabTags()`
+
+UnsetIabTags ensures that no value is present for IabTags, not even an explicit nil
+### GetNotIabTags
+
+`func (o *LatestHeadlinesRequest) GetNotIabTags() interface{}`
+
+GetNotIabTags returns the NotIabTags field if non-nil, zero value otherwise.
+
+### GetNotIabTagsOk
+
+`func (o *LatestHeadlinesRequest) GetNotIabTagsOk() (*interface{}, bool)`
+
+GetNotIabTagsOk returns a tuple with the NotIabTags field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetNotIabTags
+
+`func (o *LatestHeadlinesRequest) SetNotIabTags(v interface{})`
+
+SetNotIabTags sets NotIabTags field to given value.
+
+### HasNotIabTags
+
+`func (o *LatestHeadlinesRequest) HasNotIabTags() bool`
+
+HasNotIabTags returns a boolean if a field has been set.
+
+### SetNotIabTagsNil
+
+`func (o *LatestHeadlinesRequest) SetNotIabTagsNil(b bool)`
+
+ SetNotIabTagsNil sets the value for NotIabTags to be an explicit nil
+
+### UnsetNotIabTags
+`func (o *LatestHeadlinesRequest) UnsetNotIabTags()`
+
+UnsetNotIabTags ensures that no value is present for NotIabTags, not even an explicit nil
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
