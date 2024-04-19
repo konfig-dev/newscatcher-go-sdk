@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// LatestHeadlinesResponse struct for LatestHeadlinesResponse
+// LatestHeadlinesResponse LatestHeadlinesResponse DTO class.
 type LatestHeadlinesResponse struct {
 	Status *string `json:"status,omitempty"`
 	TotalHits int32 `json:"total_hits"`

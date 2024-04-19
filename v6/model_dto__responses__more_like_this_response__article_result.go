@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// DtoResponsesMoreLikeThisResponseArticleResult struct for DtoResponsesMoreLikeThisResponseArticleResult
+// DtoResponsesMoreLikeThisResponseArticleResult ArticleResult DTO class.
 type DtoResponsesMoreLikeThisResponseArticleResult struct {
 	Title string `json:"title"`
 	Description *string `json:"description,omitempty"`

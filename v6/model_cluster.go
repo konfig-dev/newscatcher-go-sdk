@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// Cluster struct for Cluster
+// Cluster Cluster DTO class.
 type Cluster struct {
 	ClusterId string `json:"cluster_id"`
 	ClusterSize int32 `json:"cluster_size"`

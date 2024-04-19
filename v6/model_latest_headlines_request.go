@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// LatestHeadlinesRequest struct for LatestHeadlinesRequest
+// LatestHeadlinesRequest Latest headlines request DTO.
 type LatestHeadlinesRequest struct {
 	When *string `json:"when,omitempty"`
 	ByParseDate *bool `json:"by_parse_date,omitempty"`

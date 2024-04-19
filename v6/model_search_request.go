@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// SearchRequest struct for SearchRequest
+// SearchRequest Search request DTO
 type SearchRequest struct {
 	Q string `json:"q"`
 	SearchIn *string `json:"search_in,omitempty"`

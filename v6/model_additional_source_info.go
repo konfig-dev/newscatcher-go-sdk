@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// AdditionalSourceInfo struct for AdditionalSourceInfo
+// AdditionalSourceInfo AdditionalSourceInfo DTO class.
 type AdditionalSourceInfo struct {
 	NbArticlesFor7d *int32 `json:"nb_articles_for_7d,omitempty"`
 	Country *string `json:"country,omitempty"`

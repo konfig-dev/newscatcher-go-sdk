@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// SourceResponse struct for SourceResponse
+// SourceResponse SourceResponse DTO class.
 type SourceResponse struct {
 	Message string `json:"message"`
 	Sources []SourcesPropertyInner `json:"sources"`

@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// DtoResponsesAuthorSearchResponseArticleResult struct for DtoResponsesAuthorSearchResponseArticleResult
+// DtoResponsesAuthorSearchResponseArticleResult Article result data model
 type DtoResponsesAuthorSearchResponseArticleResult struct {
 	Title string `json:"title"`
 	Description *string `json:"description,omitempty"`

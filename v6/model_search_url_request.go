@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// SearchURLRequest struct for SearchURLRequest
+// SearchURLRequest Search URL Request DTO.
 type SearchURLRequest struct {
 	Ids interface{} `json:"ids,omitempty"`
 	Links interface{} `json:"links,omitempty"`

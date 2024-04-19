@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// MoreLikeThisRequest struct for MoreLikeThisRequest
+// MoreLikeThisRequest More like this request DTO.
 type MoreLikeThisRequest struct {
 	Q string `json:"q"`
 	SearchIn *string `json:"search_in,omitempty"`

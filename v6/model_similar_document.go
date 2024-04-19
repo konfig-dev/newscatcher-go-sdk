@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// SimilarDocument struct for SimilarDocument
+// SimilarDocument SimilarDocument DTO class.
 type SimilarDocument struct {
 	Title string `json:"title"`
 	Id string `json:"id"`

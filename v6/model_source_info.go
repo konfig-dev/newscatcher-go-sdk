@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// SourceInfo struct for SourceInfo
+// SourceInfo \"SourceInfo DTO class.
 type SourceInfo struct {
 	NameSource *string `json:"name_source,omitempty"`
 	DomainUrl string `json:"domain_url"`

@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// AuthorSearchRequest struct for AuthorSearchRequest
+// AuthorSearchRequest Author search request DTO.
 type AuthorSearchRequest struct {
 	AuthorName string `json:"author_name"`
 	NotAuthorName *string `json:"not_author_name,omitempty"`

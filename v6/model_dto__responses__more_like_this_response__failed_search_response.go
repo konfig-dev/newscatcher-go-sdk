@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// DtoResponsesMoreLikeThisResponseFailedSearchResponse struct for DtoResponsesMoreLikeThisResponseFailedSearchResponse
+// DtoResponsesMoreLikeThisResponseFailedSearchResponse FailedSearchResponse DTO class.
 type DtoResponsesMoreLikeThisResponseFailedSearchResponse struct {
 	Status *string `json:"status,omitempty"`
 	TotalHits *int32 `json:"total_hits,omitempty"`

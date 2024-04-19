@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// SubscriptionResponse struct for SubscriptionResponse
+// SubscriptionResponse SubscriptionResponse DTO class.
 type SubscriptionResponse struct {
 	Active bool `json:"active"`
 	CallsPerSeconds *int32 `json:"calls_per_seconds,omitempty"`

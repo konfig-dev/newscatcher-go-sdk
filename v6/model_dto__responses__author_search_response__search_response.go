@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// DtoResponsesAuthorSearchResponseSearchResponse struct for DtoResponsesAuthorSearchResponseSearchResponse
+// DtoResponsesAuthorSearchResponseSearchResponse Search response data model
 type DtoResponsesAuthorSearchResponseSearchResponse struct {
 	Status *string `json:"status,omitempty"`
 	TotalHits int32 `json:"total_hits"`

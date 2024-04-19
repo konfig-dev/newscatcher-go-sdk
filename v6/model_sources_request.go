@@ -15,7 +15,7 @@ import (
 	"encoding/json"
 )
 
-// SourcesRequest struct for SourcesRequest
+// SourcesRequest Sources request DTO
 type SourcesRequest struct {
 	Lang *string `json:"lang,omitempty"`
 	Countries *string `json:"countries,omitempty"`
