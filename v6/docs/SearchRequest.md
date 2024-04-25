@@ -51,6 +51,7 @@ Name | Type | Description | Notes
 **SourceName** | Pointer to **interface{}** |  | [optional] 
 **IabTags** | Pointer to **interface{}** |  | [optional] 
 **NotIabTags** | Pointer to **interface{}** |  | [optional] 
+**ExcludeDuplicates** | Pointer to **bool** |  | [optional] 
 
 ## Methods
 
@@ -1401,6 +1402,31 @@ HasNotIabTags returns a boolean if a field has been set.
 `func (o *SearchRequest) UnsetNotIabTags()`
 
 UnsetNotIabTags ensures that no value is present for NotIabTags, not even an explicit nil
+### GetExcludeDuplicates
+
+`func (o *SearchRequest) GetExcludeDuplicates() bool`
+
+GetExcludeDuplicates returns the ExcludeDuplicates field if non-nil, zero value otherwise.
+
+### GetExcludeDuplicatesOk
+
+`func (o *SearchRequest) GetExcludeDuplicatesOk() (*bool, bool)`
+
+GetExcludeDuplicatesOk returns a tuple with the ExcludeDuplicates field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetExcludeDuplicates
+
+`func (o *SearchRequest) SetExcludeDuplicates(v bool)`
+
+SetExcludeDuplicates sets ExcludeDuplicates field to given value.
+
+### HasExcludeDuplicates
+
+`func (o *SearchRequest) HasExcludeDuplicates() bool`
+
+HasExcludeDuplicates returns a boolean if a field has been set.
+
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

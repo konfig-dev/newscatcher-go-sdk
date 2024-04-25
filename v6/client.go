@@ -63,6 +63,8 @@ type APIClient struct {
 	SourcesApi *SourcesApiService
 
 	SubscriptionApi *SubscriptionApiService
+
+	SearchDuplicatesByOriginalIdApi *SearchDuplicatesByOriginalIdApiService
 }
 
 type service struct {
@@ -88,6 +90,7 @@ func NewAPIClient(cfg *Configuration) *APIClient {
 	c.SearchSimilarApi = (*SearchSimilarApiService)(&c.common)
 	c.SourcesApi = (*SourcesApiService)(&c.common)
 	c.SubscriptionApi = (*SubscriptionApiService)(&c.common)
+	c.SearchDuplicatesByOriginalIdApi = (*SearchDuplicatesByOriginalIdApiService)(&c.common)
 
 	return c
 }

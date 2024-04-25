@@ -73,6 +73,7 @@ type SearchApiGetRequest struct {
 	sourceName *interface{}
 	iabTags *interface{}
 	notIabTags *interface{}
+	excludeDuplicates *bool
 }
 
 func (r *SearchApiGetRequest) SearchIn(searchIn string) *SearchApiGetRequest {
@@ -305,6 +306,11 @@ func (r *SearchApiGetRequest) NotIabTags(notIabTags interface{}) *SearchApiGetRe
 	return r
 }
 
+func (r *SearchApiGetRequest) ExcludeDuplicates(excludeDuplicates bool) *SearchApiGetRequest {
+	r.excludeDuplicates = &excludeDuplicates
+	return r
+}
+
 func (r SearchApiGetRequest) Execute() (*SearchGetResponse, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
@@ -497,6 +503,9 @@ func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*SearchGetResponse
 	}
 	if r.notIabTags != nil {
 		localVarQueryParams.Add("not_iab_tags", parameterToString(*r.notIabTags, ""))
+	}
+	if r.excludeDuplicates != nil {
+		localVarQueryParams.Add("exclude_duplicates", parameterToString(*r.excludeDuplicates, ""))
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{}

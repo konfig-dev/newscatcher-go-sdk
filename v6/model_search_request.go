@@ -64,6 +64,7 @@ type SearchRequest struct {
 	SourceName interface{} `json:"source_name,omitempty"`
 	IabTags interface{} `json:"iab_tags,omitempty"`
 	NotIabTags interface{} `json:"not_iab_tags,omitempty"`
+	ExcludeDuplicates *bool `json:"exclude_duplicates,omitempty"`
 }
 
 // NewSearchRequest instantiates a new SearchRequest object
@@ -1616,6 +1617,38 @@ func (o *SearchRequest) SetNotIabTags(v interface{}) {
 	o.NotIabTags = v
 }
 
+// GetExcludeDuplicates returns the ExcludeDuplicates field value if set, zero value otherwise.
+func (o *SearchRequest) GetExcludeDuplicates() bool {
+	if o == nil || isNil(o.ExcludeDuplicates) {
+		var ret bool
+		return ret
+	}
+	return *o.ExcludeDuplicates
+}
+
+// GetExcludeDuplicatesOk returns a tuple with the ExcludeDuplicates field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SearchRequest) GetExcludeDuplicatesOk() (*bool, bool) {
+	if o == nil || isNil(o.ExcludeDuplicates) {
+    return nil, false
+	}
+	return o.ExcludeDuplicates, true
+}
+
+// HasExcludeDuplicates returns a boolean if a field has been set.
+func (o *SearchRequest) HasExcludeDuplicates() bool {
+	if o != nil && !isNil(o.ExcludeDuplicates) {
+		return true
+	}
+
+	return false
+}
+
+// SetExcludeDuplicates gets a reference to the given bool and assigns it to the ExcludeDuplicates field.
+func (o *SearchRequest) SetExcludeDuplicates(v bool) {
+	o.ExcludeDuplicates = &v
+}
+
 func (o SearchRequest) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if true {
@@ -1758,6 +1791,9 @@ func (o SearchRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.NotIabTags != nil {
 		toSerialize["not_iab_tags"] = o.NotIabTags
+	}
+	if !isNil(o.ExcludeDuplicates) {
+		toSerialize["exclude_duplicates"] = o.ExcludeDuplicates
 	}
 	return json.Marshal(toSerialize)
 }

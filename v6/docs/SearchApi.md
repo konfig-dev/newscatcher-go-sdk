@@ -80,6 +80,7 @@ func main() {
     request.SourceName()
     request.IabTags()
     request.NotIabTags()
+    request.ExcludeDuplicates(true)
     
     resp, httpRes, err := request.Execute()
 
@@ -180,6 +181,7 @@ func main() {
     searchRequest.SetSourceName(null)
     searchRequest.SetIabTags(null)
     searchRequest.SetNotIabTags(null)
+    searchRequest.SetExcludeDuplicates(null)
     
     request := client.SearchApi.Post(
         searchRequest,
