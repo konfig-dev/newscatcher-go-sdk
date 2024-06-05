@@ -47,6 +47,7 @@ func main() {
     request.FromRank(56)
     request.ToRank(56)
     request.IsHeadline(true)
+    request.IsOpinion(true)
     request.IsPaidContent(true)
     request.ParentUrl()
     request.AllLinks()

@@ -38,6 +38,7 @@ type MoreLikeThisRequest struct {
 	FromRank *int32 `json:"from_rank,omitempty"`
 	ToRank *int32 `json:"to_rank,omitempty"`
 	IsHeadline *bool `json:"is_headline,omitempty"`
+	IsOpinion *bool `json:"is_opinion,omitempty"`
 	IsPaidContent *bool `json:"is_paid_content,omitempty"`
 	ParentUrl interface{} `json:"parent_url,omitempty"`
 	AllLinks interface{} `json:"all_links,omitempty"`
@@ -780,6 +781,38 @@ func (o *MoreLikeThisRequest) SetIsHeadline(v bool) {
 	o.IsHeadline = &v
 }
 
+// GetIsOpinion returns the IsOpinion field value if set, zero value otherwise.
+func (o *MoreLikeThisRequest) GetIsOpinion() bool {
+	if o == nil || isNil(o.IsOpinion) {
+		var ret bool
+		return ret
+	}
+	return *o.IsOpinion
+}
+
+// GetIsOpinionOk returns a tuple with the IsOpinion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *MoreLikeThisRequest) GetIsOpinionOk() (*bool, bool) {
+	if o == nil || isNil(o.IsOpinion) {
+    return nil, false
+	}
+	return o.IsOpinion, true
+}
+
+// HasIsOpinion returns a boolean if a field has been set.
+func (o *MoreLikeThisRequest) HasIsOpinion() bool {
+	if o != nil && !isNil(o.IsOpinion) {
+		return true
+	}
+
+	return false
+}
+
+// SetIsOpinion gets a reference to the given bool and assigns it to the IsOpinion field.
+func (o *MoreLikeThisRequest) SetIsOpinion(v bool) {
+	o.IsOpinion = &v
+}
+
 // GetIsPaidContent returns the IsPaidContent field value if set, zero value otherwise.
 func (o *MoreLikeThisRequest) GetIsPaidContent() bool {
 	if o == nil || isNil(o.IsPaidContent) {
@@ -1457,6 +1490,9 @@ func (o MoreLikeThisRequest) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.IsHeadline) {
 		toSerialize["is_headline"] = o.IsHeadline
+	}
+	if !isNil(o.IsOpinion) {
+		toSerialize["is_opinion"] = o.IsOpinion
 	}
 	if !isNil(o.IsPaidContent) {
 		toSerialize["is_paid_content"] = o.IsPaidContent

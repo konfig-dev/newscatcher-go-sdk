@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **FromRank** | Pointer to **int32** |  | [optional] 
 **ToRank** | Pointer to **int32** |  | [optional] 
 **IsHeadline** | Pointer to **bool** |  | [optional] 
+**IsOpinion** | Pointer to **bool** |  | [optional] 
 **IsPaidContent** | Pointer to **bool** |  | [optional] 
 **ParentUrl** | Pointer to **interface{}** |  | [optional] 
 **AllLinks** | Pointer to **interface{}** |  | [optional] 
@@ -621,6 +622,31 @@ SetIsHeadline sets IsHeadline field to given value.
 `func (o *SearchRequest) HasIsHeadline() bool`
 
 HasIsHeadline returns a boolean if a field has been set.
+
+### GetIsOpinion
+
+`func (o *SearchRequest) GetIsOpinion() bool`
+
+GetIsOpinion returns the IsOpinion field if non-nil, zero value otherwise.
+
+### GetIsOpinionOk
+
+`func (o *SearchRequest) GetIsOpinionOk() (*bool, bool)`
+
+GetIsOpinionOk returns a tuple with the IsOpinion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsOpinion
+
+`func (o *SearchRequest) SetIsOpinion(v bool)`
+
+SetIsOpinion sets IsOpinion field to given value.
+
+### HasIsOpinion
+
+`func (o *SearchRequest) HasIsOpinion() bool`
+
+HasIsOpinion returns a boolean if a field has been set.
 
 ### GetIsPaidContent
 

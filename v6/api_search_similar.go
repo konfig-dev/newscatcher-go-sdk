@@ -47,6 +47,7 @@ type SearchSimilarApiGetRequest struct {
 	fromRank *int32
 	toRank *int32
 	isHeadline *bool
+	isOpinion *bool
 	isPaidContent *bool
 	parentUrl *interface{}
 	allLinks *interface{}
@@ -165,6 +166,11 @@ func (r *SearchSimilarApiGetRequest) ToRank(toRank int32) *SearchSimilarApiGetRe
 
 func (r *SearchSimilarApiGetRequest) IsHeadline(isHeadline bool) *SearchSimilarApiGetRequest {
 	r.isHeadline = &isHeadline
+	return r
+}
+
+func (r *SearchSimilarApiGetRequest) IsOpinion(isOpinion bool) *SearchSimilarApiGetRequest {
+	r.isOpinion = &isOpinion
 	return r
 }
 
@@ -380,6 +386,9 @@ func (a *SearchSimilarApiService) GetExecute(r SearchSimilarApiGetRequest) (*Sea
 	}
 	if r.isHeadline != nil {
 		localVarQueryParams.Add("is_headline", parameterToString(*r.isHeadline, ""))
+	}
+	if r.isOpinion != nil {
+		localVarQueryParams.Add("is_opinion", parameterToString(*r.isOpinion, ""))
 	}
 	if r.isPaidContent != nil {
 		localVarQueryParams.Add("is_paid_content", parameterToString(*r.isPaidContent, ""))

@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **NotAuthorName** | Pointer to **interface{}** |  | [optional] 
 **RankedOnly** | Pointer to **string** |  | [optional] 
 **IsHeadline** | Pointer to **bool** |  | [optional] 
+**IsOpinion** | Pointer to **bool** |  | [optional] 
 **IsPaidContent** | Pointer to **bool** |  | [optional] 
 **ParentUrl** | Pointer to **interface{}** |  | [optional] 
 **AllLinks** | Pointer to **interface{}** |  | [optional] 
@@ -442,6 +443,31 @@ SetIsHeadline sets IsHeadline field to given value.
 `func (o *LatestHeadlinesRequest) HasIsHeadline() bool`
 
 HasIsHeadline returns a boolean if a field has been set.
+
+### GetIsOpinion
+
+`func (o *LatestHeadlinesRequest) GetIsOpinion() bool`
+
+GetIsOpinion returns the IsOpinion field if non-nil, zero value otherwise.
+
+### GetIsOpinionOk
+
+`func (o *LatestHeadlinesRequest) GetIsOpinionOk() (*bool, bool)`
+
+GetIsOpinionOk returns a tuple with the IsOpinion field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetIsOpinion
+
+`func (o *LatestHeadlinesRequest) SetIsOpinion(v bool)`
+
+SetIsOpinion sets IsOpinion field to given value.
+
+### HasIsOpinion
+
+`func (o *LatestHeadlinesRequest) HasIsOpinion() bool`
+
+HasIsOpinion returns a boolean if a field has been set.
 
 ### GetIsPaidContent
 

@@ -38,6 +38,7 @@ type LatestHeadlinesApiGetRequest struct {
 	notAuthorName *interface{}
 	rankedOnly *string
 	isHeadline *bool
+	isOpinion *bool
 	isPaidContent *bool
 	parentUrl *interface{}
 	allLinks *interface{}
@@ -124,6 +125,11 @@ func (r *LatestHeadlinesApiGetRequest) RankedOnly(rankedOnly string) *LatestHead
 
 func (r *LatestHeadlinesApiGetRequest) IsHeadline(isHeadline bool) *LatestHeadlinesApiGetRequest {
 	r.isHeadline = &isHeadline
+	return r
+}
+
+func (r *LatestHeadlinesApiGetRequest) IsOpinion(isOpinion bool) *LatestHeadlinesApiGetRequest {
+	r.isOpinion = &isOpinion
 	return r
 }
 
@@ -349,6 +355,9 @@ func (a *LatestHeadlinesApiService) GetExecute(r LatestHeadlinesApiGetRequest) (
 	}
 	if r.isHeadline != nil {
 		localVarQueryParams.Add("is_headline", parameterToString(*r.isHeadline, ""))
+	}
+	if r.isOpinion != nil {
+		localVarQueryParams.Add("is_opinion", parameterToString(*r.isOpinion, ""))
 	}
 	if r.isPaidContent != nil {
 		localVarQueryParams.Add("is_paid_content", parameterToString(*r.isPaidContent, ""))

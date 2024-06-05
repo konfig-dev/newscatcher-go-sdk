@@ -44,6 +44,7 @@ type AuthorsApiGetRequest struct {
 	fromRank *int32
 	toRank *int32
 	isHeadline *bool
+	isOpinion *bool
 	isPaidContent *bool
 	parentUrl *interface{}
 	allLinks *interface{}
@@ -149,6 +150,11 @@ func (r *AuthorsApiGetRequest) ToRank(toRank int32) *AuthorsApiGetRequest {
 
 func (r *AuthorsApiGetRequest) IsHeadline(isHeadline bool) *AuthorsApiGetRequest {
 	r.isHeadline = &isHeadline
+	return r
+}
+
+func (r *AuthorsApiGetRequest) IsOpinion(isOpinion bool) *AuthorsApiGetRequest {
+	r.isOpinion = &isOpinion
 	return r
 }
 
@@ -362,6 +368,9 @@ func (a *AuthorsApiService) GetExecute(r AuthorsApiGetRequest) (*AuthorsGetRespo
 	}
 	if r.isHeadline != nil {
 		localVarQueryParams.Add("is_headline", parameterToString(*r.isHeadline, ""))
+	}
+	if r.isOpinion != nil {
+		localVarQueryParams.Add("is_opinion", parameterToString(*r.isOpinion, ""))
 	}
 	if r.isPaidContent != nil {
 		localVarQueryParams.Add("is_paid_content", parameterToString(*r.isPaidContent, ""))
