@@ -91,10 +91,10 @@ func (a *SearchLinkApiService) GetExecute(r SearchLinkApiGetRequest) (*DtoRespon
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if *r.page < 0 {
+	if r.page != nil && *r.page < 0 {
 		return localVarReturnValue, nil, reportError("page must be greater than 0")
 	}
-	if *r.pageSize < 0 {
+	if r.pageSize != nil && *r.pageSize < 0 {
 		return localVarReturnValue, nil, reportError("pageSize must be greater than 0")
 	}
 

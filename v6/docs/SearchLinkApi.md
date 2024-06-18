@@ -51,8 +51,10 @@ func main() {
     fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Get.Page`: %v\n", resp.Page)
     fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Get.TotalPages`: %v\n", resp.TotalPages)
     fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Get.PageSize`: %v\n", resp.PageSize)
-    fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Get.Articles`: %v\n", resp.Articles)
+    fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Get.Articles`: %v\n", *resp.Articles)
     fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Get.UserInput`: %v\n", resp.UserInput)
+    fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Get.ClustersCount`: %v\n", *resp.ClustersCount)
+    fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Get.Clusters`: %v\n", *resp.Clusters)
 }
 ```
 
@@ -107,8 +109,10 @@ func main() {
     fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Post.Page`: %v\n", resp.Page)
     fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Post.TotalPages`: %v\n", resp.TotalPages)
     fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Post.PageSize`: %v\n", resp.PageSize)
-    fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Post.Articles`: %v\n", resp.Articles)
+    fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Post.Articles`: %v\n", *resp.Articles)
     fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Post.UserInput`: %v\n", resp.UserInput)
+    fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Post.ClustersCount`: %v\n", *resp.ClustersCount)
+    fmt.Fprintf(os.Stdout, "Response from `DtoResponsesSearchResponseSearchResponse.Post.Clusters`: %v\n", *resp.Clusters)
 }
 ```
 

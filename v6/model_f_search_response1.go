@@ -15,41 +15,41 @@ import (
 	"encoding/json"
 )
 
-// DtoResponsesMoreLikeThisResponseSearchResponse SearchResponse DTO class.
-type DtoResponsesMoreLikeThisResponseSearchResponse struct {
+// FSearchResponse1 Search response data model
+type FSearchResponse1 struct {
 	Status *string `json:"status,omitempty"`
 	TotalHits *int32 `json:"total_hits,omitempty"`
 	Page *int32 `json:"page,omitempty"`
 	TotalPages *int32 `json:"total_pages,omitempty"`
 	PageSize *int32 `json:"page_size,omitempty"`
-	Articles []ArticlesPropertyInner1 `json:"articles,omitempty"`
+	Articles []ArticlesPropertyInner `json:"articles,omitempty"`
 	UserInput map[string]interface{} `json:"user_input"`
 }
 
-// NewDtoResponsesMoreLikeThisResponseSearchResponse instantiates a new DtoResponsesMoreLikeThisResponseSearchResponse object
+// NewFSearchResponse1 instantiates a new FSearchResponse1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDtoResponsesMoreLikeThisResponseSearchResponse(userInput map[string]interface{}) *DtoResponsesMoreLikeThisResponseSearchResponse {
-	this := DtoResponsesMoreLikeThisResponseSearchResponse{}
+func NewFSearchResponse1(userInput map[string]interface{}) *FSearchResponse1 {
+	this := FSearchResponse1{}
 	var status string = "ok"
 	this.Status = &status
 	this.UserInput = userInput
 	return &this
 }
 
-// NewDtoResponsesMoreLikeThisResponseSearchResponseWithDefaults instantiates a new DtoResponsesMoreLikeThisResponseSearchResponse object
+// NewFSearchResponse1WithDefaults instantiates a new FSearchResponse1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewDtoResponsesMoreLikeThisResponseSearchResponseWithDefaults() *DtoResponsesMoreLikeThisResponseSearchResponse {
-	this := DtoResponsesMoreLikeThisResponseSearchResponse{}
+func NewFSearchResponse1WithDefaults() *FSearchResponse1 {
+	this := FSearchResponse1{}
 	var status string = "ok"
 	this.Status = &status
 	return &this
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetStatus() string {
+func (o *FSearchResponse1) GetStatus() string {
 	if o == nil || isNil(o.Status) {
 		var ret string
 		return ret
@@ -59,7 +59,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetStatusOk() (*string, bool) {
+func (o *FSearchResponse1) GetStatusOk() (*string, bool) {
 	if o == nil || isNil(o.Status) {
     return nil, false
 	}
@@ -67,7 +67,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetStatusOk() (*string,
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasStatus() bool {
+func (o *FSearchResponse1) HasStatus() bool {
 	if o != nil && !isNil(o.Status) {
 		return true
 	}
@@ -76,12 +76,12 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasStatus() bool {
 }
 
 // SetStatus gets a reference to the given string and assigns it to the Status field.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) SetStatus(v string) {
+func (o *FSearchResponse1) SetStatus(v string) {
 	o.Status = &v
 }
 
 // GetTotalHits returns the TotalHits field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetTotalHits() int32 {
+func (o *FSearchResponse1) GetTotalHits() int32 {
 	if o == nil || isNil(o.TotalHits) {
 		var ret int32
 		return ret
@@ -91,7 +91,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetTotalHits() int32 {
 
 // GetTotalHitsOk returns a tuple with the TotalHits field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetTotalHitsOk() (*int32, bool) {
+func (o *FSearchResponse1) GetTotalHitsOk() (*int32, bool) {
 	if o == nil || isNil(o.TotalHits) {
     return nil, false
 	}
@@ -99,7 +99,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetTotalHitsOk() (*int3
 }
 
 // HasTotalHits returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasTotalHits() bool {
+func (o *FSearchResponse1) HasTotalHits() bool {
 	if o != nil && !isNil(o.TotalHits) {
 		return true
 	}
@@ -108,12 +108,12 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasTotalHits() bool {
 }
 
 // SetTotalHits gets a reference to the given int32 and assigns it to the TotalHits field.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) SetTotalHits(v int32) {
+func (o *FSearchResponse1) SetTotalHits(v int32) {
 	o.TotalHits = &v
 }
 
 // GetPage returns the Page field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetPage() int32 {
+func (o *FSearchResponse1) GetPage() int32 {
 	if o == nil || isNil(o.Page) {
 		var ret int32
 		return ret
@@ -123,7 +123,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetPage() int32 {
 
 // GetPageOk returns a tuple with the Page field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetPageOk() (*int32, bool) {
+func (o *FSearchResponse1) GetPageOk() (*int32, bool) {
 	if o == nil || isNil(o.Page) {
     return nil, false
 	}
@@ -131,7 +131,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetPageOk() (*int32, bo
 }
 
 // HasPage returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasPage() bool {
+func (o *FSearchResponse1) HasPage() bool {
 	if o != nil && !isNil(o.Page) {
 		return true
 	}
@@ -140,12 +140,12 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasPage() bool {
 }
 
 // SetPage gets a reference to the given int32 and assigns it to the Page field.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) SetPage(v int32) {
+func (o *FSearchResponse1) SetPage(v int32) {
 	o.Page = &v
 }
 
 // GetTotalPages returns the TotalPages field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetTotalPages() int32 {
+func (o *FSearchResponse1) GetTotalPages() int32 {
 	if o == nil || isNil(o.TotalPages) {
 		var ret int32
 		return ret
@@ -155,7 +155,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetTotalPages() int32 {
 
 // GetTotalPagesOk returns a tuple with the TotalPages field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetTotalPagesOk() (*int32, bool) {
+func (o *FSearchResponse1) GetTotalPagesOk() (*int32, bool) {
 	if o == nil || isNil(o.TotalPages) {
     return nil, false
 	}
@@ -163,7 +163,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetTotalPagesOk() (*int
 }
 
 // HasTotalPages returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasTotalPages() bool {
+func (o *FSearchResponse1) HasTotalPages() bool {
 	if o != nil && !isNil(o.TotalPages) {
 		return true
 	}
@@ -172,12 +172,12 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasTotalPages() bool {
 }
 
 // SetTotalPages gets a reference to the given int32 and assigns it to the TotalPages field.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) SetTotalPages(v int32) {
+func (o *FSearchResponse1) SetTotalPages(v int32) {
 	o.TotalPages = &v
 }
 
 // GetPageSize returns the PageSize field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetPageSize() int32 {
+func (o *FSearchResponse1) GetPageSize() int32 {
 	if o == nil || isNil(o.PageSize) {
 		var ret int32
 		return ret
@@ -187,7 +187,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetPageSize() int32 {
 
 // GetPageSizeOk returns a tuple with the PageSize field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetPageSizeOk() (*int32, bool) {
+func (o *FSearchResponse1) GetPageSizeOk() (*int32, bool) {
 	if o == nil || isNil(o.PageSize) {
     return nil, false
 	}
@@ -195,7 +195,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetPageSizeOk() (*int32
 }
 
 // HasPageSize returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasPageSize() bool {
+func (o *FSearchResponse1) HasPageSize() bool {
 	if o != nil && !isNil(o.PageSize) {
 		return true
 	}
@@ -204,14 +204,14 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasPageSize() bool {
 }
 
 // SetPageSize gets a reference to the given int32 and assigns it to the PageSize field.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) SetPageSize(v int32) {
+func (o *FSearchResponse1) SetPageSize(v int32) {
 	o.PageSize = &v
 }
 
 // GetArticles returns the Articles field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetArticles() []ArticlesPropertyInner1 {
+func (o *FSearchResponse1) GetArticles() []ArticlesPropertyInner {
 	if o == nil || isNil(o.Articles) {
-		var ret []ArticlesPropertyInner1
+		var ret []ArticlesPropertyInner
 		return ret
 	}
 	return o.Articles
@@ -219,7 +219,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetArticles() []Article
 
 // GetArticlesOk returns a tuple with the Articles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetArticlesOk() ([]ArticlesPropertyInner1, bool) {
+func (o *FSearchResponse1) GetArticlesOk() ([]ArticlesPropertyInner, bool) {
 	if o == nil || isNil(o.Articles) {
     return nil, false
 	}
@@ -227,7 +227,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetArticlesOk() ([]Arti
 }
 
 // HasArticles returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasArticles() bool {
+func (o *FSearchResponse1) HasArticles() bool {
 	if o != nil && !isNil(o.Articles) {
 		return true
 	}
@@ -235,13 +235,13 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) HasArticles() bool {
 	return false
 }
 
-// SetArticles gets a reference to the given []ArticlesPropertyInner1 and assigns it to the Articles field.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) SetArticles(v []ArticlesPropertyInner1) {
+// SetArticles gets a reference to the given []ArticlesPropertyInner and assigns it to the Articles field.
+func (o *FSearchResponse1) SetArticles(v []ArticlesPropertyInner) {
 	o.Articles = v
 }
 
 // GetUserInput returns the UserInput field value
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetUserInput() map[string]interface{} {
+func (o *FSearchResponse1) GetUserInput() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -252,7 +252,7 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetUserInput() map[stri
 
 // GetUserInputOk returns a tuple with the UserInput field value
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetUserInputOk() (map[string]interface{}, bool) {
+func (o *FSearchResponse1) GetUserInputOk() (map[string]interface{}, bool) {
 	if o == nil {
     return map[string]interface{}{}, false
 	}
@@ -260,11 +260,11 @@ func (o *DtoResponsesMoreLikeThisResponseSearchResponse) GetUserInputOk() (map[s
 }
 
 // SetUserInput sets field value
-func (o *DtoResponsesMoreLikeThisResponseSearchResponse) SetUserInput(v map[string]interface{}) {
+func (o *FSearchResponse1) SetUserInput(v map[string]interface{}) {
 	o.UserInput = v
 }
 
-func (o DtoResponsesMoreLikeThisResponseSearchResponse) MarshalJSON() ([]byte, error) {
+func (o FSearchResponse1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Status) {
 		toSerialize["status"] = o.Status
@@ -290,38 +290,38 @@ func (o DtoResponsesMoreLikeThisResponseSearchResponse) MarshalJSON() ([]byte, e
 	return json.Marshal(toSerialize)
 }
 
-type NullableDtoResponsesMoreLikeThisResponseSearchResponse struct {
-	value *DtoResponsesMoreLikeThisResponseSearchResponse
+type NullableFSearchResponse1 struct {
+	value *FSearchResponse1
 	isSet bool
 }
 
-func (v NullableDtoResponsesMoreLikeThisResponseSearchResponse) Get() *DtoResponsesMoreLikeThisResponseSearchResponse {
+func (v NullableFSearchResponse1) Get() *FSearchResponse1 {
 	return v.value
 }
 
-func (v *NullableDtoResponsesMoreLikeThisResponseSearchResponse) Set(val *DtoResponsesMoreLikeThisResponseSearchResponse) {
+func (v *NullableFSearchResponse1) Set(val *FSearchResponse1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableDtoResponsesMoreLikeThisResponseSearchResponse) IsSet() bool {
+func (v NullableFSearchResponse1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableDtoResponsesMoreLikeThisResponseSearchResponse) Unset() {
+func (v *NullableFSearchResponse1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableDtoResponsesMoreLikeThisResponseSearchResponse(val *DtoResponsesMoreLikeThisResponseSearchResponse) *NullableDtoResponsesMoreLikeThisResponseSearchResponse {
-	return &NullableDtoResponsesMoreLikeThisResponseSearchResponse{value: val, isSet: true}
+func NewNullableFSearchResponse1(val *FSearchResponse1) *NullableFSearchResponse1 {
+	return &NullableFSearchResponse1{value: val, isSet: true}
 }
 
-func (v NullableDtoResponsesMoreLikeThisResponseSearchResponse) MarshalJSON() ([]byte, error) {
+func (v NullableFSearchResponse1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableDtoResponsesMoreLikeThisResponseSearchResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableFSearchResponse1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

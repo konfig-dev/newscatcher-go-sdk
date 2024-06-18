@@ -39,8 +39,8 @@ func Test_newscatcherapi_SearchApiService(t *testing.T) {
         request.Countries()
         request.NotCountries()
         request.NotAuthorName()
-        request.From(from)
-        request.To(to)
+        request.From("from_example")
+        request.To("to_example")
         request.PublishedDatePrecision("publishedDatePrecision_example")
         request.ByParseDate(false)
         request.SortBy(""relevancy"")
@@ -89,8 +89,6 @@ func Test_newscatcherapi_SearchApiService(t *testing.T) {
 
     t.Run("Test SearchApiService Post", func(t *testing.T) {
         /* TODO: ENG-1367 Fix parameter values for Go SDK generated tests
-        from := *newscatcherapi.NewFrom()
-        to := *newscatcherapi.NewTo()
         
         searchRequest := *newscatcherapi.NewSearchRequest(
             "null",
@@ -104,8 +102,8 @@ func Test_newscatcherapi_SearchApiService(t *testing.T) {
         searchRequest.SetCountries(null)
         searchRequest.SetNotCountries(null)
         searchRequest.SetNotAuthorName(null)
-        searchRequest.SetFrom(from)
-        searchRequest.SetTo(to)
+        searchRequest.SetFrom("null")
+        searchRequest.SetTo("null")
         searchRequest.SetPublishedDatePrecision("null")
         searchRequest.SetByParseDate(false)
         searchRequest.SetSortBy("relevancy")

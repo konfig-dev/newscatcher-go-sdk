@@ -1,4 +1,4 @@
-# To
+# ArticlesPropertyInnerAllLinks
 
 ## Properties
 
@@ -7,20 +7,20 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewTo
+### NewArticlesPropertyInnerAllLinks
 
-`func NewTo() *To`
+`func NewArticlesPropertyInnerAllLinks() *ArticlesPropertyInnerAllLinks`
 
-NewTo instantiates a new To object
+NewArticlesPropertyInnerAllLinks instantiates a new ArticlesPropertyInnerAllLinks object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewToWithDefaults
+### NewArticlesPropertyInnerAllLinksWithDefaults
 
-`func NewToWithDefaults() *To`
+`func NewArticlesPropertyInnerAllLinksWithDefaults() *ArticlesPropertyInnerAllLinks`
 
-NewToWithDefaults instantiates a new To object
+NewArticlesPropertyInnerAllLinksWithDefaults instantiates a new ArticlesPropertyInnerAllLinks object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 

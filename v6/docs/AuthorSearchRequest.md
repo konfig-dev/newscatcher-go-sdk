@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **NotLang** | Pointer to **interface{}** |  | [optional] 
 **Countries** | Pointer to **interface{}** |  | [optional] 
 **NotCountries** | Pointer to **interface{}** |  | [optional] 
-**From** | Pointer to [**From**](From.md) |  | [optional] 
-**To** | Pointer to [**To**](To.md) |  | [optional] 
+**From** | Pointer to **string** |  | [optional] 
+**To** | Pointer to **string** |  | [optional] 
 **PublishedDatePrecision** | Pointer to **string** |  | [optional] 
 **ByParseDate** | Pointer to **bool** |  | [optional] [default to false]
 **SortBy** | Pointer to **string** |  | [optional] [default to "relevancy"]
@@ -356,20 +356,20 @@ HasNotCountries returns a boolean if a field has been set.
 UnsetNotCountries ensures that no value is present for NotCountries, not even an explicit nil
 ### GetFrom
 
-`func (o *AuthorSearchRequest) GetFrom() From`
+`func (o *AuthorSearchRequest) GetFrom() string`
 
 GetFrom returns the From field if non-nil, zero value otherwise.
 
 ### GetFromOk
 
-`func (o *AuthorSearchRequest) GetFromOk() (*From, bool)`
+`func (o *AuthorSearchRequest) GetFromOk() (*string, bool)`
 
 GetFromOk returns a tuple with the From field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFrom
 
-`func (o *AuthorSearchRequest) SetFrom(v From)`
+`func (o *AuthorSearchRequest) SetFrom(v string)`
 
 SetFrom sets From field to given value.
 
@@ -381,20 +381,20 @@ HasFrom returns a boolean if a field has been set.
 
 ### GetTo
 
-`func (o *AuthorSearchRequest) GetTo() To`
+`func (o *AuthorSearchRequest) GetTo() string`
 
 GetTo returns the To field if non-nil, zero value otherwise.
 
 ### GetToOk
 
-`func (o *AuthorSearchRequest) GetToOk() (*To, bool)`
+`func (o *AuthorSearchRequest) GetToOk() (*string, bool)`
 
 GetToOk returns a tuple with the To field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTo
 
-`func (o *AuthorSearchRequest) SetTo(v To)`
+`func (o *AuthorSearchRequest) SetTo(v string)`
 
 SetTo sets To field to given value.
 

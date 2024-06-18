@@ -15,98 +15,97 @@ import (
 	"encoding/json"
 )
 
-// DtoResponsesMoreLikeThisResponseArticleResult ArticleResult DTO class.
-type DtoResponsesMoreLikeThisResponseArticleResult struct {
-	Title string `json:"title"`
+// ArticlesPropertyInner1 struct for ArticlesPropertyInner1
+type ArticlesPropertyInner1 struct {
+	Title *string `json:"title,omitempty"`
 	Description *string `json:"description,omitempty"`
 	Author *string `json:"author,omitempty"`
-	Authors *AuthorsProperty `json:"authors,omitempty"`
-	Journalists *JournalistsProperty `json:"journalists,omitempty"`
+	Authors *ArticlesPropertyInnerAuthors `json:"authors,omitempty"`
+	Journalists *ArticlesPropertyInnerJournalists `json:"journalists,omitempty"`
 	PublishedDate *string `json:"published_date,omitempty"`
 	PublishedDatePrecision *string `json:"published_date_precision,omitempty"`
 	UpdatedDate *string `json:"updated_date,omitempty"`
 	UpdatedDatePrecision *string `json:"updated_date_precision,omitempty"`
 	ParseDate *string `json:"parse_date,omitempty"`
-	Link string `json:"link"`
-	DomainUrl string `json:"domain_url"`
-	FullDomainUrl string `json:"full_domain_url"`
+	Link *string `json:"link,omitempty"`
+	DomainUrl *string `json:"domain_url,omitempty"`
+	FullDomainUrl *string `json:"full_domain_url,omitempty"`
 	NameSource *string `json:"name_source,omitempty"`
 	IsHeadline *string `json:"is_headline,omitempty"`
 	PaidContent *bool `json:"paid_content,omitempty"`
-	ExtractionData string `json:"extraction_data"`
+	ExtractionData *string `json:"extraction_data,omitempty"`
 	Country *string `json:"country,omitempty"`
 	Rights *string `json:"rights,omitempty"`
-	Rank int32 `json:"rank"`
+	Rank *int32 `json:"rank,omitempty"`
 	Media *string `json:"media,omitempty"`
 	Language *string `json:"language,omitempty"`
-	Content string `json:"content"`
+	Content *string `json:"content,omitempty"`
 	WordCount *int32 `json:"word_count,omitempty"`
 	IsOpinion *bool `json:"is_opinion,omitempty"`
 	TwitterAccount *string `json:"twitter_account,omitempty"`
-	AllLinks *AllLinksProperty `json:"all_links,omitempty"`
-	AllDomainLinks *AllDomainLinksProperty `json:"all_domain_links,omitempty"`
+	AllLinks *ArticlesPropertyInnerAllLinks `json:"all_links,omitempty"`
+	AllDomainLinks *ArticlesPropertyInnerAllDomainLinks `json:"all_domain_links,omitempty"`
 	Nlp map[string]interface{} `json:"nlp,omitempty"`
-	Id string `json:"id"`
-	Score float32 `json:"score"`
+	Id *string `json:"id,omitempty"`
+	Score *float32 `json:"score,omitempty"`
 	SimilarDocuments []SimilarDocument1 `json:"similar_documents,omitempty"`
 }
 
-// NewDtoResponsesMoreLikeThisResponseArticleResult instantiates a new DtoResponsesMoreLikeThisResponseArticleResult object
+// NewArticlesPropertyInner1 instantiates a new ArticlesPropertyInner1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDtoResponsesMoreLikeThisResponseArticleResult(title string, link string, domainUrl string, fullDomainUrl string, extractionData string, rank int32, content string, id string, score float32) *DtoResponsesMoreLikeThisResponseArticleResult {
-	this := DtoResponsesMoreLikeThisResponseArticleResult{}
-	this.Title = title
-	this.Link = link
-	this.DomainUrl = domainUrl
-	this.FullDomainUrl = fullDomainUrl
-	this.ExtractionData = extractionData
-	this.Rank = rank
-	this.Content = content
+func NewArticlesPropertyInner1() *ArticlesPropertyInner1 {
+	this := ArticlesPropertyInner1{}
 	var wordCount int32 = 0
 	this.WordCount = &wordCount
-	this.Id = id
-	this.Score = score
 	return &this
 }
 
-// NewDtoResponsesMoreLikeThisResponseArticleResultWithDefaults instantiates a new DtoResponsesMoreLikeThisResponseArticleResult object
+// NewArticlesPropertyInner1WithDefaults instantiates a new ArticlesPropertyInner1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewDtoResponsesMoreLikeThisResponseArticleResultWithDefaults() *DtoResponsesMoreLikeThisResponseArticleResult {
-	this := DtoResponsesMoreLikeThisResponseArticleResult{}
+func NewArticlesPropertyInner1WithDefaults() *ArticlesPropertyInner1 {
+	this := ArticlesPropertyInner1{}
 	var wordCount int32 = 0
 	this.WordCount = &wordCount
 	return &this
 }
 
-// GetTitle returns the Title field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetTitle() string {
-	if o == nil {
+// GetTitle returns the Title field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner1) GetTitle() string {
+	if o == nil || isNil(o.Title) {
 		var ret string
 		return ret
 	}
-
-	return o.Title
+	return *o.Title
 }
 
-// GetTitleOk returns a tuple with the Title field value
+// GetTitleOk returns a tuple with the Title field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetTitleOk() (*string, bool) {
-	if o == nil {
+func (o *ArticlesPropertyInner1) GetTitleOk() (*string, bool) {
+	if o == nil || isNil(o.Title) {
     return nil, false
 	}
-	return &o.Title, true
+	return o.Title, true
 }
 
-// SetTitle sets field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetTitle(v string) {
-	o.Title = v
+// HasTitle returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner1) HasTitle() bool {
+	if o != nil && !isNil(o.Title) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitle gets a reference to the given string and assigns it to the Title field.
+func (o *ArticlesPropertyInner1) SetTitle(v string) {
+	o.Title = &v
 }
 
 // GetDescription returns the Description field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetDescription() string {
+func (o *ArticlesPropertyInner1) GetDescription() string {
 	if o == nil || isNil(o.Description) {
 		var ret string
 		return ret
@@ -116,7 +115,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetDescription() string 
 
 // GetDescriptionOk returns a tuple with the Description field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetDescriptionOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetDescriptionOk() (*string, bool) {
 	if o == nil || isNil(o.Description) {
     return nil, false
 	}
@@ -124,7 +123,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetDescriptionOk() (*str
 }
 
 // HasDescription returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasDescription() bool {
+func (o *ArticlesPropertyInner1) HasDescription() bool {
 	if o != nil && !isNil(o.Description) {
 		return true
 	}
@@ -133,12 +132,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasDescription() bool {
 }
 
 // SetDescription gets a reference to the given string and assigns it to the Description field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetDescription(v string) {
+func (o *ArticlesPropertyInner1) SetDescription(v string) {
 	o.Description = &v
 }
 
 // GetAuthor returns the Author field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAuthor() string {
+func (o *ArticlesPropertyInner1) GetAuthor() string {
 	if o == nil || isNil(o.Author) {
 		var ret string
 		return ret
@@ -148,7 +147,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAuthor() string {
 
 // GetAuthorOk returns a tuple with the Author field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAuthorOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetAuthorOk() (*string, bool) {
 	if o == nil || isNil(o.Author) {
     return nil, false
 	}
@@ -156,7 +155,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAuthorOk() (*string, 
 }
 
 // HasAuthor returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasAuthor() bool {
+func (o *ArticlesPropertyInner1) HasAuthor() bool {
 	if o != nil && !isNil(o.Author) {
 		return true
 	}
@@ -165,14 +164,14 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasAuthor() bool {
 }
 
 // SetAuthor gets a reference to the given string and assigns it to the Author field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetAuthor(v string) {
+func (o *ArticlesPropertyInner1) SetAuthor(v string) {
 	o.Author = &v
 }
 
 // GetAuthors returns the Authors field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAuthors() AuthorsProperty {
+func (o *ArticlesPropertyInner1) GetAuthors() ArticlesPropertyInnerAuthors {
 	if o == nil || isNil(o.Authors) {
-		var ret AuthorsProperty
+		var ret ArticlesPropertyInnerAuthors
 		return ret
 	}
 	return *o.Authors
@@ -180,7 +179,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAuthors() AuthorsProp
 
 // GetAuthorsOk returns a tuple with the Authors field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAuthorsOk() (*AuthorsProperty, bool) {
+func (o *ArticlesPropertyInner1) GetAuthorsOk() (*ArticlesPropertyInnerAuthors, bool) {
 	if o == nil || isNil(o.Authors) {
     return nil, false
 	}
@@ -188,7 +187,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAuthorsOk() (*Authors
 }
 
 // HasAuthors returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasAuthors() bool {
+func (o *ArticlesPropertyInner1) HasAuthors() bool {
 	if o != nil && !isNil(o.Authors) {
 		return true
 	}
@@ -196,15 +195,15 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasAuthors() bool {
 	return false
 }
 
-// SetAuthors gets a reference to the given AuthorsProperty and assigns it to the Authors field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetAuthors(v AuthorsProperty) {
+// SetAuthors gets a reference to the given ArticlesPropertyInnerAuthors and assigns it to the Authors field.
+func (o *ArticlesPropertyInner1) SetAuthors(v ArticlesPropertyInnerAuthors) {
 	o.Authors = &v
 }
 
 // GetJournalists returns the Journalists field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetJournalists() JournalistsProperty {
+func (o *ArticlesPropertyInner1) GetJournalists() ArticlesPropertyInnerJournalists {
 	if o == nil || isNil(o.Journalists) {
-		var ret JournalistsProperty
+		var ret ArticlesPropertyInnerJournalists
 		return ret
 	}
 	return *o.Journalists
@@ -212,7 +211,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetJournalists() Journal
 
 // GetJournalistsOk returns a tuple with the Journalists field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetJournalistsOk() (*JournalistsProperty, bool) {
+func (o *ArticlesPropertyInner1) GetJournalistsOk() (*ArticlesPropertyInnerJournalists, bool) {
 	if o == nil || isNil(o.Journalists) {
     return nil, false
 	}
@@ -220,7 +219,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetJournalistsOk() (*Jou
 }
 
 // HasJournalists returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasJournalists() bool {
+func (o *ArticlesPropertyInner1) HasJournalists() bool {
 	if o != nil && !isNil(o.Journalists) {
 		return true
 	}
@@ -228,13 +227,13 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasJournalists() bool {
 	return false
 }
 
-// SetJournalists gets a reference to the given JournalistsProperty and assigns it to the Journalists field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetJournalists(v JournalistsProperty) {
+// SetJournalists gets a reference to the given ArticlesPropertyInnerJournalists and assigns it to the Journalists field.
+func (o *ArticlesPropertyInner1) SetJournalists(v ArticlesPropertyInnerJournalists) {
 	o.Journalists = &v
 }
 
 // GetPublishedDate returns the PublishedDate field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPublishedDate() string {
+func (o *ArticlesPropertyInner1) GetPublishedDate() string {
 	if o == nil || isNil(o.PublishedDate) {
 		var ret string
 		return ret
@@ -244,7 +243,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPublishedDate() strin
 
 // GetPublishedDateOk returns a tuple with the PublishedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPublishedDateOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetPublishedDateOk() (*string, bool) {
 	if o == nil || isNil(o.PublishedDate) {
     return nil, false
 	}
@@ -252,7 +251,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPublishedDateOk() (*s
 }
 
 // HasPublishedDate returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasPublishedDate() bool {
+func (o *ArticlesPropertyInner1) HasPublishedDate() bool {
 	if o != nil && !isNil(o.PublishedDate) {
 		return true
 	}
@@ -261,12 +260,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasPublishedDate() bool 
 }
 
 // SetPublishedDate gets a reference to the given string and assigns it to the PublishedDate field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetPublishedDate(v string) {
+func (o *ArticlesPropertyInner1) SetPublishedDate(v string) {
 	o.PublishedDate = &v
 }
 
 // GetPublishedDatePrecision returns the PublishedDatePrecision field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPublishedDatePrecision() string {
+func (o *ArticlesPropertyInner1) GetPublishedDatePrecision() string {
 	if o == nil || isNil(o.PublishedDatePrecision) {
 		var ret string
 		return ret
@@ -276,7 +275,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPublishedDatePrecisio
 
 // GetPublishedDatePrecisionOk returns a tuple with the PublishedDatePrecision field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPublishedDatePrecisionOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetPublishedDatePrecisionOk() (*string, bool) {
 	if o == nil || isNil(o.PublishedDatePrecision) {
     return nil, false
 	}
@@ -284,7 +283,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPublishedDatePrecisio
 }
 
 // HasPublishedDatePrecision returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasPublishedDatePrecision() bool {
+func (o *ArticlesPropertyInner1) HasPublishedDatePrecision() bool {
 	if o != nil && !isNil(o.PublishedDatePrecision) {
 		return true
 	}
@@ -293,12 +292,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasPublishedDatePrecisio
 }
 
 // SetPublishedDatePrecision gets a reference to the given string and assigns it to the PublishedDatePrecision field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetPublishedDatePrecision(v string) {
+func (o *ArticlesPropertyInner1) SetPublishedDatePrecision(v string) {
 	o.PublishedDatePrecision = &v
 }
 
 // GetUpdatedDate returns the UpdatedDate field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetUpdatedDate() string {
+func (o *ArticlesPropertyInner1) GetUpdatedDate() string {
 	if o == nil || isNil(o.UpdatedDate) {
 		var ret string
 		return ret
@@ -308,7 +307,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetUpdatedDate() string 
 
 // GetUpdatedDateOk returns a tuple with the UpdatedDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetUpdatedDateOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetUpdatedDateOk() (*string, bool) {
 	if o == nil || isNil(o.UpdatedDate) {
     return nil, false
 	}
@@ -316,7 +315,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetUpdatedDateOk() (*str
 }
 
 // HasUpdatedDate returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasUpdatedDate() bool {
+func (o *ArticlesPropertyInner1) HasUpdatedDate() bool {
 	if o != nil && !isNil(o.UpdatedDate) {
 		return true
 	}
@@ -325,12 +324,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasUpdatedDate() bool {
 }
 
 // SetUpdatedDate gets a reference to the given string and assigns it to the UpdatedDate field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetUpdatedDate(v string) {
+func (o *ArticlesPropertyInner1) SetUpdatedDate(v string) {
 	o.UpdatedDate = &v
 }
 
 // GetUpdatedDatePrecision returns the UpdatedDatePrecision field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetUpdatedDatePrecision() string {
+func (o *ArticlesPropertyInner1) GetUpdatedDatePrecision() string {
 	if o == nil || isNil(o.UpdatedDatePrecision) {
 		var ret string
 		return ret
@@ -340,7 +339,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetUpdatedDatePrecision(
 
 // GetUpdatedDatePrecisionOk returns a tuple with the UpdatedDatePrecision field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetUpdatedDatePrecisionOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetUpdatedDatePrecisionOk() (*string, bool) {
 	if o == nil || isNil(o.UpdatedDatePrecision) {
     return nil, false
 	}
@@ -348,7 +347,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetUpdatedDatePrecisionO
 }
 
 // HasUpdatedDatePrecision returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasUpdatedDatePrecision() bool {
+func (o *ArticlesPropertyInner1) HasUpdatedDatePrecision() bool {
 	if o != nil && !isNil(o.UpdatedDatePrecision) {
 		return true
 	}
@@ -357,12 +356,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasUpdatedDatePrecision(
 }
 
 // SetUpdatedDatePrecision gets a reference to the given string and assigns it to the UpdatedDatePrecision field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetUpdatedDatePrecision(v string) {
+func (o *ArticlesPropertyInner1) SetUpdatedDatePrecision(v string) {
 	o.UpdatedDatePrecision = &v
 }
 
 // GetParseDate returns the ParseDate field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetParseDate() string {
+func (o *ArticlesPropertyInner1) GetParseDate() string {
 	if o == nil || isNil(o.ParseDate) {
 		var ret string
 		return ret
@@ -372,7 +371,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetParseDate() string {
 
 // GetParseDateOk returns a tuple with the ParseDate field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetParseDateOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetParseDateOk() (*string, bool) {
 	if o == nil || isNil(o.ParseDate) {
     return nil, false
 	}
@@ -380,7 +379,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetParseDateOk() (*strin
 }
 
 // HasParseDate returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasParseDate() bool {
+func (o *ArticlesPropertyInner1) HasParseDate() bool {
 	if o != nil && !isNil(o.ParseDate) {
 		return true
 	}
@@ -389,84 +388,108 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasParseDate() bool {
 }
 
 // SetParseDate gets a reference to the given string and assigns it to the ParseDate field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetParseDate(v string) {
+func (o *ArticlesPropertyInner1) SetParseDate(v string) {
 	o.ParseDate = &v
 }
 
-// GetLink returns the Link field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetLink() string {
-	if o == nil {
+// GetLink returns the Link field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner1) GetLink() string {
+	if o == nil || isNil(o.Link) {
 		var ret string
 		return ret
 	}
-
-	return o.Link
+	return *o.Link
 }
 
-// GetLinkOk returns a tuple with the Link field value
+// GetLinkOk returns a tuple with the Link field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetLinkOk() (*string, bool) {
-	if o == nil {
+func (o *ArticlesPropertyInner1) GetLinkOk() (*string, bool) {
+	if o == nil || isNil(o.Link) {
     return nil, false
 	}
-	return &o.Link, true
+	return o.Link, true
 }
 
-// SetLink sets field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetLink(v string) {
-	o.Link = v
+// HasLink returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner1) HasLink() bool {
+	if o != nil && !isNil(o.Link) {
+		return true
+	}
+
+	return false
 }
 
-// GetDomainUrl returns the DomainUrl field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetDomainUrl() string {
-	if o == nil {
+// SetLink gets a reference to the given string and assigns it to the Link field.
+func (o *ArticlesPropertyInner1) SetLink(v string) {
+	o.Link = &v
+}
+
+// GetDomainUrl returns the DomainUrl field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner1) GetDomainUrl() string {
+	if o == nil || isNil(o.DomainUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.DomainUrl
+	return *o.DomainUrl
 }
 
-// GetDomainUrlOk returns a tuple with the DomainUrl field value
+// GetDomainUrlOk returns a tuple with the DomainUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetDomainUrlOk() (*string, bool) {
-	if o == nil {
+func (o *ArticlesPropertyInner1) GetDomainUrlOk() (*string, bool) {
+	if o == nil || isNil(o.DomainUrl) {
     return nil, false
 	}
-	return &o.DomainUrl, true
+	return o.DomainUrl, true
 }
 
-// SetDomainUrl sets field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetDomainUrl(v string) {
-	o.DomainUrl = v
+// HasDomainUrl returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner1) HasDomainUrl() bool {
+	if o != nil && !isNil(o.DomainUrl) {
+		return true
+	}
+
+	return false
 }
 
-// GetFullDomainUrl returns the FullDomainUrl field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetFullDomainUrl() string {
-	if o == nil {
+// SetDomainUrl gets a reference to the given string and assigns it to the DomainUrl field.
+func (o *ArticlesPropertyInner1) SetDomainUrl(v string) {
+	o.DomainUrl = &v
+}
+
+// GetFullDomainUrl returns the FullDomainUrl field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner1) GetFullDomainUrl() string {
+	if o == nil || isNil(o.FullDomainUrl) {
 		var ret string
 		return ret
 	}
-
-	return o.FullDomainUrl
+	return *o.FullDomainUrl
 }
 
-// GetFullDomainUrlOk returns a tuple with the FullDomainUrl field value
+// GetFullDomainUrlOk returns a tuple with the FullDomainUrl field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetFullDomainUrlOk() (*string, bool) {
-	if o == nil {
+func (o *ArticlesPropertyInner1) GetFullDomainUrlOk() (*string, bool) {
+	if o == nil || isNil(o.FullDomainUrl) {
     return nil, false
 	}
-	return &o.FullDomainUrl, true
+	return o.FullDomainUrl, true
 }
 
-// SetFullDomainUrl sets field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetFullDomainUrl(v string) {
-	o.FullDomainUrl = v
+// HasFullDomainUrl returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner1) HasFullDomainUrl() bool {
+	if o != nil && !isNil(o.FullDomainUrl) {
+		return true
+	}
+
+	return false
+}
+
+// SetFullDomainUrl gets a reference to the given string and assigns it to the FullDomainUrl field.
+func (o *ArticlesPropertyInner1) SetFullDomainUrl(v string) {
+	o.FullDomainUrl = &v
 }
 
 // GetNameSource returns the NameSource field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetNameSource() string {
+func (o *ArticlesPropertyInner1) GetNameSource() string {
 	if o == nil || isNil(o.NameSource) {
 		var ret string
 		return ret
@@ -476,7 +499,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetNameSource() string {
 
 // GetNameSourceOk returns a tuple with the NameSource field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetNameSourceOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetNameSourceOk() (*string, bool) {
 	if o == nil || isNil(o.NameSource) {
     return nil, false
 	}
@@ -484,7 +507,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetNameSourceOk() (*stri
 }
 
 // HasNameSource returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasNameSource() bool {
+func (o *ArticlesPropertyInner1) HasNameSource() bool {
 	if o != nil && !isNil(o.NameSource) {
 		return true
 	}
@@ -493,12 +516,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasNameSource() bool {
 }
 
 // SetNameSource gets a reference to the given string and assigns it to the NameSource field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetNameSource(v string) {
+func (o *ArticlesPropertyInner1) SetNameSource(v string) {
 	o.NameSource = &v
 }
 
 // GetIsHeadline returns the IsHeadline field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetIsHeadline() string {
+func (o *ArticlesPropertyInner1) GetIsHeadline() string {
 	if o == nil || isNil(o.IsHeadline) {
 		var ret string
 		return ret
@@ -508,7 +531,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetIsHeadline() string {
 
 // GetIsHeadlineOk returns a tuple with the IsHeadline field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetIsHeadlineOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetIsHeadlineOk() (*string, bool) {
 	if o == nil || isNil(o.IsHeadline) {
     return nil, false
 	}
@@ -516,7 +539,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetIsHeadlineOk() (*stri
 }
 
 // HasIsHeadline returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasIsHeadline() bool {
+func (o *ArticlesPropertyInner1) HasIsHeadline() bool {
 	if o != nil && !isNil(o.IsHeadline) {
 		return true
 	}
@@ -525,12 +548,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasIsHeadline() bool {
 }
 
 // SetIsHeadline gets a reference to the given string and assigns it to the IsHeadline field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetIsHeadline(v string) {
+func (o *ArticlesPropertyInner1) SetIsHeadline(v string) {
 	o.IsHeadline = &v
 }
 
 // GetPaidContent returns the PaidContent field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPaidContent() bool {
+func (o *ArticlesPropertyInner1) GetPaidContent() bool {
 	if o == nil || isNil(o.PaidContent) {
 		var ret bool
 		return ret
@@ -540,7 +563,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPaidContent() bool {
 
 // GetPaidContentOk returns a tuple with the PaidContent field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPaidContentOk() (*bool, bool) {
+func (o *ArticlesPropertyInner1) GetPaidContentOk() (*bool, bool) {
 	if o == nil || isNil(o.PaidContent) {
     return nil, false
 	}
@@ -548,7 +571,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetPaidContentOk() (*boo
 }
 
 // HasPaidContent returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasPaidContent() bool {
+func (o *ArticlesPropertyInner1) HasPaidContent() bool {
 	if o != nil && !isNil(o.PaidContent) {
 		return true
 	}
@@ -557,36 +580,44 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasPaidContent() bool {
 }
 
 // SetPaidContent gets a reference to the given bool and assigns it to the PaidContent field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetPaidContent(v bool) {
+func (o *ArticlesPropertyInner1) SetPaidContent(v bool) {
 	o.PaidContent = &v
 }
 
-// GetExtractionData returns the ExtractionData field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetExtractionData() string {
-	if o == nil {
+// GetExtractionData returns the ExtractionData field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner1) GetExtractionData() string {
+	if o == nil || isNil(o.ExtractionData) {
 		var ret string
 		return ret
 	}
-
-	return o.ExtractionData
+	return *o.ExtractionData
 }
 
-// GetExtractionDataOk returns a tuple with the ExtractionData field value
+// GetExtractionDataOk returns a tuple with the ExtractionData field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetExtractionDataOk() (*string, bool) {
-	if o == nil {
+func (o *ArticlesPropertyInner1) GetExtractionDataOk() (*string, bool) {
+	if o == nil || isNil(o.ExtractionData) {
     return nil, false
 	}
-	return &o.ExtractionData, true
+	return o.ExtractionData, true
 }
 
-// SetExtractionData sets field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetExtractionData(v string) {
-	o.ExtractionData = v
+// HasExtractionData returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner1) HasExtractionData() bool {
+	if o != nil && !isNil(o.ExtractionData) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtractionData gets a reference to the given string and assigns it to the ExtractionData field.
+func (o *ArticlesPropertyInner1) SetExtractionData(v string) {
+	o.ExtractionData = &v
 }
 
 // GetCountry returns the Country field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetCountry() string {
+func (o *ArticlesPropertyInner1) GetCountry() string {
 	if o == nil || isNil(o.Country) {
 		var ret string
 		return ret
@@ -596,7 +627,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetCountry() string {
 
 // GetCountryOk returns a tuple with the Country field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetCountryOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetCountryOk() (*string, bool) {
 	if o == nil || isNil(o.Country) {
     return nil, false
 	}
@@ -604,7 +635,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetCountryOk() (*string,
 }
 
 // HasCountry returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasCountry() bool {
+func (o *ArticlesPropertyInner1) HasCountry() bool {
 	if o != nil && !isNil(o.Country) {
 		return true
 	}
@@ -613,12 +644,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasCountry() bool {
 }
 
 // SetCountry gets a reference to the given string and assigns it to the Country field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetCountry(v string) {
+func (o *ArticlesPropertyInner1) SetCountry(v string) {
 	o.Country = &v
 }
 
 // GetRights returns the Rights field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetRights() string {
+func (o *ArticlesPropertyInner1) GetRights() string {
 	if o == nil || isNil(o.Rights) {
 		var ret string
 		return ret
@@ -628,7 +659,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetRights() string {
 
 // GetRightsOk returns a tuple with the Rights field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetRightsOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetRightsOk() (*string, bool) {
 	if o == nil || isNil(o.Rights) {
     return nil, false
 	}
@@ -636,7 +667,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetRightsOk() (*string, 
 }
 
 // HasRights returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasRights() bool {
+func (o *ArticlesPropertyInner1) HasRights() bool {
 	if o != nil && !isNil(o.Rights) {
 		return true
 	}
@@ -645,36 +676,44 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasRights() bool {
 }
 
 // SetRights gets a reference to the given string and assigns it to the Rights field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetRights(v string) {
+func (o *ArticlesPropertyInner1) SetRights(v string) {
 	o.Rights = &v
 }
 
-// GetRank returns the Rank field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetRank() int32 {
-	if o == nil {
+// GetRank returns the Rank field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner1) GetRank() int32 {
+	if o == nil || isNil(o.Rank) {
 		var ret int32
 		return ret
 	}
-
-	return o.Rank
+	return *o.Rank
 }
 
-// GetRankOk returns a tuple with the Rank field value
+// GetRankOk returns a tuple with the Rank field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetRankOk() (*int32, bool) {
-	if o == nil {
+func (o *ArticlesPropertyInner1) GetRankOk() (*int32, bool) {
+	if o == nil || isNil(o.Rank) {
     return nil, false
 	}
-	return &o.Rank, true
+	return o.Rank, true
 }
 
-// SetRank sets field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetRank(v int32) {
-	o.Rank = v
+// HasRank returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner1) HasRank() bool {
+	if o != nil && !isNil(o.Rank) {
+		return true
+	}
+
+	return false
+}
+
+// SetRank gets a reference to the given int32 and assigns it to the Rank field.
+func (o *ArticlesPropertyInner1) SetRank(v int32) {
+	o.Rank = &v
 }
 
 // GetMedia returns the Media field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetMedia() string {
+func (o *ArticlesPropertyInner1) GetMedia() string {
 	if o == nil || isNil(o.Media) {
 		var ret string
 		return ret
@@ -684,7 +723,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetMedia() string {
 
 // GetMediaOk returns a tuple with the Media field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetMediaOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetMediaOk() (*string, bool) {
 	if o == nil || isNil(o.Media) {
     return nil, false
 	}
@@ -692,7 +731,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetMediaOk() (*string, b
 }
 
 // HasMedia returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasMedia() bool {
+func (o *ArticlesPropertyInner1) HasMedia() bool {
 	if o != nil && !isNil(o.Media) {
 		return true
 	}
@@ -701,12 +740,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasMedia() bool {
 }
 
 // SetMedia gets a reference to the given string and assigns it to the Media field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetMedia(v string) {
+func (o *ArticlesPropertyInner1) SetMedia(v string) {
 	o.Media = &v
 }
 
 // GetLanguage returns the Language field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetLanguage() string {
+func (o *ArticlesPropertyInner1) GetLanguage() string {
 	if o == nil || isNil(o.Language) {
 		var ret string
 		return ret
@@ -716,7 +755,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetLanguage() string {
 
 // GetLanguageOk returns a tuple with the Language field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetLanguageOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetLanguageOk() (*string, bool) {
 	if o == nil || isNil(o.Language) {
     return nil, false
 	}
@@ -724,7 +763,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetLanguageOk() (*string
 }
 
 // HasLanguage returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasLanguage() bool {
+func (o *ArticlesPropertyInner1) HasLanguage() bool {
 	if o != nil && !isNil(o.Language) {
 		return true
 	}
@@ -733,36 +772,44 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasLanguage() bool {
 }
 
 // SetLanguage gets a reference to the given string and assigns it to the Language field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetLanguage(v string) {
+func (o *ArticlesPropertyInner1) SetLanguage(v string) {
 	o.Language = &v
 }
 
-// GetContent returns the Content field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetContent() string {
-	if o == nil {
+// GetContent returns the Content field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner1) GetContent() string {
+	if o == nil || isNil(o.Content) {
 		var ret string
 		return ret
 	}
-
-	return o.Content
+	return *o.Content
 }
 
-// GetContentOk returns a tuple with the Content field value
+// GetContentOk returns a tuple with the Content field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetContentOk() (*string, bool) {
-	if o == nil {
+func (o *ArticlesPropertyInner1) GetContentOk() (*string, bool) {
+	if o == nil || isNil(o.Content) {
     return nil, false
 	}
-	return &o.Content, true
+	return o.Content, true
 }
 
-// SetContent sets field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetContent(v string) {
-	o.Content = v
+// HasContent returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner1) HasContent() bool {
+	if o != nil && !isNil(o.Content) {
+		return true
+	}
+
+	return false
+}
+
+// SetContent gets a reference to the given string and assigns it to the Content field.
+func (o *ArticlesPropertyInner1) SetContent(v string) {
+	o.Content = &v
 }
 
 // GetWordCount returns the WordCount field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetWordCount() int32 {
+func (o *ArticlesPropertyInner1) GetWordCount() int32 {
 	if o == nil || isNil(o.WordCount) {
 		var ret int32
 		return ret
@@ -772,7 +819,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetWordCount() int32 {
 
 // GetWordCountOk returns a tuple with the WordCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetWordCountOk() (*int32, bool) {
+func (o *ArticlesPropertyInner1) GetWordCountOk() (*int32, bool) {
 	if o == nil || isNil(o.WordCount) {
     return nil, false
 	}
@@ -780,7 +827,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetWordCountOk() (*int32
 }
 
 // HasWordCount returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasWordCount() bool {
+func (o *ArticlesPropertyInner1) HasWordCount() bool {
 	if o != nil && !isNil(o.WordCount) {
 		return true
 	}
@@ -789,12 +836,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasWordCount() bool {
 }
 
 // SetWordCount gets a reference to the given int32 and assigns it to the WordCount field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetWordCount(v int32) {
+func (o *ArticlesPropertyInner1) SetWordCount(v int32) {
 	o.WordCount = &v
 }
 
 // GetIsOpinion returns the IsOpinion field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetIsOpinion() bool {
+func (o *ArticlesPropertyInner1) GetIsOpinion() bool {
 	if o == nil || isNil(o.IsOpinion) {
 		var ret bool
 		return ret
@@ -804,7 +851,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetIsOpinion() bool {
 
 // GetIsOpinionOk returns a tuple with the IsOpinion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetIsOpinionOk() (*bool, bool) {
+func (o *ArticlesPropertyInner1) GetIsOpinionOk() (*bool, bool) {
 	if o == nil || isNil(o.IsOpinion) {
     return nil, false
 	}
@@ -812,7 +859,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetIsOpinionOk() (*bool,
 }
 
 // HasIsOpinion returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasIsOpinion() bool {
+func (o *ArticlesPropertyInner1) HasIsOpinion() bool {
 	if o != nil && !isNil(o.IsOpinion) {
 		return true
 	}
@@ -821,12 +868,12 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasIsOpinion() bool {
 }
 
 // SetIsOpinion gets a reference to the given bool and assigns it to the IsOpinion field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetIsOpinion(v bool) {
+func (o *ArticlesPropertyInner1) SetIsOpinion(v bool) {
 	o.IsOpinion = &v
 }
 
 // GetTwitterAccount returns the TwitterAccount field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetTwitterAccount() string {
+func (o *ArticlesPropertyInner1) GetTwitterAccount() string {
 	if o == nil || isNil(o.TwitterAccount) {
 		var ret string
 		return ret
@@ -836,7 +883,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetTwitterAccount() stri
 
 // GetTwitterAccountOk returns a tuple with the TwitterAccount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetTwitterAccountOk() (*string, bool) {
+func (o *ArticlesPropertyInner1) GetTwitterAccountOk() (*string, bool) {
 	if o == nil || isNil(o.TwitterAccount) {
     return nil, false
 	}
@@ -844,7 +891,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetTwitterAccountOk() (*
 }
 
 // HasTwitterAccount returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasTwitterAccount() bool {
+func (o *ArticlesPropertyInner1) HasTwitterAccount() bool {
 	if o != nil && !isNil(o.TwitterAccount) {
 		return true
 	}
@@ -853,14 +900,14 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasTwitterAccount() bool
 }
 
 // SetTwitterAccount gets a reference to the given string and assigns it to the TwitterAccount field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetTwitterAccount(v string) {
+func (o *ArticlesPropertyInner1) SetTwitterAccount(v string) {
 	o.TwitterAccount = &v
 }
 
 // GetAllLinks returns the AllLinks field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAllLinks() AllLinksProperty {
+func (o *ArticlesPropertyInner1) GetAllLinks() ArticlesPropertyInnerAllLinks {
 	if o == nil || isNil(o.AllLinks) {
-		var ret AllLinksProperty
+		var ret ArticlesPropertyInnerAllLinks
 		return ret
 	}
 	return *o.AllLinks
@@ -868,7 +915,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAllLinks() AllLinksPr
 
 // GetAllLinksOk returns a tuple with the AllLinks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAllLinksOk() (*AllLinksProperty, bool) {
+func (o *ArticlesPropertyInner1) GetAllLinksOk() (*ArticlesPropertyInnerAllLinks, bool) {
 	if o == nil || isNil(o.AllLinks) {
     return nil, false
 	}
@@ -876,7 +923,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAllLinksOk() (*AllLin
 }
 
 // HasAllLinks returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasAllLinks() bool {
+func (o *ArticlesPropertyInner1) HasAllLinks() bool {
 	if o != nil && !isNil(o.AllLinks) {
 		return true
 	}
@@ -884,15 +931,15 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasAllLinks() bool {
 	return false
 }
 
-// SetAllLinks gets a reference to the given AllLinksProperty and assigns it to the AllLinks field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetAllLinks(v AllLinksProperty) {
+// SetAllLinks gets a reference to the given ArticlesPropertyInnerAllLinks and assigns it to the AllLinks field.
+func (o *ArticlesPropertyInner1) SetAllLinks(v ArticlesPropertyInnerAllLinks) {
 	o.AllLinks = &v
 }
 
 // GetAllDomainLinks returns the AllDomainLinks field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAllDomainLinks() AllDomainLinksProperty {
+func (o *ArticlesPropertyInner1) GetAllDomainLinks() ArticlesPropertyInnerAllDomainLinks {
 	if o == nil || isNil(o.AllDomainLinks) {
-		var ret AllDomainLinksProperty
+		var ret ArticlesPropertyInnerAllDomainLinks
 		return ret
 	}
 	return *o.AllDomainLinks
@@ -900,7 +947,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAllDomainLinks() AllD
 
 // GetAllDomainLinksOk returns a tuple with the AllDomainLinks field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAllDomainLinksOk() (*AllDomainLinksProperty, bool) {
+func (o *ArticlesPropertyInner1) GetAllDomainLinksOk() (*ArticlesPropertyInnerAllDomainLinks, bool) {
 	if o == nil || isNil(o.AllDomainLinks) {
     return nil, false
 	}
@@ -908,7 +955,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetAllDomainLinksOk() (*
 }
 
 // HasAllDomainLinks returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasAllDomainLinks() bool {
+func (o *ArticlesPropertyInner1) HasAllDomainLinks() bool {
 	if o != nil && !isNil(o.AllDomainLinks) {
 		return true
 	}
@@ -916,13 +963,13 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasAllDomainLinks() bool
 	return false
 }
 
-// SetAllDomainLinks gets a reference to the given AllDomainLinksProperty and assigns it to the AllDomainLinks field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetAllDomainLinks(v AllDomainLinksProperty) {
+// SetAllDomainLinks gets a reference to the given ArticlesPropertyInnerAllDomainLinks and assigns it to the AllDomainLinks field.
+func (o *ArticlesPropertyInner1) SetAllDomainLinks(v ArticlesPropertyInnerAllDomainLinks) {
 	o.AllDomainLinks = &v
 }
 
 // GetNlp returns the Nlp field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetNlp() map[string]interface{} {
+func (o *ArticlesPropertyInner1) GetNlp() map[string]interface{} {
 	if o == nil || isNil(o.Nlp) {
 		var ret map[string]interface{}
 		return ret
@@ -932,7 +979,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetNlp() map[string]inte
 
 // GetNlpOk returns a tuple with the Nlp field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetNlpOk() (map[string]interface{}, bool) {
+func (o *ArticlesPropertyInner1) GetNlpOk() (map[string]interface{}, bool) {
 	if o == nil || isNil(o.Nlp) {
     return map[string]interface{}{}, false
 	}
@@ -940,7 +987,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetNlpOk() (map[string]i
 }
 
 // HasNlp returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasNlp() bool {
+func (o *ArticlesPropertyInner1) HasNlp() bool {
 	if o != nil && !isNil(o.Nlp) {
 		return true
 	}
@@ -949,60 +996,76 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasNlp() bool {
 }
 
 // SetNlp gets a reference to the given map[string]interface{} and assigns it to the Nlp field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetNlp(v map[string]interface{}) {
+func (o *ArticlesPropertyInner1) SetNlp(v map[string]interface{}) {
 	o.Nlp = v
 }
 
-// GetId returns the Id field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetId() string {
-	if o == nil {
+// GetId returns the Id field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner1) GetId() string {
+	if o == nil || isNil(o.Id) {
 		var ret string
 		return ret
 	}
-
-	return o.Id
+	return *o.Id
 }
 
-// GetIdOk returns a tuple with the Id field value
+// GetIdOk returns a tuple with the Id field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetIdOk() (*string, bool) {
-	if o == nil {
+func (o *ArticlesPropertyInner1) GetIdOk() (*string, bool) {
+	if o == nil || isNil(o.Id) {
     return nil, false
 	}
-	return &o.Id, true
+	return o.Id, true
 }
 
-// SetId sets field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetId(v string) {
-	o.Id = v
+// HasId returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner1) HasId() bool {
+	if o != nil && !isNil(o.Id) {
+		return true
+	}
+
+	return false
 }
 
-// GetScore returns the Score field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetScore() float32 {
-	if o == nil {
+// SetId gets a reference to the given string and assigns it to the Id field.
+func (o *ArticlesPropertyInner1) SetId(v string) {
+	o.Id = &v
+}
+
+// GetScore returns the Score field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner1) GetScore() float32 {
+	if o == nil || isNil(o.Score) {
 		var ret float32
 		return ret
 	}
-
-	return o.Score
+	return *o.Score
 }
 
-// GetScoreOk returns a tuple with the Score field value
+// GetScoreOk returns a tuple with the Score field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetScoreOk() (*float32, bool) {
-	if o == nil {
+func (o *ArticlesPropertyInner1) GetScoreOk() (*float32, bool) {
+	if o == nil || isNil(o.Score) {
     return nil, false
 	}
-	return &o.Score, true
+	return o.Score, true
 }
 
-// SetScore sets field value
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetScore(v float32) {
-	o.Score = v
+// HasScore returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner1) HasScore() bool {
+	if o != nil && !isNil(o.Score) {
+		return true
+	}
+
+	return false
+}
+
+// SetScore gets a reference to the given float32 and assigns it to the Score field.
+func (o *ArticlesPropertyInner1) SetScore(v float32) {
+	o.Score = &v
 }
 
 // GetSimilarDocuments returns the SimilarDocuments field value if set, zero value otherwise.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetSimilarDocuments() []SimilarDocument1 {
+func (o *ArticlesPropertyInner1) GetSimilarDocuments() []SimilarDocument1 {
 	if o == nil || isNil(o.SimilarDocuments) {
 		var ret []SimilarDocument1
 		return ret
@@ -1012,7 +1075,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetSimilarDocuments() []
 
 // GetSimilarDocumentsOk returns a tuple with the SimilarDocuments field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetSimilarDocumentsOk() ([]SimilarDocument1, bool) {
+func (o *ArticlesPropertyInner1) GetSimilarDocumentsOk() ([]SimilarDocument1, bool) {
 	if o == nil || isNil(o.SimilarDocuments) {
     return nil, false
 	}
@@ -1020,7 +1083,7 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) GetSimilarDocumentsOk() 
 }
 
 // HasSimilarDocuments returns a boolean if a field has been set.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasSimilarDocuments() bool {
+func (o *ArticlesPropertyInner1) HasSimilarDocuments() bool {
 	if o != nil && !isNil(o.SimilarDocuments) {
 		return true
 	}
@@ -1029,13 +1092,13 @@ func (o *DtoResponsesMoreLikeThisResponseArticleResult) HasSimilarDocuments() bo
 }
 
 // SetSimilarDocuments gets a reference to the given []SimilarDocument1 and assigns it to the SimilarDocuments field.
-func (o *DtoResponsesMoreLikeThisResponseArticleResult) SetSimilarDocuments(v []SimilarDocument1) {
+func (o *ArticlesPropertyInner1) SetSimilarDocuments(v []SimilarDocument1) {
 	o.SimilarDocuments = v
 }
 
-func (o DtoResponsesMoreLikeThisResponseArticleResult) MarshalJSON() ([]byte, error) {
+func (o ArticlesPropertyInner1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
-	if true {
+	if !isNil(o.Title) {
 		toSerialize["title"] = o.Title
 	}
 	if !isNil(o.Description) {
@@ -1065,13 +1128,13 @@ func (o DtoResponsesMoreLikeThisResponseArticleResult) MarshalJSON() ([]byte, er
 	if !isNil(o.ParseDate) {
 		toSerialize["parse_date"] = o.ParseDate
 	}
-	if true {
+	if !isNil(o.Link) {
 		toSerialize["link"] = o.Link
 	}
-	if true {
+	if !isNil(o.DomainUrl) {
 		toSerialize["domain_url"] = o.DomainUrl
 	}
-	if true {
+	if !isNil(o.FullDomainUrl) {
 		toSerialize["full_domain_url"] = o.FullDomainUrl
 	}
 	if !isNil(o.NameSource) {
@@ -1083,7 +1146,7 @@ func (o DtoResponsesMoreLikeThisResponseArticleResult) MarshalJSON() ([]byte, er
 	if !isNil(o.PaidContent) {
 		toSerialize["paid_content"] = o.PaidContent
 	}
-	if true {
+	if !isNil(o.ExtractionData) {
 		toSerialize["extraction_data"] = o.ExtractionData
 	}
 	if !isNil(o.Country) {
@@ -1092,7 +1155,7 @@ func (o DtoResponsesMoreLikeThisResponseArticleResult) MarshalJSON() ([]byte, er
 	if !isNil(o.Rights) {
 		toSerialize["rights"] = o.Rights
 	}
-	if true {
+	if !isNil(o.Rank) {
 		toSerialize["rank"] = o.Rank
 	}
 	if !isNil(o.Media) {
@@ -1101,7 +1164,7 @@ func (o DtoResponsesMoreLikeThisResponseArticleResult) MarshalJSON() ([]byte, er
 	if !isNil(o.Language) {
 		toSerialize["language"] = o.Language
 	}
-	if true {
+	if !isNil(o.Content) {
 		toSerialize["content"] = o.Content
 	}
 	if !isNil(o.WordCount) {
@@ -1122,10 +1185,10 @@ func (o DtoResponsesMoreLikeThisResponseArticleResult) MarshalJSON() ([]byte, er
 	if !isNil(o.Nlp) {
 		toSerialize["nlp"] = o.Nlp
 	}
-	if true {
+	if !isNil(o.Id) {
 		toSerialize["id"] = o.Id
 	}
-	if true {
+	if !isNil(o.Score) {
 		toSerialize["score"] = o.Score
 	}
 	if !isNil(o.SimilarDocuments) {
@@ -1134,38 +1197,38 @@ func (o DtoResponsesMoreLikeThisResponseArticleResult) MarshalJSON() ([]byte, er
 	return json.Marshal(toSerialize)
 }
 
-type NullableDtoResponsesMoreLikeThisResponseArticleResult struct {
-	value *DtoResponsesMoreLikeThisResponseArticleResult
+type NullableArticlesPropertyInner1 struct {
+	value *ArticlesPropertyInner1
 	isSet bool
 }
 
-func (v NullableDtoResponsesMoreLikeThisResponseArticleResult) Get() *DtoResponsesMoreLikeThisResponseArticleResult {
+func (v NullableArticlesPropertyInner1) Get() *ArticlesPropertyInner1 {
 	return v.value
 }
 
-func (v *NullableDtoResponsesMoreLikeThisResponseArticleResult) Set(val *DtoResponsesMoreLikeThisResponseArticleResult) {
+func (v *NullableArticlesPropertyInner1) Set(val *ArticlesPropertyInner1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableDtoResponsesMoreLikeThisResponseArticleResult) IsSet() bool {
+func (v NullableArticlesPropertyInner1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableDtoResponsesMoreLikeThisResponseArticleResult) Unset() {
+func (v *NullableArticlesPropertyInner1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableDtoResponsesMoreLikeThisResponseArticleResult(val *DtoResponsesMoreLikeThisResponseArticleResult) *NullableDtoResponsesMoreLikeThisResponseArticleResult {
-	return &NullableDtoResponsesMoreLikeThisResponseArticleResult{value: val, isSet: true}
+func NewNullableArticlesPropertyInner1(val *ArticlesPropertyInner1) *NullableArticlesPropertyInner1 {
+	return &NullableArticlesPropertyInner1{value: val, isSet: true}
 }
 
-func (v NullableDtoResponsesMoreLikeThisResponseArticleResult) MarshalJSON() ([]byte, error) {
+func (v NullableArticlesPropertyInner1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableDtoResponsesMoreLikeThisResponseArticleResult) UnmarshalJSON(src []byte) error {
+func (v *NullableArticlesPropertyInner1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -1,4 +1,4 @@
-# From
+# ArticlesPropertyInnerAuthors
 
 ## Properties
 
@@ -7,20 +7,20 @@ Name | Type | Description | Notes
 
 ## Methods
 
-### NewFrom
+### NewArticlesPropertyInnerAuthors
 
-`func NewFrom() *From`
+`func NewArticlesPropertyInnerAuthors() *ArticlesPropertyInnerAuthors`
 
-NewFrom instantiates a new From object
+NewArticlesPropertyInnerAuthors instantiates a new ArticlesPropertyInnerAuthors object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewFromWithDefaults
+### NewArticlesPropertyInnerAuthorsWithDefaults
 
-`func NewFromWithDefaults() *From`
+`func NewArticlesPropertyInnerAuthorsWithDefaults() *ArticlesPropertyInnerAuthors`
 
-NewFromWithDefaults instantiates a new From object
+NewArticlesPropertyInnerAuthorsWithDefaults instantiates a new ArticlesPropertyInnerAuthors object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 

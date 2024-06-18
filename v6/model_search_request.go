@@ -27,8 +27,8 @@ type SearchRequest struct {
 	Countries interface{} `json:"countries,omitempty"`
 	NotCountries interface{} `json:"not_countries,omitempty"`
 	NotAuthorName interface{} `json:"not_author_name,omitempty"`
-	From *From `json:"from_,omitempty"`
-	To *To `json:"to_,omitempty"`
+	From *string `json:"from_,omitempty"`
+	To *string `json:"to_,omitempty"`
 	PublishedDatePrecision *string `json:"published_date_precision,omitempty"`
 	ByParseDate *bool `json:"by_parse_date,omitempty"`
 	SortBy *string `json:"sort_by,omitempty"`
@@ -427,9 +427,9 @@ func (o *SearchRequest) SetNotAuthorName(v interface{}) {
 }
 
 // GetFrom returns the From field value if set, zero value otherwise.
-func (o *SearchRequest) GetFrom() From {
+func (o *SearchRequest) GetFrom() string {
 	if o == nil || isNil(o.From) {
-		var ret From
+		var ret string
 		return ret
 	}
 	return *o.From
@@ -437,7 +437,7 @@ func (o *SearchRequest) GetFrom() From {
 
 // GetFromOk returns a tuple with the From field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchRequest) GetFromOk() (*From, bool) {
+func (o *SearchRequest) GetFromOk() (*string, bool) {
 	if o == nil || isNil(o.From) {
     return nil, false
 	}
@@ -453,15 +453,15 @@ func (o *SearchRequest) HasFrom() bool {
 	return false
 }
 
-// SetFrom gets a reference to the given From and assigns it to the From field.
-func (o *SearchRequest) SetFrom(v From) {
+// SetFrom gets a reference to the given string and assigns it to the From field.
+func (o *SearchRequest) SetFrom(v string) {
 	o.From = &v
 }
 
 // GetTo returns the To field value if set, zero value otherwise.
-func (o *SearchRequest) GetTo() To {
+func (o *SearchRequest) GetTo() string {
 	if o == nil || isNil(o.To) {
-		var ret To
+		var ret string
 		return ret
 	}
 	return *o.To
@@ -469,7 +469,7 @@ func (o *SearchRequest) GetTo() To {
 
 // GetToOk returns a tuple with the To field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *SearchRequest) GetToOk() (*To, bool) {
+func (o *SearchRequest) GetToOk() (*string, bool) {
 	if o == nil || isNil(o.To) {
     return nil, false
 	}
@@ -485,8 +485,8 @@ func (o *SearchRequest) HasTo() bool {
 	return false
 }
 
-// SetTo gets a reference to the given To and assigns it to the To field.
-func (o *SearchRequest) SetTo(v To) {
+// SetTo gets a reference to the given string and assigns it to the To field.
+func (o *SearchRequest) SetTo(v string) {
 	o.To = &v
 }
 

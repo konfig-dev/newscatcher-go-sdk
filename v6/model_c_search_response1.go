@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// DtoResponsesSearchResponseSearchResponse SearchResponse DTO class.
-type DtoResponsesSearchResponseSearchResponse struct {
+// CSearchResponse1 SearchResponse DTO class.
+type CSearchResponse1 struct {
 	Status *string `json:"status,omitempty"`
 	TotalHits int32 `json:"total_hits"`
 	Page int32 `json:"page"`
@@ -28,12 +28,12 @@ type DtoResponsesSearchResponseSearchResponse struct {
 	Clusters []Cluster1 `json:"clusters,omitempty"`
 }
 
-// NewDtoResponsesSearchResponseSearchResponse instantiates a new DtoResponsesSearchResponseSearchResponse object
+// NewCSearchResponse1 instantiates a new CSearchResponse1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDtoResponsesSearchResponseSearchResponse(totalHits int32, page int32, totalPages int32, pageSize int32, userInput map[string]interface{}) *DtoResponsesSearchResponseSearchResponse {
-	this := DtoResponsesSearchResponseSearchResponse{}
+func NewCSearchResponse1(totalHits int32, page int32, totalPages int32, pageSize int32, userInput map[string]interface{}) *CSearchResponse1 {
+	this := CSearchResponse1{}
 	var status string = "ok"
 	this.Status = &status
 	this.TotalHits = totalHits
@@ -44,18 +44,18 @@ func NewDtoResponsesSearchResponseSearchResponse(totalHits int32, page int32, to
 	return &this
 }
 
-// NewDtoResponsesSearchResponseSearchResponseWithDefaults instantiates a new DtoResponsesSearchResponseSearchResponse object
+// NewCSearchResponse1WithDefaults instantiates a new CSearchResponse1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewDtoResponsesSearchResponseSearchResponseWithDefaults() *DtoResponsesSearchResponseSearchResponse {
-	this := DtoResponsesSearchResponseSearchResponse{}
+func NewCSearchResponse1WithDefaults() *CSearchResponse1 {
+	this := CSearchResponse1{}
 	var status string = "ok"
 	this.Status = &status
 	return &this
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *DtoResponsesSearchResponseSearchResponse) GetStatus() string {
+func (o *CSearchResponse1) GetStatus() string {
 	if o == nil || isNil(o.Status) {
 		var ret string
 		return ret
@@ -65,7 +65,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) GetStatusOk() (*string, bool) {
+func (o *CSearchResponse1) GetStatusOk() (*string, bool) {
 	if o == nil || isNil(o.Status) {
     return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetStatusOk() (*string, bool)
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) HasStatus() bool {
+func (o *CSearchResponse1) HasStatus() bool {
 	if o != nil && !isNil(o.Status) {
 		return true
 	}
@@ -82,12 +82,12 @@ func (o *DtoResponsesSearchResponseSearchResponse) HasStatus() bool {
 }
 
 // SetStatus gets a reference to the given string and assigns it to the Status field.
-func (o *DtoResponsesSearchResponseSearchResponse) SetStatus(v string) {
+func (o *CSearchResponse1) SetStatus(v string) {
 	o.Status = &v
 }
 
 // GetTotalHits returns the TotalHits field value
-func (o *DtoResponsesSearchResponseSearchResponse) GetTotalHits() int32 {
+func (o *CSearchResponse1) GetTotalHits() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -98,7 +98,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetTotalHits() int32 {
 
 // GetTotalHitsOk returns a tuple with the TotalHits field value
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) GetTotalHitsOk() (*int32, bool) {
+func (o *CSearchResponse1) GetTotalHitsOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -106,12 +106,12 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetTotalHitsOk() (*int32, boo
 }
 
 // SetTotalHits sets field value
-func (o *DtoResponsesSearchResponseSearchResponse) SetTotalHits(v int32) {
+func (o *CSearchResponse1) SetTotalHits(v int32) {
 	o.TotalHits = v
 }
 
 // GetPage returns the Page field value
-func (o *DtoResponsesSearchResponseSearchResponse) GetPage() int32 {
+func (o *CSearchResponse1) GetPage() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -122,7 +122,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetPage() int32 {
 
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) GetPageOk() (*int32, bool) {
+func (o *CSearchResponse1) GetPageOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -130,12 +130,12 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetPageOk() (*int32, bool) {
 }
 
 // SetPage sets field value
-func (o *DtoResponsesSearchResponseSearchResponse) SetPage(v int32) {
+func (o *CSearchResponse1) SetPage(v int32) {
 	o.Page = v
 }
 
 // GetTotalPages returns the TotalPages field value
-func (o *DtoResponsesSearchResponseSearchResponse) GetTotalPages() int32 {
+func (o *CSearchResponse1) GetTotalPages() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -146,7 +146,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetTotalPages() int32 {
 
 // GetTotalPagesOk returns a tuple with the TotalPages field value
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) GetTotalPagesOk() (*int32, bool) {
+func (o *CSearchResponse1) GetTotalPagesOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -154,12 +154,12 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetTotalPagesOk() (*int32, bo
 }
 
 // SetTotalPages sets field value
-func (o *DtoResponsesSearchResponseSearchResponse) SetTotalPages(v int32) {
+func (o *CSearchResponse1) SetTotalPages(v int32) {
 	o.TotalPages = v
 }
 
 // GetPageSize returns the PageSize field value
-func (o *DtoResponsesSearchResponseSearchResponse) GetPageSize() int32 {
+func (o *CSearchResponse1) GetPageSize() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -170,7 +170,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetPageSize() int32 {
 
 // GetPageSizeOk returns a tuple with the PageSize field value
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) GetPageSizeOk() (*int32, bool) {
+func (o *CSearchResponse1) GetPageSizeOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -178,12 +178,12 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetPageSizeOk() (*int32, bool
 }
 
 // SetPageSize sets field value
-func (o *DtoResponsesSearchResponseSearchResponse) SetPageSize(v int32) {
+func (o *CSearchResponse1) SetPageSize(v int32) {
 	o.PageSize = v
 }
 
 // GetArticles returns the Articles field value if set, zero value otherwise.
-func (o *DtoResponsesSearchResponseSearchResponse) GetArticles() []map[string]interface{} {
+func (o *CSearchResponse1) GetArticles() []map[string]interface{} {
 	if o == nil || isNil(o.Articles) {
 		var ret []map[string]interface{}
 		return ret
@@ -193,7 +193,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetArticles() []map[string]in
 
 // GetArticlesOk returns a tuple with the Articles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) GetArticlesOk() ([]map[string]interface{}, bool) {
+func (o *CSearchResponse1) GetArticlesOk() ([]map[string]interface{}, bool) {
 	if o == nil || isNil(o.Articles) {
     return nil, false
 	}
@@ -201,7 +201,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetArticlesOk() ([]map[string
 }
 
 // HasArticles returns a boolean if a field has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) HasArticles() bool {
+func (o *CSearchResponse1) HasArticles() bool {
 	if o != nil && !isNil(o.Articles) {
 		return true
 	}
@@ -210,12 +210,12 @@ func (o *DtoResponsesSearchResponseSearchResponse) HasArticles() bool {
 }
 
 // SetArticles gets a reference to the given []map[string]interface{} and assigns it to the Articles field.
-func (o *DtoResponsesSearchResponseSearchResponse) SetArticles(v []map[string]interface{}) {
+func (o *CSearchResponse1) SetArticles(v []map[string]interface{}) {
 	o.Articles = v
 }
 
 // GetUserInput returns the UserInput field value
-func (o *DtoResponsesSearchResponseSearchResponse) GetUserInput() map[string]interface{} {
+func (o *CSearchResponse1) GetUserInput() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -226,7 +226,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetUserInput() map[string]int
 
 // GetUserInputOk returns a tuple with the UserInput field value
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) GetUserInputOk() (map[string]interface{}, bool) {
+func (o *CSearchResponse1) GetUserInputOk() (map[string]interface{}, bool) {
 	if o == nil {
     return map[string]interface{}{}, false
 	}
@@ -234,12 +234,12 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetUserInputOk() (map[string]
 }
 
 // SetUserInput sets field value
-func (o *DtoResponsesSearchResponseSearchResponse) SetUserInput(v map[string]interface{}) {
+func (o *CSearchResponse1) SetUserInput(v map[string]interface{}) {
 	o.UserInput = v
 }
 
 // GetClustersCount returns the ClustersCount field value if set, zero value otherwise.
-func (o *DtoResponsesSearchResponseSearchResponse) GetClustersCount() int32 {
+func (o *CSearchResponse1) GetClustersCount() int32 {
 	if o == nil || isNil(o.ClustersCount) {
 		var ret int32
 		return ret
@@ -249,7 +249,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetClustersCount() int32 {
 
 // GetClustersCountOk returns a tuple with the ClustersCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) GetClustersCountOk() (*int32, bool) {
+func (o *CSearchResponse1) GetClustersCountOk() (*int32, bool) {
 	if o == nil || isNil(o.ClustersCount) {
     return nil, false
 	}
@@ -257,7 +257,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetClustersCountOk() (*int32,
 }
 
 // HasClustersCount returns a boolean if a field has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) HasClustersCount() bool {
+func (o *CSearchResponse1) HasClustersCount() bool {
 	if o != nil && !isNil(o.ClustersCount) {
 		return true
 	}
@@ -266,12 +266,12 @@ func (o *DtoResponsesSearchResponseSearchResponse) HasClustersCount() bool {
 }
 
 // SetClustersCount gets a reference to the given int32 and assigns it to the ClustersCount field.
-func (o *DtoResponsesSearchResponseSearchResponse) SetClustersCount(v int32) {
+func (o *CSearchResponse1) SetClustersCount(v int32) {
 	o.ClustersCount = &v
 }
 
 // GetClusters returns the Clusters field value if set, zero value otherwise.
-func (o *DtoResponsesSearchResponseSearchResponse) GetClusters() []Cluster1 {
+func (o *CSearchResponse1) GetClusters() []Cluster1 {
 	if o == nil || isNil(o.Clusters) {
 		var ret []Cluster1
 		return ret
@@ -281,7 +281,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetClusters() []Cluster1 {
 
 // GetClustersOk returns a tuple with the Clusters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) GetClustersOk() ([]Cluster1, bool) {
+func (o *CSearchResponse1) GetClustersOk() ([]Cluster1, bool) {
 	if o == nil || isNil(o.Clusters) {
     return nil, false
 	}
@@ -289,7 +289,7 @@ func (o *DtoResponsesSearchResponseSearchResponse) GetClustersOk() ([]Cluster1, 
 }
 
 // HasClusters returns a boolean if a field has been set.
-func (o *DtoResponsesSearchResponseSearchResponse) HasClusters() bool {
+func (o *CSearchResponse1) HasClusters() bool {
 	if o != nil && !isNil(o.Clusters) {
 		return true
 	}
@@ -298,11 +298,11 @@ func (o *DtoResponsesSearchResponseSearchResponse) HasClusters() bool {
 }
 
 // SetClusters gets a reference to the given []Cluster1 and assigns it to the Clusters field.
-func (o *DtoResponsesSearchResponseSearchResponse) SetClusters(v []Cluster1) {
+func (o *CSearchResponse1) SetClusters(v []Cluster1) {
 	o.Clusters = v
 }
 
-func (o DtoResponsesSearchResponseSearchResponse) MarshalJSON() ([]byte, error) {
+func (o CSearchResponse1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Status) {
 		toSerialize["status"] = o.Status
@@ -334,38 +334,38 @@ func (o DtoResponsesSearchResponseSearchResponse) MarshalJSON() ([]byte, error) 
 	return json.Marshal(toSerialize)
 }
 
-type NullableDtoResponsesSearchResponseSearchResponse struct {
-	value *DtoResponsesSearchResponseSearchResponse
+type NullableCSearchResponse1 struct {
+	value *CSearchResponse1
 	isSet bool
 }
 
-func (v NullableDtoResponsesSearchResponseSearchResponse) Get() *DtoResponsesSearchResponseSearchResponse {
+func (v NullableCSearchResponse1) Get() *CSearchResponse1 {
 	return v.value
 }
 
-func (v *NullableDtoResponsesSearchResponseSearchResponse) Set(val *DtoResponsesSearchResponseSearchResponse) {
+func (v *NullableCSearchResponse1) Set(val *CSearchResponse1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableDtoResponsesSearchResponseSearchResponse) IsSet() bool {
+func (v NullableCSearchResponse1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableDtoResponsesSearchResponseSearchResponse) Unset() {
+func (v *NullableCSearchResponse1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableDtoResponsesSearchResponseSearchResponse(val *DtoResponsesSearchResponseSearchResponse) *NullableDtoResponsesSearchResponseSearchResponse {
-	return &NullableDtoResponsesSearchResponseSearchResponse{value: val, isSet: true}
+func NewNullableCSearchResponse1(val *CSearchResponse1) *NullableCSearchResponse1 {
+	return &NullableCSearchResponse1{value: val, isSet: true}
 }
 
-func (v NullableDtoResponsesSearchResponseSearchResponse) MarshalJSON() ([]byte, error) {
+func (v NullableCSearchResponse1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableDtoResponsesSearchResponseSearchResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableCSearchResponse1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

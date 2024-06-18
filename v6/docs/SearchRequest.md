@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **Countries** | Pointer to **interface{}** |  | [optional] 
 **NotCountries** | Pointer to **interface{}** |  | [optional] 
 **NotAuthorName** | Pointer to **interface{}** |  | [optional] 
-**From** | Pointer to [**From**](From.md) |  | [optional] 
-**To** | Pointer to [**To**](To.md) |  | [optional] 
+**From** | Pointer to **string** |  | [optional] 
+**To** | Pointer to **string** |  | [optional] 
 **PublishedDatePrecision** | Pointer to **string** |  | [optional] 
 **ByParseDate** | Pointer to **bool** |  | [optional] [default to false]
 **SortBy** | Pointer to **string** |  | [optional] [default to "relevancy"]
@@ -400,20 +400,20 @@ HasNotAuthorName returns a boolean if a field has been set.
 UnsetNotAuthorName ensures that no value is present for NotAuthorName, not even an explicit nil
 ### GetFrom
 
-`func (o *SearchRequest) GetFrom() From`
+`func (o *SearchRequest) GetFrom() string`
 
 GetFrom returns the From field if non-nil, zero value otherwise.
 
 ### GetFromOk
 
-`func (o *SearchRequest) GetFromOk() (*From, bool)`
+`func (o *SearchRequest) GetFromOk() (*string, bool)`
 
 GetFromOk returns a tuple with the From field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetFrom
 
-`func (o *SearchRequest) SetFrom(v From)`
+`func (o *SearchRequest) SetFrom(v string)`
 
 SetFrom sets From field to given value.
 
@@ -425,20 +425,20 @@ HasFrom returns a boolean if a field has been set.
 
 ### GetTo
 
-`func (o *SearchRequest) GetTo() To`
+`func (o *SearchRequest) GetTo() string`
 
 GetTo returns the To field if non-nil, zero value otherwise.
 
 ### GetToOk
 
-`func (o *SearchRequest) GetToOk() (*To, bool)`
+`func (o *SearchRequest) GetToOk() (*string, bool)`
 
 GetToOk returns a tuple with the To field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTo
 
-`func (o *SearchRequest) SetTo(v To)`
+`func (o *SearchRequest) SetTo(v string)`
 
 SetTo sets To field to given value.
 

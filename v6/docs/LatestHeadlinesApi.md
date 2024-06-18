@@ -80,17 +80,17 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `LatestHeadlinesApi.Get``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", httpRes)
     }
-    // response from `Get`: LatestHeadlinesGetResponse
+    // response from `Get`: CSLHResponse
     fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesApi.Get`: %v\n", resp)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesGetResponse.Get.Status`: %v\n", *resp.Status)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesGetResponse.Get.TotalHits`: %v\n", resp.TotalHits)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesGetResponse.Get.Page`: %v\n", resp.Page)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesGetResponse.Get.TotalPages`: %v\n", resp.TotalPages)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesGetResponse.Get.PageSize`: %v\n", resp.PageSize)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesGetResponse.Get.ClustersCount`: %v\n", resp.ClustersCount)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesGetResponse.Get.Clusters`: %v\n", resp.Clusters)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesGetResponse.Get.UserInput`: %v\n", resp.UserInput)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesGetResponse.Get.Articles`: %v\n", resp.Articles)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse.Get.Status`: %v\n", *resp.Status)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse.Get.TotalHits`: %v\n", resp.TotalHits)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse.Get.Page`: %v\n", resp.Page)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse.Get.TotalPages`: %v\n", resp.TotalPages)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse.Get.PageSize`: %v\n", resp.PageSize)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse.Get.ClustersCount`: %v\n", *resp.ClustersCount)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse.Get.Clusters`: %v\n", *resp.Clusters)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse.Get.UserInput`: %v\n", resp.UserInput)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse.Get.Articles`: %v\n", *resp.Articles)
 }
 ```
 
@@ -174,17 +174,17 @@ func main() {
         fmt.Fprintf(os.Stderr, "Error when calling `LatestHeadlinesApi.Post``: %v\n", err)
         fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", httpRes)
     }
-    // response from `Post`: LatestHeadlinesPostResponse
+    // response from `Post`: CSLHResponse1
     fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesApi.Post`: %v\n", resp)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesPostResponse.Post.Status`: %v\n", *resp.Status)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesPostResponse.Post.TotalHits`: %v\n", resp.TotalHits)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesPostResponse.Post.Page`: %v\n", resp.Page)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesPostResponse.Post.TotalPages`: %v\n", resp.TotalPages)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesPostResponse.Post.PageSize`: %v\n", resp.PageSize)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesPostResponse.Post.ClustersCount`: %v\n", resp.ClustersCount)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesPostResponse.Post.Clusters`: %v\n", resp.Clusters)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesPostResponse.Post.UserInput`: %v\n", resp.UserInput)
-    fmt.Fprintf(os.Stdout, "Response from `LatestHeadlinesPostResponse.Post.Articles`: %v\n", resp.Articles)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse1.Post.Status`: %v\n", *resp.Status)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse1.Post.TotalHits`: %v\n", resp.TotalHits)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse1.Post.Page`: %v\n", resp.Page)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse1.Post.TotalPages`: %v\n", resp.TotalPages)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse1.Post.PageSize`: %v\n", resp.PageSize)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse1.Post.ClustersCount`: %v\n", *resp.ClustersCount)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse1.Post.Clusters`: %v\n", *resp.Clusters)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse1.Post.UserInput`: %v\n", resp.UserInput)
+    fmt.Fprintf(os.Stdout, "Response from `CSLHResponse1.Post.Articles`: %v\n", *resp.Articles)
 }
 ```
 

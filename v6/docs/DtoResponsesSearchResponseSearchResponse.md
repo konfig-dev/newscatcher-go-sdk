@@ -9,14 +9,16 @@ Name | Type | Description | Notes
 **Page** | **int32** |  | 
 **TotalPages** | **int32** |  | 
 **PageSize** | **int32** |  | 
-**Articles** | **[]map[string]interface{}** |  | 
+**Articles** | Pointer to **[]map[string]interface{}** |  | [optional] 
 **UserInput** | **map[string]interface{}** |  | 
+**ClustersCount** | Pointer to **int32** |  | [optional] 
+**Clusters** | Pointer to [**[]Cluster1**](Cluster1.md) |  | [optional] 
 
 ## Methods
 
 ### NewDtoResponsesSearchResponseSearchResponse
 
-`func NewDtoResponsesSearchResponseSearchResponse(totalHits int32, page int32, totalPages int32, pageSize int32, articles []map[string]interface{}, userInput map[string]interface{}, ) *DtoResponsesSearchResponseSearchResponse`
+`func NewDtoResponsesSearchResponseSearchResponse(totalHits int32, page int32, totalPages int32, pageSize int32, userInput map[string]interface{}, ) *DtoResponsesSearchResponseSearchResponse`
 
 NewDtoResponsesSearchResponseSearchResponse instantiates a new DtoResponsesSearchResponseSearchResponse object
 This constructor will assign default values to properties that have it defined,
@@ -155,6 +157,11 @@ and a boolean to check if the value has been set.
 
 SetArticles sets Articles field to given value.
 
+### HasArticles
+
+`func (o *DtoResponsesSearchResponseSearchResponse) HasArticles() bool`
+
+HasArticles returns a boolean if a field has been set.
 
 ### GetUserInput
 
@@ -175,6 +182,56 @@ and a boolean to check if the value has been set.
 
 SetUserInput sets UserInput field to given value.
 
+
+### GetClustersCount
+
+`func (o *DtoResponsesSearchResponseSearchResponse) GetClustersCount() int32`
+
+GetClustersCount returns the ClustersCount field if non-nil, zero value otherwise.
+
+### GetClustersCountOk
+
+`func (o *DtoResponsesSearchResponseSearchResponse) GetClustersCountOk() (*int32, bool)`
+
+GetClustersCountOk returns a tuple with the ClustersCount field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClustersCount
+
+`func (o *DtoResponsesSearchResponseSearchResponse) SetClustersCount(v int32)`
+
+SetClustersCount sets ClustersCount field to given value.
+
+### HasClustersCount
+
+`func (o *DtoResponsesSearchResponseSearchResponse) HasClustersCount() bool`
+
+HasClustersCount returns a boolean if a field has been set.
+
+### GetClusters
+
+`func (o *DtoResponsesSearchResponseSearchResponse) GetClusters() []Cluster1`
+
+GetClusters returns the Clusters field if non-nil, zero value otherwise.
+
+### GetClustersOk
+
+`func (o *DtoResponsesSearchResponseSearchResponse) GetClustersOk() (*[]Cluster1, bool)`
+
+GetClustersOk returns a tuple with the Clusters field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetClusters
+
+`func (o *DtoResponsesSearchResponseSearchResponse) SetClusters(v []Cluster1)`
+
+SetClusters sets Clusters field to given value.
+
+### HasClusters
+
+`func (o *DtoResponsesSearchResponseSearchResponse) HasClusters() bool`
+
+HasClusters returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

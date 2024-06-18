@@ -36,8 +36,8 @@ type SearchApiGetRequest struct {
 	countries *interface{}
 	notCountries *interface{}
 	notAuthorName *interface{}
-	from *From
-	to *To
+	from *string
+	to *string
 	publishedDatePrecision *string
 	byParseDate *bool
 	sortBy *string
@@ -122,12 +122,12 @@ func (r *SearchApiGetRequest) NotAuthorName(notAuthorName interface{}) *SearchAp
 	return r
 }
 
-func (r *SearchApiGetRequest) From(from From) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) From(from string) *SearchApiGetRequest {
 	r.from = &from
 	return r
 }
 
-func (r *SearchApiGetRequest) To(to To) *SearchApiGetRequest {
+func (r *SearchApiGetRequest) To(to string) *SearchApiGetRequest {
 	r.to = &to
 	return r
 }
@@ -317,7 +317,7 @@ func (r *SearchApiGetRequest) ExcludeDuplicates(excludeDuplicates bool) *SearchA
 	return r
 }
 
-func (r SearchApiGetRequest) Execute() (*SearchGetResponse, *http.Response, error) {
+func (r SearchApiGetRequest) Execute() (*CSearchResponse, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
@@ -339,13 +339,13 @@ func (a *SearchApiService) Get(q string) SearchApiGetRequest {
 }
 
 // Execute executes the request
-//  @return SearchGetResponse
-func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*SearchGetResponse, *http.Response, error) {
+//  @return CSearchResponse
+func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*CSearchResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SearchGetResponse
+		localVarReturnValue  *CSearchResponse
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.Get")
@@ -358,16 +358,16 @@ func (a *SearchApiService) GetExecute(r SearchApiGetRequest) (*SearchGetResponse
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if *r.wordCountMin < 0 {
+	if r.wordCountMin != nil && *r.wordCountMin < 0 {
 		return localVarReturnValue, nil, reportError("wordCountMin must be greater than 0")
 	}
-	if *r.wordCountMax < 0 {
+	if r.wordCountMax != nil && *r.wordCountMax < 0 {
 		return localVarReturnValue, nil, reportError("wordCountMax must be greater than 0")
 	}
-	if *r.page < 0 {
+	if r.page != nil && *r.page < 0 {
 		return localVarReturnValue, nil, reportError("page must be greater than 0")
 	}
-	if *r.pageSize < 0 {
+	if r.pageSize != nil && *r.pageSize < 0 {
 		return localVarReturnValue, nil, reportError("pageSize must be greater than 0")
 	}
 
@@ -600,7 +600,7 @@ type SearchApiPostRequest struct {
 	searchRequest SearchRequest
 }
 
-func (r SearchApiPostRequest) Execute() (*SearchPostResponse, *http.Response, error) {
+func (r SearchApiPostRequest) Execute() (*CSearchResponse1, *http.Response, error) {
 	return r.ApiService.PostExecute(r)
 }
 
@@ -622,13 +622,13 @@ func (a *SearchApiService) Post(searchRequest SearchRequest) SearchApiPostReques
 }
 
 // Execute executes the request
-//  @return SearchPostResponse
-func (a *SearchApiService) PostExecute(r SearchApiPostRequest) (*SearchPostResponse, *http.Response, error) {
+//  @return CSearchResponse1
+func (a *SearchApiService) PostExecute(r SearchApiPostRequest) (*CSearchResponse1, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SearchPostResponse
+		localVarReturnValue  *CSearchResponse1
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchApiService.Post")

@@ -15,8 +15,8 @@ import (
 	"encoding/json"
 )
 
-// ClusteringSearchResponse ClusteringSearchResponse DTO class.
-type ClusteringSearchResponse struct {
+// CSLHResponse1 ClusteringSearchResponse DTO class.
+type CSLHResponse1 struct {
 	Status *string `json:"status,omitempty"`
 	TotalHits int32 `json:"total_hits"`
 	Page int32 `json:"page"`
@@ -28,12 +28,12 @@ type ClusteringSearchResponse struct {
 	Articles []map[string]interface{} `json:"articles,omitempty"`
 }
 
-// NewClusteringSearchResponse instantiates a new ClusteringSearchResponse object
+// NewCSLHResponse1 instantiates a new CSLHResponse1 object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewClusteringSearchResponse(totalHits int32, page int32, totalPages int32, pageSize int32, userInput map[string]interface{}) *ClusteringSearchResponse {
-	this := ClusteringSearchResponse{}
+func NewCSLHResponse1(totalHits int32, page int32, totalPages int32, pageSize int32, userInput map[string]interface{}) *CSLHResponse1 {
+	this := CSLHResponse1{}
 	var status string = "ok"
 	this.Status = &status
 	this.TotalHits = totalHits
@@ -44,18 +44,18 @@ func NewClusteringSearchResponse(totalHits int32, page int32, totalPages int32, 
 	return &this
 }
 
-// NewClusteringSearchResponseWithDefaults instantiates a new ClusteringSearchResponse object
+// NewCSLHResponse1WithDefaults instantiates a new CSLHResponse1 object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewClusteringSearchResponseWithDefaults() *ClusteringSearchResponse {
-	this := ClusteringSearchResponse{}
+func NewCSLHResponse1WithDefaults() *CSLHResponse1 {
+	this := CSLHResponse1{}
 	var status string = "ok"
 	this.Status = &status
 	return &this
 }
 
 // GetStatus returns the Status field value if set, zero value otherwise.
-func (o *ClusteringSearchResponse) GetStatus() string {
+func (o *CSLHResponse1) GetStatus() string {
 	if o == nil || isNil(o.Status) {
 		var ret string
 		return ret
@@ -65,7 +65,7 @@ func (o *ClusteringSearchResponse) GetStatus() string {
 
 // GetStatusOk returns a tuple with the Status field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClusteringSearchResponse) GetStatusOk() (*string, bool) {
+func (o *CSLHResponse1) GetStatusOk() (*string, bool) {
 	if o == nil || isNil(o.Status) {
     return nil, false
 	}
@@ -73,7 +73,7 @@ func (o *ClusteringSearchResponse) GetStatusOk() (*string, bool) {
 }
 
 // HasStatus returns a boolean if a field has been set.
-func (o *ClusteringSearchResponse) HasStatus() bool {
+func (o *CSLHResponse1) HasStatus() bool {
 	if o != nil && !isNil(o.Status) {
 		return true
 	}
@@ -82,12 +82,12 @@ func (o *ClusteringSearchResponse) HasStatus() bool {
 }
 
 // SetStatus gets a reference to the given string and assigns it to the Status field.
-func (o *ClusteringSearchResponse) SetStatus(v string) {
+func (o *CSLHResponse1) SetStatus(v string) {
 	o.Status = &v
 }
 
 // GetTotalHits returns the TotalHits field value
-func (o *ClusteringSearchResponse) GetTotalHits() int32 {
+func (o *CSLHResponse1) GetTotalHits() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -98,7 +98,7 @@ func (o *ClusteringSearchResponse) GetTotalHits() int32 {
 
 // GetTotalHitsOk returns a tuple with the TotalHits field value
 // and a boolean to check if the value has been set.
-func (o *ClusteringSearchResponse) GetTotalHitsOk() (*int32, bool) {
+func (o *CSLHResponse1) GetTotalHitsOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -106,12 +106,12 @@ func (o *ClusteringSearchResponse) GetTotalHitsOk() (*int32, bool) {
 }
 
 // SetTotalHits sets field value
-func (o *ClusteringSearchResponse) SetTotalHits(v int32) {
+func (o *CSLHResponse1) SetTotalHits(v int32) {
 	o.TotalHits = v
 }
 
 // GetPage returns the Page field value
-func (o *ClusteringSearchResponse) GetPage() int32 {
+func (o *CSLHResponse1) GetPage() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -122,7 +122,7 @@ func (o *ClusteringSearchResponse) GetPage() int32 {
 
 // GetPageOk returns a tuple with the Page field value
 // and a boolean to check if the value has been set.
-func (o *ClusteringSearchResponse) GetPageOk() (*int32, bool) {
+func (o *CSLHResponse1) GetPageOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -130,12 +130,12 @@ func (o *ClusteringSearchResponse) GetPageOk() (*int32, bool) {
 }
 
 // SetPage sets field value
-func (o *ClusteringSearchResponse) SetPage(v int32) {
+func (o *CSLHResponse1) SetPage(v int32) {
 	o.Page = v
 }
 
 // GetTotalPages returns the TotalPages field value
-func (o *ClusteringSearchResponse) GetTotalPages() int32 {
+func (o *CSLHResponse1) GetTotalPages() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -146,7 +146,7 @@ func (o *ClusteringSearchResponse) GetTotalPages() int32 {
 
 // GetTotalPagesOk returns a tuple with the TotalPages field value
 // and a boolean to check if the value has been set.
-func (o *ClusteringSearchResponse) GetTotalPagesOk() (*int32, bool) {
+func (o *CSLHResponse1) GetTotalPagesOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -154,12 +154,12 @@ func (o *ClusteringSearchResponse) GetTotalPagesOk() (*int32, bool) {
 }
 
 // SetTotalPages sets field value
-func (o *ClusteringSearchResponse) SetTotalPages(v int32) {
+func (o *CSLHResponse1) SetTotalPages(v int32) {
 	o.TotalPages = v
 }
 
 // GetPageSize returns the PageSize field value
-func (o *ClusteringSearchResponse) GetPageSize() int32 {
+func (o *CSLHResponse1) GetPageSize() int32 {
 	if o == nil {
 		var ret int32
 		return ret
@@ -170,7 +170,7 @@ func (o *ClusteringSearchResponse) GetPageSize() int32 {
 
 // GetPageSizeOk returns a tuple with the PageSize field value
 // and a boolean to check if the value has been set.
-func (o *ClusteringSearchResponse) GetPageSizeOk() (*int32, bool) {
+func (o *CSLHResponse1) GetPageSizeOk() (*int32, bool) {
 	if o == nil {
     return nil, false
 	}
@@ -178,12 +178,12 @@ func (o *ClusteringSearchResponse) GetPageSizeOk() (*int32, bool) {
 }
 
 // SetPageSize sets field value
-func (o *ClusteringSearchResponse) SetPageSize(v int32) {
+func (o *CSLHResponse1) SetPageSize(v int32) {
 	o.PageSize = v
 }
 
 // GetClustersCount returns the ClustersCount field value if set, zero value otherwise.
-func (o *ClusteringSearchResponse) GetClustersCount() int32 {
+func (o *CSLHResponse1) GetClustersCount() int32 {
 	if o == nil || isNil(o.ClustersCount) {
 		var ret int32
 		return ret
@@ -193,7 +193,7 @@ func (o *ClusteringSearchResponse) GetClustersCount() int32 {
 
 // GetClustersCountOk returns a tuple with the ClustersCount field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClusteringSearchResponse) GetClustersCountOk() (*int32, bool) {
+func (o *CSLHResponse1) GetClustersCountOk() (*int32, bool) {
 	if o == nil || isNil(o.ClustersCount) {
     return nil, false
 	}
@@ -201,7 +201,7 @@ func (o *ClusteringSearchResponse) GetClustersCountOk() (*int32, bool) {
 }
 
 // HasClustersCount returns a boolean if a field has been set.
-func (o *ClusteringSearchResponse) HasClustersCount() bool {
+func (o *CSLHResponse1) HasClustersCount() bool {
 	if o != nil && !isNil(o.ClustersCount) {
 		return true
 	}
@@ -210,12 +210,12 @@ func (o *ClusteringSearchResponse) HasClustersCount() bool {
 }
 
 // SetClustersCount gets a reference to the given int32 and assigns it to the ClustersCount field.
-func (o *ClusteringSearchResponse) SetClustersCount(v int32) {
+func (o *CSLHResponse1) SetClustersCount(v int32) {
 	o.ClustersCount = &v
 }
 
 // GetClusters returns the Clusters field value if set, zero value otherwise.
-func (o *ClusteringSearchResponse) GetClusters() []Cluster1 {
+func (o *CSLHResponse1) GetClusters() []Cluster1 {
 	if o == nil || isNil(o.Clusters) {
 		var ret []Cluster1
 		return ret
@@ -225,7 +225,7 @@ func (o *ClusteringSearchResponse) GetClusters() []Cluster1 {
 
 // GetClustersOk returns a tuple with the Clusters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClusteringSearchResponse) GetClustersOk() ([]Cluster1, bool) {
+func (o *CSLHResponse1) GetClustersOk() ([]Cluster1, bool) {
 	if o == nil || isNil(o.Clusters) {
     return nil, false
 	}
@@ -233,7 +233,7 @@ func (o *ClusteringSearchResponse) GetClustersOk() ([]Cluster1, bool) {
 }
 
 // HasClusters returns a boolean if a field has been set.
-func (o *ClusteringSearchResponse) HasClusters() bool {
+func (o *CSLHResponse1) HasClusters() bool {
 	if o != nil && !isNil(o.Clusters) {
 		return true
 	}
@@ -242,12 +242,12 @@ func (o *ClusteringSearchResponse) HasClusters() bool {
 }
 
 // SetClusters gets a reference to the given []Cluster1 and assigns it to the Clusters field.
-func (o *ClusteringSearchResponse) SetClusters(v []Cluster1) {
+func (o *CSLHResponse1) SetClusters(v []Cluster1) {
 	o.Clusters = v
 }
 
 // GetUserInput returns the UserInput field value
-func (o *ClusteringSearchResponse) GetUserInput() map[string]interface{} {
+func (o *CSLHResponse1) GetUserInput() map[string]interface{} {
 	if o == nil {
 		var ret map[string]interface{}
 		return ret
@@ -258,7 +258,7 @@ func (o *ClusteringSearchResponse) GetUserInput() map[string]interface{} {
 
 // GetUserInputOk returns a tuple with the UserInput field value
 // and a boolean to check if the value has been set.
-func (o *ClusteringSearchResponse) GetUserInputOk() (map[string]interface{}, bool) {
+func (o *CSLHResponse1) GetUserInputOk() (map[string]interface{}, bool) {
 	if o == nil {
     return map[string]interface{}{}, false
 	}
@@ -266,12 +266,12 @@ func (o *ClusteringSearchResponse) GetUserInputOk() (map[string]interface{}, boo
 }
 
 // SetUserInput sets field value
-func (o *ClusteringSearchResponse) SetUserInput(v map[string]interface{}) {
+func (o *CSLHResponse1) SetUserInput(v map[string]interface{}) {
 	o.UserInput = v
 }
 
 // GetArticles returns the Articles field value if set, zero value otherwise.
-func (o *ClusteringSearchResponse) GetArticles() []map[string]interface{} {
+func (o *CSLHResponse1) GetArticles() []map[string]interface{} {
 	if o == nil || isNil(o.Articles) {
 		var ret []map[string]interface{}
 		return ret
@@ -281,7 +281,7 @@ func (o *ClusteringSearchResponse) GetArticles() []map[string]interface{} {
 
 // GetArticlesOk returns a tuple with the Articles field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ClusteringSearchResponse) GetArticlesOk() ([]map[string]interface{}, bool) {
+func (o *CSLHResponse1) GetArticlesOk() ([]map[string]interface{}, bool) {
 	if o == nil || isNil(o.Articles) {
     return nil, false
 	}
@@ -289,7 +289,7 @@ func (o *ClusteringSearchResponse) GetArticlesOk() ([]map[string]interface{}, bo
 }
 
 // HasArticles returns a boolean if a field has been set.
-func (o *ClusteringSearchResponse) HasArticles() bool {
+func (o *CSLHResponse1) HasArticles() bool {
 	if o != nil && !isNil(o.Articles) {
 		return true
 	}
@@ -298,11 +298,11 @@ func (o *ClusteringSearchResponse) HasArticles() bool {
 }
 
 // SetArticles gets a reference to the given []map[string]interface{} and assigns it to the Articles field.
-func (o *ClusteringSearchResponse) SetArticles(v []map[string]interface{}) {
+func (o *CSLHResponse1) SetArticles(v []map[string]interface{}) {
 	o.Articles = v
 }
 
-func (o ClusteringSearchResponse) MarshalJSON() ([]byte, error) {
+func (o CSLHResponse1) MarshalJSON() ([]byte, error) {
 	toSerialize := map[string]interface{}{}
 	if !isNil(o.Status) {
 		toSerialize["status"] = o.Status
@@ -334,38 +334,38 @@ func (o ClusteringSearchResponse) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-type NullableClusteringSearchResponse struct {
-	value *ClusteringSearchResponse
+type NullableCSLHResponse1 struct {
+	value *CSLHResponse1
 	isSet bool
 }
 
-func (v NullableClusteringSearchResponse) Get() *ClusteringSearchResponse {
+func (v NullableCSLHResponse1) Get() *CSLHResponse1 {
 	return v.value
 }
 
-func (v *NullableClusteringSearchResponse) Set(val *ClusteringSearchResponse) {
+func (v *NullableCSLHResponse1) Set(val *CSLHResponse1) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableClusteringSearchResponse) IsSet() bool {
+func (v NullableCSLHResponse1) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableClusteringSearchResponse) Unset() {
+func (v *NullableCSLHResponse1) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableClusteringSearchResponse(val *ClusteringSearchResponse) *NullableClusteringSearchResponse {
-	return &NullableClusteringSearchResponse{value: val, isSet: true}
+func NewNullableCSLHResponse1(val *CSLHResponse1) *NullableCSLHResponse1 {
+	return &NullableCSLHResponse1{value: val, isSet: true}
 }
 
-func (v NullableClusteringSearchResponse) MarshalJSON() ([]byte, error) {
+func (v NullableCSLHResponse1) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableClusteringSearchResponse) UnmarshalJSON(src []byte) error {
+func (v *NullableCSLHResponse1) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -1,177 +1,202 @@
-# SearchSimilarPostResponse
+# FSearchResponse3
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Status** | Pointer to **string** |  | [optional] [default to "No Matches for your search"]
-**TotalHits** | **int32** |  | [default to 0]
-**Page** | **int32** |  | [default to 0]
-**TotalPages** | **int32** |  | [default to 0]
-**PageSize** | **int32** |  | [default to 0]
-**Articles** | [**[]DtoResponsesMoreLikeThisResponseArticleResult**](DtoResponsesMoreLikeThisResponseArticleResult.md) |  | [default to []]
+**Status** | Pointer to **string** |  | [optional] [default to "ok"]
+**TotalHits** | Pointer to **int32** |  | [optional] 
+**Page** | Pointer to **int32** |  | [optional] 
+**TotalPages** | Pointer to **int32** |  | [optional] 
+**PageSize** | Pointer to **int32** |  | [optional] 
+**Articles** | Pointer to [**[]ArticlesPropertyInner1**](ArticlesPropertyInner1.md) |  | [optional] 
 **UserInput** | **map[string]interface{}** |  | 
 
 ## Methods
 
-### NewSearchSimilarPostResponse
+### NewFSearchResponse3
 
-`func NewSearchSimilarPostResponse(totalHits int32, page int32, totalPages int32, pageSize int32, articles []DtoResponsesMoreLikeThisResponseArticleResult, userInput map[string]interface{}, ) *SearchSimilarPostResponse`
+`func NewFSearchResponse3(userInput map[string]interface{}, ) *FSearchResponse3`
 
-NewSearchSimilarPostResponse instantiates a new SearchSimilarPostResponse object
+NewFSearchResponse3 instantiates a new FSearchResponse3 object
 This constructor will assign default values to properties that have it defined,
 and makes sure properties required by API are set, but the set of arguments
 will change when the set of required properties is changed
 
-### NewSearchSimilarPostResponseWithDefaults
+### NewFSearchResponse3WithDefaults
 
-`func NewSearchSimilarPostResponseWithDefaults() *SearchSimilarPostResponse`
+`func NewFSearchResponse3WithDefaults() *FSearchResponse3`
 
-NewSearchSimilarPostResponseWithDefaults instantiates a new SearchSimilarPostResponse object
+NewFSearchResponse3WithDefaults instantiates a new FSearchResponse3 object
 This constructor will only assign default values to properties that have it defined,
 but it doesn't guarantee that properties required by API are set
 
 ### GetStatus
 
-`func (o *SearchSimilarPostResponse) GetStatus() string`
+`func (o *FSearchResponse3) GetStatus() string`
 
 GetStatus returns the Status field if non-nil, zero value otherwise.
 
 ### GetStatusOk
 
-`func (o *SearchSimilarPostResponse) GetStatusOk() (*string, bool)`
+`func (o *FSearchResponse3) GetStatusOk() (*string, bool)`
 
 GetStatusOk returns a tuple with the Status field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetStatus
 
-`func (o *SearchSimilarPostResponse) SetStatus(v string)`
+`func (o *FSearchResponse3) SetStatus(v string)`
 
 SetStatus sets Status field to given value.
 
 ### HasStatus
 
-`func (o *SearchSimilarPostResponse) HasStatus() bool`
+`func (o *FSearchResponse3) HasStatus() bool`
 
 HasStatus returns a boolean if a field has been set.
 
 ### GetTotalHits
 
-`func (o *SearchSimilarPostResponse) GetTotalHits() int32`
+`func (o *FSearchResponse3) GetTotalHits() int32`
 
 GetTotalHits returns the TotalHits field if non-nil, zero value otherwise.
 
 ### GetTotalHitsOk
 
-`func (o *SearchSimilarPostResponse) GetTotalHitsOk() (*int32, bool)`
+`func (o *FSearchResponse3) GetTotalHitsOk() (*int32, bool)`
 
 GetTotalHitsOk returns a tuple with the TotalHits field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotalHits
 
-`func (o *SearchSimilarPostResponse) SetTotalHits(v int32)`
+`func (o *FSearchResponse3) SetTotalHits(v int32)`
 
 SetTotalHits sets TotalHits field to given value.
 
+### HasTotalHits
+
+`func (o *FSearchResponse3) HasTotalHits() bool`
+
+HasTotalHits returns a boolean if a field has been set.
 
 ### GetPage
 
-`func (o *SearchSimilarPostResponse) GetPage() int32`
+`func (o *FSearchResponse3) GetPage() int32`
 
 GetPage returns the Page field if non-nil, zero value otherwise.
 
 ### GetPageOk
 
-`func (o *SearchSimilarPostResponse) GetPageOk() (*int32, bool)`
+`func (o *FSearchResponse3) GetPageOk() (*int32, bool)`
 
 GetPageOk returns a tuple with the Page field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPage
 
-`func (o *SearchSimilarPostResponse) SetPage(v int32)`
+`func (o *FSearchResponse3) SetPage(v int32)`
 
 SetPage sets Page field to given value.
 
+### HasPage
+
+`func (o *FSearchResponse3) HasPage() bool`
+
+HasPage returns a boolean if a field has been set.
 
 ### GetTotalPages
 
-`func (o *SearchSimilarPostResponse) GetTotalPages() int32`
+`func (o *FSearchResponse3) GetTotalPages() int32`
 
 GetTotalPages returns the TotalPages field if non-nil, zero value otherwise.
 
 ### GetTotalPagesOk
 
-`func (o *SearchSimilarPostResponse) GetTotalPagesOk() (*int32, bool)`
+`func (o *FSearchResponse3) GetTotalPagesOk() (*int32, bool)`
 
 GetTotalPagesOk returns a tuple with the TotalPages field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetTotalPages
 
-`func (o *SearchSimilarPostResponse) SetTotalPages(v int32)`
+`func (o *FSearchResponse3) SetTotalPages(v int32)`
 
 SetTotalPages sets TotalPages field to given value.
 
+### HasTotalPages
+
+`func (o *FSearchResponse3) HasTotalPages() bool`
+
+HasTotalPages returns a boolean if a field has been set.
 
 ### GetPageSize
 
-`func (o *SearchSimilarPostResponse) GetPageSize() int32`
+`func (o *FSearchResponse3) GetPageSize() int32`
 
 GetPageSize returns the PageSize field if non-nil, zero value otherwise.
 
 ### GetPageSizeOk
 
-`func (o *SearchSimilarPostResponse) GetPageSizeOk() (*int32, bool)`
+`func (o *FSearchResponse3) GetPageSizeOk() (*int32, bool)`
 
 GetPageSizeOk returns a tuple with the PageSize field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetPageSize
 
-`func (o *SearchSimilarPostResponse) SetPageSize(v int32)`
+`func (o *FSearchResponse3) SetPageSize(v int32)`
 
 SetPageSize sets PageSize field to given value.
 
+### HasPageSize
+
+`func (o *FSearchResponse3) HasPageSize() bool`
+
+HasPageSize returns a boolean if a field has been set.
 
 ### GetArticles
 
-`func (o *SearchSimilarPostResponse) GetArticles() []DtoResponsesMoreLikeThisResponseArticleResult`
+`func (o *FSearchResponse3) GetArticles() []ArticlesPropertyInner1`
 
 GetArticles returns the Articles field if non-nil, zero value otherwise.
 
 ### GetArticlesOk
 
-`func (o *SearchSimilarPostResponse) GetArticlesOk() (*[]DtoResponsesMoreLikeThisResponseArticleResult, bool)`
+`func (o *FSearchResponse3) GetArticlesOk() (*[]ArticlesPropertyInner1, bool)`
 
 GetArticlesOk returns a tuple with the Articles field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetArticles
 
-`func (o *SearchSimilarPostResponse) SetArticles(v []DtoResponsesMoreLikeThisResponseArticleResult)`
+`func (o *FSearchResponse3) SetArticles(v []ArticlesPropertyInner1)`
 
 SetArticles sets Articles field to given value.
 
+### HasArticles
+
+`func (o *FSearchResponse3) HasArticles() bool`
+
+HasArticles returns a boolean if a field has been set.
 
 ### GetUserInput
 
-`func (o *SearchSimilarPostResponse) GetUserInput() map[string]interface{}`
+`func (o *FSearchResponse3) GetUserInput() map[string]interface{}`
 
 GetUserInput returns the UserInput field if non-nil, zero value otherwise.
 
 ### GetUserInputOk
 
-`func (o *SearchSimilarPostResponse) GetUserInputOk() (*map[string]interface{}, bool)`
+`func (o *FSearchResponse3) GetUserInputOk() (*map[string]interface{}, bool)`
 
 GetUserInputOk returns a tuple with the UserInput field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetUserInput
 
-`func (o *SearchSimilarPostResponse) SetUserInput(v map[string]interface{})`
+`func (o *FSearchResponse3) SetUserInput(v map[string]interface{})`
 
 SetUserInput sets UserInput field to given value.
 

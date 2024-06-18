@@ -38,8 +38,8 @@ type SearchSimilarApiGetRequest struct {
 	notLang *interface{}
 	countries *interface{}
 	notCountries *interface{}
-	from *From
-	to *To
+	from *string
+	to *string
 	byParseDate *bool
 	publishedDatePrecision *string
 	sortBy *string
@@ -124,12 +124,12 @@ func (r *SearchSimilarApiGetRequest) NotCountries(notCountries interface{}) *Sea
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) From(from From) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) From(from string) *SearchSimilarApiGetRequest {
 	r.from = &from
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) To(to To) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) To(to string) *SearchSimilarApiGetRequest {
 	r.to = &to
 	return r
 }
@@ -269,7 +269,7 @@ func (r *SearchSimilarApiGetRequest) NotIptcTags(notIptcTags interface{}) *Searc
 	return r
 }
 
-func (r SearchSimilarApiGetRequest) Execute() (*SearchSimilarGetResponse, *http.Response, error) {
+func (r SearchSimilarApiGetRequest) Execute() (*FSearchResponse2, *http.Response, error) {
 	return r.ApiService.GetExecute(r)
 }
 
@@ -291,13 +291,13 @@ func (a *SearchSimilarApiService) Get(q string) SearchSimilarApiGetRequest {
 }
 
 // Execute executes the request
-//  @return SearchSimilarGetResponse
-func (a *SearchSimilarApiService) GetExecute(r SearchSimilarApiGetRequest) (*SearchSimilarGetResponse, *http.Response, error) {
+//  @return FSearchResponse2
+func (a *SearchSimilarApiService) GetExecute(r SearchSimilarApiGetRequest) (*FSearchResponse2, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SearchSimilarGetResponse
+		localVarReturnValue  *FSearchResponse2
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchSimilarApiService.Get")
@@ -310,19 +310,19 @@ func (a *SearchSimilarApiService) GetExecute(r SearchSimilarApiGetRequest) (*Sea
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
 	localVarFormParams := url.Values{}
-	if *r.similarDocumentsNumber < 0 {
+	if r.similarDocumentsNumber != nil && *r.similarDocumentsNumber < 0 {
 		return localVarReturnValue, nil, reportError("similarDocumentsNumber must be greater than 0")
 	}
-	if *r.wordCountMin < 0 {
+	if r.wordCountMin != nil && *r.wordCountMin < 0 {
 		return localVarReturnValue, nil, reportError("wordCountMin must be greater than 0")
 	}
-	if *r.wordCountMax < 0 {
+	if r.wordCountMax != nil && *r.wordCountMax < 0 {
 		return localVarReturnValue, nil, reportError("wordCountMax must be greater than 0")
 	}
-	if *r.page < 0 {
+	if r.page != nil && *r.page < 0 {
 		return localVarReturnValue, nil, reportError("page must be greater than 0")
 	}
-	if *r.pageSize < 0 {
+	if r.pageSize != nil && *r.pageSize < 0 {
 		return localVarReturnValue, nil, reportError("pageSize must be greater than 0")
 	}
 
@@ -531,7 +531,7 @@ type SearchSimilarApiPostRequest struct {
 	moreLikeThisRequest MoreLikeThisRequest
 }
 
-func (r SearchSimilarApiPostRequest) Execute() (*SearchSimilarPostResponse, *http.Response, error) {
+func (r SearchSimilarApiPostRequest) Execute() (*FSearchResponse3, *http.Response, error) {
 	return r.ApiService.PostExecute(r)
 }
 
@@ -553,13 +553,13 @@ func (a *SearchSimilarApiService) Post(moreLikeThisRequest MoreLikeThisRequest) 
 }
 
 // Execute executes the request
-//  @return SearchSimilarPostResponse
-func (a *SearchSimilarApiService) PostExecute(r SearchSimilarApiPostRequest) (*SearchSimilarPostResponse, *http.Response, error) {
+//  @return FSearchResponse3
+func (a *SearchSimilarApiService) PostExecute(r SearchSimilarApiPostRequest) (*FSearchResponse3, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *SearchSimilarPostResponse
+		localVarReturnValue  *FSearchResponse3
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchSimilarApiService.Post")
