@@ -28,6 +28,8 @@ type SearchLinkApiGetRequest struct {
 	ApiService *SearchLinkApiService
 	ids *interface{}
 	links *interface{}
+	from *string
+	to *string
 	page *int32
 	pageSize *int32
 }
@@ -39,6 +41,16 @@ func (r *SearchLinkApiGetRequest) Ids(ids interface{}) *SearchLinkApiGetRequest 
 
 func (r *SearchLinkApiGetRequest) Links(links interface{}) *SearchLinkApiGetRequest {
 	r.links = &links
+	return r
+}
+
+func (r *SearchLinkApiGetRequest) From(from string) *SearchLinkApiGetRequest {
+	r.from = &from
+	return r
+}
+
+func (r *SearchLinkApiGetRequest) To(to string) *SearchLinkApiGetRequest {
+	r.to = &to
 	return r
 }
 
@@ -103,6 +115,12 @@ func (a *SearchLinkApiService) GetExecute(r SearchLinkApiGetRequest) (*DtoRespon
 	}
 	if r.links != nil {
 		localVarQueryParams.Add("links", parameterToString(*r.links, ""))
+	}
+	if r.from != nil {
+		localVarQueryParams.Add("from_", parameterToString(*r.from, ""))
+	}
+	if r.to != nil {
+		localVarQueryParams.Add("to_", parameterToString(*r.to, ""))
 	}
 	if r.page != nil {
 		localVarQueryParams.Add("page", parameterToString(*r.page, ""))

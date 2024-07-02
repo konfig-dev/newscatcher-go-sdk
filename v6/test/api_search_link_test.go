@@ -31,6 +31,8 @@ func Test_newscatcherapi_SearchLinkApiService(t *testing.T) {
         )
         request.Ids()
         request.Links()
+        request.From("from_example")
+        request.To("to_example")
         request.Page(1)
         request.PageSize(100)
         
@@ -48,6 +50,8 @@ func Test_newscatcherapi_SearchLinkApiService(t *testing.T) {
         searchURLRequest := *newscatcherapi.NewSearchURLRequest()
         searchURLRequest.SetIds(null)
         searchURLRequest.SetLinks(null)
+        searchURLRequest.SetFrom("null")
+        searchURLRequest.SetTo("null")
         searchURLRequest.SetPage(1)
         searchURLRequest.SetPageSize(100)
         

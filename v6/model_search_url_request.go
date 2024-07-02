@@ -19,6 +19,8 @@ import (
 type SearchURLRequest struct {
 	Ids interface{} `json:"ids,omitempty"`
 	Links interface{} `json:"links,omitempty"`
+	From *string `json:"from_,omitempty"`
+	To *string `json:"to_,omitempty"`
 	Page *int32 `json:"page,omitempty"`
 	PageSize *int32 `json:"page_size,omitempty"`
 }
@@ -114,6 +116,70 @@ func (o *SearchURLRequest) SetLinks(v interface{}) {
 	o.Links = v
 }
 
+// GetFrom returns the From field value if set, zero value otherwise.
+func (o *SearchURLRequest) GetFrom() string {
+	if o == nil || isNil(o.From) {
+		var ret string
+		return ret
+	}
+	return *o.From
+}
+
+// GetFromOk returns a tuple with the From field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SearchURLRequest) GetFromOk() (*string, bool) {
+	if o == nil || isNil(o.From) {
+    return nil, false
+	}
+	return o.From, true
+}
+
+// HasFrom returns a boolean if a field has been set.
+func (o *SearchURLRequest) HasFrom() bool {
+	if o != nil && !isNil(o.From) {
+		return true
+	}
+
+	return false
+}
+
+// SetFrom gets a reference to the given string and assigns it to the From field.
+func (o *SearchURLRequest) SetFrom(v string) {
+	o.From = &v
+}
+
+// GetTo returns the To field value if set, zero value otherwise.
+func (o *SearchURLRequest) GetTo() string {
+	if o == nil || isNil(o.To) {
+		var ret string
+		return ret
+	}
+	return *o.To
+}
+
+// GetToOk returns a tuple with the To field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *SearchURLRequest) GetToOk() (*string, bool) {
+	if o == nil || isNil(o.To) {
+    return nil, false
+	}
+	return o.To, true
+}
+
+// HasTo returns a boolean if a field has been set.
+func (o *SearchURLRequest) HasTo() bool {
+	if o != nil && !isNil(o.To) {
+		return true
+	}
+
+	return false
+}
+
+// SetTo gets a reference to the given string and assigns it to the To field.
+func (o *SearchURLRequest) SetTo(v string) {
+	o.To = &v
+}
+
 // GetPage returns the Page field value if set, zero value otherwise.
 func (o *SearchURLRequest) GetPage() int32 {
 	if o == nil || isNil(o.Page) {
@@ -185,6 +251,12 @@ func (o SearchURLRequest) MarshalJSON() ([]byte, error) {
 	}
 	if o.Links != nil {
 		toSerialize["links"] = o.Links
+	}
+	if !isNil(o.From) {
+		toSerialize["from_"] = o.From
+	}
+	if !isNil(o.To) {
+		toSerialize["to_"] = o.To
 	}
 	if !isNil(o.Page) {
 		toSerialize["page"] = o.Page

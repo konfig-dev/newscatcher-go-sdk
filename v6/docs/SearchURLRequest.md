@@ -6,6 +6,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Ids** | Pointer to **interface{}** |  | [optional] 
 **Links** | Pointer to **interface{}** |  | [optional] 
+**From** | Pointer to **string** |  | [optional] 
+**To** | Pointer to **string** |  | [optional] 
 **Page** | Pointer to **int32** |  | [optional] [default to 1]
 **PageSize** | Pointer to **int32** |  | [optional] [default to 100]
 
@@ -98,6 +100,56 @@ HasLinks returns a boolean if a field has been set.
 `func (o *SearchURLRequest) UnsetLinks()`
 
 UnsetLinks ensures that no value is present for Links, not even an explicit nil
+### GetFrom
+
+`func (o *SearchURLRequest) GetFrom() string`
+
+GetFrom returns the From field if non-nil, zero value otherwise.
+
+### GetFromOk
+
+`func (o *SearchURLRequest) GetFromOk() (*string, bool)`
+
+GetFromOk returns a tuple with the From field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetFrom
+
+`func (o *SearchURLRequest) SetFrom(v string)`
+
+SetFrom sets From field to given value.
+
+### HasFrom
+
+`func (o *SearchURLRequest) HasFrom() bool`
+
+HasFrom returns a boolean if a field has been set.
+
+### GetTo
+
+`func (o *SearchURLRequest) GetTo() string`
+
+GetTo returns the To field if non-nil, zero value otherwise.
+
+### GetToOk
+
+`func (o *SearchURLRequest) GetToOk() (*string, bool)`
+
+GetToOk returns a tuple with the To field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTo
+
+`func (o *SearchURLRequest) SetTo(v string)`
+
+SetTo sets To field to given value.
+
+### HasTo
+
+`func (o *SearchURLRequest) HasTo() bool`
+
+HasTo returns a boolean if a field has been set.
+
 ### GetPage
 
 `func (o *SearchURLRequest) GetPage() int32`
