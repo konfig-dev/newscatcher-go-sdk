@@ -43,7 +43,7 @@ type SearchSimilarApiGetRequest struct {
 	byParseDate *bool
 	publishedDatePrecision *string
 	sortBy *string
-	rankedOnly *string
+	rankedOnly *RankedOnly
 	fromRank *int32
 	toRank *int32
 	isHeadline *bool
@@ -149,7 +149,7 @@ func (r *SearchSimilarApiGetRequest) SortBy(sortBy string) *SearchSimilarApiGetR
 	return r
 }
 
-func (r *SearchSimilarApiGetRequest) RankedOnly(rankedOnly string) *SearchSimilarApiGetRequest {
+func (r *SearchSimilarApiGetRequest) RankedOnly(rankedOnly RankedOnly) *SearchSimilarApiGetRequest {
 	r.rankedOnly = &rankedOnly
 	return r
 }

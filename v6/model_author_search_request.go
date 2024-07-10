@@ -31,7 +31,7 @@ type AuthorSearchRequest struct {
 	PublishedDatePrecision *string `json:"published_date_precision,omitempty"`
 	ByParseDate *bool `json:"by_parse_date,omitempty"`
 	SortBy *string `json:"sort_by,omitempty"`
-	RankedOnly *string `json:"ranked_only,omitempty"`
+	RankedOnly *RankedOnly `json:"ranked_only,omitempty"`
 	FromRank *int32 `json:"from_rank,omitempty"`
 	ToRank *int32 `json:"to_rank,omitempty"`
 	IsHeadline *bool `json:"is_headline,omitempty"`
@@ -541,9 +541,9 @@ func (o *AuthorSearchRequest) SetSortBy(v string) {
 }
 
 // GetRankedOnly returns the RankedOnly field value if set, zero value otherwise.
-func (o *AuthorSearchRequest) GetRankedOnly() string {
+func (o *AuthorSearchRequest) GetRankedOnly() RankedOnly {
 	if o == nil || isNil(o.RankedOnly) {
-		var ret string
+		var ret RankedOnly
 		return ret
 	}
 	return *o.RankedOnly
@@ -551,7 +551,7 @@ func (o *AuthorSearchRequest) GetRankedOnly() string {
 
 // GetRankedOnlyOk returns a tuple with the RankedOnly field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *AuthorSearchRequest) GetRankedOnlyOk() (*string, bool) {
+func (o *AuthorSearchRequest) GetRankedOnlyOk() (*RankedOnly, bool) {
 	if o == nil || isNil(o.RankedOnly) {
     return nil, false
 	}
@@ -567,8 +567,8 @@ func (o *AuthorSearchRequest) HasRankedOnly() bool {
 	return false
 }
 
-// SetRankedOnly gets a reference to the given string and assigns it to the RankedOnly field.
-func (o *AuthorSearchRequest) SetRankedOnly(v string) {
+// SetRankedOnly gets a reference to the given RankedOnly and assigns it to the RankedOnly field.
+func (o *AuthorSearchRequest) SetRankedOnly(v RankedOnly) {
 	o.RankedOnly = &v
 }
 

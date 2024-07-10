@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 **PublishedDatePrecision** | Pointer to **string** |  | [optional] 
 **ByParseDate** | Pointer to **bool** |  | [optional] [default to false]
 **SortBy** | Pointer to **string** |  | [optional] [default to "relevancy"]
-**RankedOnly** | Pointer to **string** |  | [optional] 
+**RankedOnly** | Pointer to [**RankedOnly**](RankedOnly.md) |  | [optional] 
 **FromRank** | Pointer to **int32** |  | [optional] 
 **ToRank** | Pointer to **int32** |  | [optional] 
 **IsHeadline** | Pointer to **bool** |  | [optional] 
@@ -481,20 +481,20 @@ HasSortBy returns a boolean if a field has been set.
 
 ### GetRankedOnly
 
-`func (o *AuthorSearchRequest) GetRankedOnly() string`
+`func (o *AuthorSearchRequest) GetRankedOnly() RankedOnly`
 
 GetRankedOnly returns the RankedOnly field if non-nil, zero value otherwise.
 
 ### GetRankedOnlyOk
 
-`func (o *AuthorSearchRequest) GetRankedOnlyOk() (*string, bool)`
+`func (o *AuthorSearchRequest) GetRankedOnlyOk() (*RankedOnly, bool)`
 
 GetRankedOnlyOk returns a tuple with the RankedOnly field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRankedOnly
 
-`func (o *AuthorSearchRequest) SetRankedOnly(v string)`
+`func (o *AuthorSearchRequest) SetRankedOnly(v RankedOnly)`
 
 SetRankedOnly sets RankedOnly field to given value.
 

@@ -39,7 +39,7 @@ func Test_newscatcherapi_LatestHeadlinesApiService(t *testing.T) {
         request.PredefinedSources()
         request.NotSources()
         request.NotAuthorName()
-        request.RankedOnly("rankedOnly_example")
+        request.RankedOnly(rankedOnly)
         request.IsHeadline(true)
         request.IsOpinion(true)
         request.IsPaidContent(true)
@@ -80,6 +80,7 @@ func Test_newscatcherapi_LatestHeadlinesApiService(t *testing.T) {
 
     t.Run("Test LatestHeadlinesApiService Post", func(t *testing.T) {
         /* TODO: ENG-1367 Fix parameter values for Go SDK generated tests
+        rankedOnly := *newscatcherapi.NewRankedOnly()
         
         latestHeadlinesRequest := *newscatcherapi.NewLatestHeadlinesRequest()
         latestHeadlinesRequest.SetWhen("7d")
@@ -92,7 +93,7 @@ func Test_newscatcherapi_LatestHeadlinesApiService(t *testing.T) {
         latestHeadlinesRequest.SetPredefinedSources(null)
         latestHeadlinesRequest.SetNotSources(null)
         latestHeadlinesRequest.SetNotAuthorName(null)
-        latestHeadlinesRequest.SetRankedOnly("null")
+        latestHeadlinesRequest.SetRankedOnly(rankedOnly)
         latestHeadlinesRequest.SetIsHeadline(null)
         latestHeadlinesRequest.SetIsOpinion(null)
         latestHeadlinesRequest.SetIsPaidContent(null)

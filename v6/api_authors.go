@@ -40,7 +40,7 @@ type AuthorsApiGetRequest struct {
 	publishedDatePrecision *string
 	byParseDate *bool
 	sortBy *string
-	rankedOnly *string
+	rankedOnly *RankedOnly
 	fromRank *int32
 	toRank *int32
 	isHeadline *bool
@@ -133,7 +133,7 @@ func (r *AuthorsApiGetRequest) SortBy(sortBy string) *AuthorsApiGetRequest {
 	return r
 }
 
-func (r *AuthorsApiGetRequest) RankedOnly(rankedOnly string) *AuthorsApiGetRequest {
+func (r *AuthorsApiGetRequest) RankedOnly(rankedOnly RankedOnly) *AuthorsApiGetRequest {
 	r.rankedOnly = &rankedOnly
 	return r
 }

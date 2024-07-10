@@ -48,7 +48,7 @@ func main() {
     request.PublishedDatePrecision("publishedDatePrecision_example")
     request.ByParseDate(false)
     request.SortBy(""relevancy"")
-    request.RankedOnly("rankedOnly_example")
+    request.RankedOnly(rankedOnly)
     request.FromRank(56)
     request.ToRank(56)
     request.IsHeadline(true)
@@ -130,6 +130,7 @@ func main() {
     configuration.SetApiKey("X_API_TOKEN")
     client := newscatcherapi.NewAPIClient(configuration)
 
+    rankedOnly := *newscatcherapi.NewRankedOnly()
     
     searchRequest := *newscatcherapi.NewSearchRequest(
         "null",
@@ -148,7 +149,7 @@ func main() {
     searchRequest.SetPublishedDatePrecision("null")
     searchRequest.SetByParseDate(false)
     searchRequest.SetSortBy("relevancy")
-    searchRequest.SetRankedOnly("null")
+    searchRequest.SetRankedOnly(rankedOnly)
     searchRequest.SetFromRank(null)
     searchRequest.SetToRank(null)
     searchRequest.SetIsHeadline(null)

@@ -43,7 +43,7 @@ func Test_newscatcherapi_AuthorsApiService(t *testing.T) {
         request.PublishedDatePrecision("publishedDatePrecision_example")
         request.ByParseDate(false)
         request.SortBy(""relevancy"")
-        request.RankedOnly("rankedOnly_example")
+        request.RankedOnly(rankedOnly)
         request.FromRank(56)
         request.ToRank(56)
         request.IsHeadline(true)
@@ -80,6 +80,7 @@ func Test_newscatcherapi_AuthorsApiService(t *testing.T) {
 
     t.Run("Test AuthorsApiService Post", func(t *testing.T) {
         /* TODO: ENG-1367 Fix parameter values for Go SDK generated tests
+        rankedOnly := *newscatcherapi.NewRankedOnly()
         
         authorSearchRequest := *newscatcherapi.NewAuthorSearchRequest(
             "null",
@@ -97,7 +98,7 @@ func Test_newscatcherapi_AuthorsApiService(t *testing.T) {
         authorSearchRequest.SetPublishedDatePrecision("null")
         authorSearchRequest.SetByParseDate(false)
         authorSearchRequest.SetSortBy("relevancy")
-        authorSearchRequest.SetRankedOnly("null")
+        authorSearchRequest.SetRankedOnly(rankedOnly)
         authorSearchRequest.SetFromRank(null)
         authorSearchRequest.SetToRank(null)
         authorSearchRequest.SetIsHeadline(null)

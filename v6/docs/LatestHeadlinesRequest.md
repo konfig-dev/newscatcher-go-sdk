@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 **PredefinedSources** | Pointer to **interface{}** |  | [optional] 
 **NotSources** | Pointer to **interface{}** |  | [optional] 
 **NotAuthorName** | Pointer to **interface{}** |  | [optional] 
-**RankedOnly** | Pointer to **string** |  | [optional] 
+**RankedOnly** | Pointer to [**RankedOnly**](RankedOnly.md) |  | [optional] 
 **IsHeadline** | Pointer to **bool** |  | [optional] 
 **IsOpinion** | Pointer to **bool** |  | [optional] 
 **IsPaidContent** | Pointer to **bool** |  | [optional] 
@@ -396,20 +396,20 @@ HasNotAuthorName returns a boolean if a field has been set.
 UnsetNotAuthorName ensures that no value is present for NotAuthorName, not even an explicit nil
 ### GetRankedOnly
 
-`func (o *LatestHeadlinesRequest) GetRankedOnly() string`
+`func (o *LatestHeadlinesRequest) GetRankedOnly() RankedOnly`
 
 GetRankedOnly returns the RankedOnly field if non-nil, zero value otherwise.
 
 ### GetRankedOnlyOk
 
-`func (o *LatestHeadlinesRequest) GetRankedOnlyOk() (*string, bool)`
+`func (o *LatestHeadlinesRequest) GetRankedOnlyOk() (*RankedOnly, bool)`
 
 GetRankedOnlyOk returns a tuple with the RankedOnly field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetRankedOnly
 
-`func (o *LatestHeadlinesRequest) SetRankedOnly(v string)`
+`func (o *LatestHeadlinesRequest) SetRankedOnly(v RankedOnly)`
 
 SetRankedOnly sets RankedOnly field to given value.
 

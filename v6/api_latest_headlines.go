@@ -36,7 +36,7 @@ type LatestHeadlinesApiGetRequest struct {
 	predefinedSources *interface{}
 	notSources *interface{}
 	notAuthorName *interface{}
-	rankedOnly *string
+	rankedOnly *RankedOnly
 	isHeadline *bool
 	isOpinion *bool
 	isPaidContent *bool
@@ -118,7 +118,7 @@ func (r *LatestHeadlinesApiGetRequest) NotAuthorName(notAuthorName interface{}) 
 	return r
 }
 
-func (r *LatestHeadlinesApiGetRequest) RankedOnly(rankedOnly string) *LatestHeadlinesApiGetRequest {
+func (r *LatestHeadlinesApiGetRequest) RankedOnly(rankedOnly RankedOnly) *LatestHeadlinesApiGetRequest {
 	r.rankedOnly = &rankedOnly
 	return r
 }

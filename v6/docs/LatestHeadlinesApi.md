@@ -43,7 +43,7 @@ func main() {
     request.PredefinedSources()
     request.NotSources()
     request.NotAuthorName()
-    request.RankedOnly("rankedOnly_example")
+    request.RankedOnly(rankedOnly)
     request.IsHeadline(true)
     request.IsOpinion(true)
     request.IsPaidContent(true)
@@ -121,6 +121,7 @@ func main() {
     configuration.SetApiKey("X_API_TOKEN")
     client := newscatcherapi.NewAPIClient(configuration)
 
+    rankedOnly := *newscatcherapi.NewRankedOnly()
     
     latestHeadlinesRequest := *newscatcherapi.NewLatestHeadlinesRequest()
     latestHeadlinesRequest.SetWhen("7d")
@@ -133,7 +134,7 @@ func main() {
     latestHeadlinesRequest.SetPredefinedSources(null)
     latestHeadlinesRequest.SetNotSources(null)
     latestHeadlinesRequest.SetNotAuthorName(null)
-    latestHeadlinesRequest.SetRankedOnly("null")
+    latestHeadlinesRequest.SetRankedOnly(rankedOnly)
     latestHeadlinesRequest.SetIsHeadline(null)
     latestHeadlinesRequest.SetIsOpinion(null)
     latestHeadlinesRequest.SetIsPaidContent(null)
