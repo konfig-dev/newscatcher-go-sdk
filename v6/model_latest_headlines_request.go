@@ -19,6 +19,7 @@ import (
 type LatestHeadlinesRequest struct {
 	When *string `json:"when,omitempty"`
 	ByParseDate *bool `json:"by_parse_date,omitempty"`
+	SortBy *string `json:"sort_by,omitempty"`
 	Lang interface{} `json:"lang,omitempty"`
 	NotLang interface{} `json:"not_lang,omitempty"`
 	Countries interface{} `json:"countries,omitempty"`
@@ -69,6 +70,8 @@ func NewLatestHeadlinesRequest() *LatestHeadlinesRequest {
 	this.When = &when
 	var byParseDate bool = false
 	this.ByParseDate = &byParseDate
+	var sortBy string = "relevancy"
+	this.SortBy = &sortBy
 	var page int32 = 1
 	this.Page = &page
 	var pageSize int32 = 100
@@ -85,6 +88,8 @@ func NewLatestHeadlinesRequestWithDefaults() *LatestHeadlinesRequest {
 	this.When = &when
 	var byParseDate bool = false
 	this.ByParseDate = &byParseDate
+	var sortBy string = "relevancy"
+	this.SortBy = &sortBy
 	var page int32 = 1
 	this.Page = &page
 	var pageSize int32 = 100
@@ -154,6 +159,38 @@ func (o *LatestHeadlinesRequest) HasByParseDate() bool {
 // SetByParseDate gets a reference to the given bool and assigns it to the ByParseDate field.
 func (o *LatestHeadlinesRequest) SetByParseDate(v bool) {
 	o.ByParseDate = &v
+}
+
+// GetSortBy returns the SortBy field value if set, zero value otherwise.
+func (o *LatestHeadlinesRequest) GetSortBy() string {
+	if o == nil || isNil(o.SortBy) {
+		var ret string
+		return ret
+	}
+	return *o.SortBy
+}
+
+// GetSortByOk returns a tuple with the SortBy field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *LatestHeadlinesRequest) GetSortByOk() (*string, bool) {
+	if o == nil || isNil(o.SortBy) {
+    return nil, false
+	}
+	return o.SortBy, true
+}
+
+// HasSortBy returns a boolean if a field has been set.
+func (o *LatestHeadlinesRequest) HasSortBy() bool {
+	if o != nil && !isNil(o.SortBy) {
+		return true
+	}
+
+	return false
+}
+
+// SetSortBy gets a reference to the given string and assigns it to the SortBy field.
+func (o *LatestHeadlinesRequest) SetSortBy(v string) {
+	o.SortBy = &v
 }
 
 // GetLang returns the Lang field value if set, zero value otherwise (both if not set or set to explicit null).
@@ -1394,6 +1431,9 @@ func (o LatestHeadlinesRequest) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.ByParseDate) {
 		toSerialize["by_parse_date"] = o.ByParseDate
+	}
+	if !isNil(o.SortBy) {
+		toSerialize["sort_by"] = o.SortBy
 	}
 	if o.Lang != nil {
 		toSerialize["lang"] = o.Lang

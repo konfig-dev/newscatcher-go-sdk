@@ -507,6 +507,18 @@ paths:
         style: form
       - explode: true
         in: query
+        name: sort_by
+        required: false
+        schema:
+          default: relevancy
+          example: relevancy
+          title: Sort By
+          type: string
+          x-konfig-original-example: relevancy
+          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-2-schema
+        style: form
+      - explode: true
+        in: query
         name: lang
         required: false
         schema:
@@ -642,7 +654,7 @@ paths:
           title: Page
           type: integer
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-19-schema
+          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-20-schema
         style: form
       - explode: true
         in: query
@@ -655,7 +667,7 @@ paths:
           title: Page Size
           type: integer
           x-konfig-original-example: 100
-          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-20-schema
+          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-21-schema
         style: form
       - explode: true
         in: query
@@ -2202,6 +2214,7 @@ components:
         clustering_variable: clustering_variable
         not_iptc_tags: ""
         ORG_entity_name: ORG_entity_name
+        sort_by: relevancy
         all_domain_links: ""
         clustering_threshold: 1.4658129805029452
         when: 7d
@@ -2252,6 +2265,13 @@ components:
           type: boolean
           x-konfig-original-example: false
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-LatestHeadlinesRequest-properties-by_parse_date
+        sort_by:
+          default: relevancy
+          example: relevancy
+          title: Sort By
+          type: string
+          x-konfig-original-example: relevancy
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LatestHeadlinesRequest-properties-sort_by
         lang:
           title: Lang
         not_lang:
@@ -3067,6 +3087,12 @@ components:
         content:
           title: Content
           type: string
+        title_translated_en:
+          title: Title Translated En
+          type: string
+        content_translated_en:
+          title: Content Translated En
+          type: string
         word_count:
           default: 0
           example: 0
@@ -3266,6 +3292,12 @@ components:
           type: string
         content:
           title: Content
+          type: string
+        title_translated_en:
+          title: Title Translated En
+          type: string
+        content_translated_en:
+          title: Content Translated En
           type: string
         word_count:
           default: 0
@@ -3518,11 +3550,15 @@ components:
       example: false
       type: boolean
       x-do-not-generate: true
-    konfig-generated-schema-paths--api-latest_headlines-get-parameters-19-schema:
+    konfig-generated-schema-paths--api-latest_headlines-get-parameters-2-schema:
+      example: relevancy
+      type: string
+      x-do-not-generate: true
+    konfig-generated-schema-paths--api-latest_headlines-get-parameters-20-schema:
       example: 1
       type: number
       x-do-not-generate: true
-    konfig-generated-schema-paths--api-latest_headlines-get-parameters-20-schema:
+    konfig-generated-schema-paths--api-latest_headlines-get-parameters-21-schema:
       example: 100
       type: number
       x-do-not-generate: true
@@ -3609,6 +3645,10 @@ components:
     konfig-generated-schema-components-schemas-LatestHeadlinesRequest-properties-by_parse_date:
       example: false
       type: boolean
+      x-do-not-generate: true
+    konfig-generated-schema-components-schemas-LatestHeadlinesRequest-properties-sort_by:
+      example: relevancy
+      type: string
       x-do-not-generate: true
     konfig-generated-schema-components-schemas-LatestHeadlinesRequest-properties-page:
       example: 1
@@ -4156,6 +4196,13 @@ components:
           type: boolean
           x-konfig-original-example: false
           x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-1-schema
+        sort_by:
+          default: relevancy
+          example: relevancy
+          title: Sort By
+          type: string
+          x-konfig-original-example: relevancy
+          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-2-schema
         lang:
           title: Lang
         not_lang:
@@ -4207,7 +4254,7 @@ components:
           title: Page
           type: integer
           x-konfig-original-example: 1
-          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-19-schema
+          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-20-schema
         page_size:
           default: 100
           example: 100
@@ -4215,7 +4262,7 @@ components:
           title: Page Size
           type: integer
           x-konfig-original-example: 100
-          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-20-schema
+          x-konfig-generated-schema: konfig-generated-schema-paths--api-latest_headlines-get-parameters-21-schema
         clustering_variable:
           title: Clustering Variable
           type: string
@@ -4274,6 +4321,7 @@ components:
       x-konfig-is-parameter:
       - when
       - by_parse_date
+      - sort_by
       - lang
       - not_lang
       - countries
@@ -4328,6 +4376,13 @@ components:
           type: boolean
           x-konfig-original-example: false
           x-konfig-generated-schema: konfig-generated-schema-components-schemas-LatestHeadlinesRequest-properties-by_parse_date
+        sort_by:
+          default: relevancy
+          example: relevancy
+          title: Sort By
+          type: string
+          x-konfig-original-example: relevancy
+          x-konfig-generated-schema: konfig-generated-schema-components-schemas-LatestHeadlinesRequest-properties-sort_by
         lang:
           title: Lang
         not_lang:
@@ -5520,6 +5575,7 @@ components:
         total_pages: 1
         articles:
         - country: country
+          content_translated_en: content_translated_en
           paid_content: true
           link: link
           description: description
@@ -5529,6 +5585,7 @@ components:
           all_domain_links: []
           journalists: null
           content: content
+          title_translated_en: title_translated_en
           score: 2.3021358869347655
           word_count: 0
           domain_url: domain_url
@@ -5551,6 +5608,7 @@ components:
           authors: null
           parse_date: parse_date
         - country: country
+          content_translated_en: content_translated_en
           paid_content: true
           link: link
           description: description
@@ -5560,6 +5618,7 @@ components:
           all_domain_links: []
           journalists: null
           content: content
+          title_translated_en: title_translated_en
           score: 2.3021358869347655
           word_count: 0
           domain_url: domain_url
@@ -5624,6 +5683,7 @@ components:
         total_pages: 1
         articles:
         - country: country
+          content_translated_en: content_translated_en
           paid_content: true
           link: link
           description: description
@@ -5633,6 +5693,7 @@ components:
           all_domain_links: []
           journalists: null
           content: content
+          title_translated_en: title_translated_en
           score: 2.3021358869347655
           word_count: 0
           domain_url: domain_url
@@ -5655,6 +5716,7 @@ components:
           authors: null
           parse_date: parse_date
         - country: country
+          content_translated_en: content_translated_en
           paid_content: true
           link: link
           description: description
@@ -5664,6 +5726,7 @@ components:
           all_domain_links: []
           journalists: null
           content: content
+          title_translated_en: title_translated_en
           score: 2.3021358869347655
           word_count: 0
           domain_url: domain_url
@@ -5728,6 +5791,7 @@ components:
         total_pages: 1
         articles:
         - country: country
+          content_translated_en: content_translated_en
           paid_content: true
           link: link
           description: description
@@ -5737,6 +5801,7 @@ components:
           all_domain_links: []
           journalists: null
           content: content
+          title_translated_en: title_translated_en
           score: 2.3021358869347655
           word_count: 0
           domain_url: domain_url
@@ -5760,6 +5825,7 @@ components:
           authors: null
           parse_date: parse_date
         - country: country
+          content_translated_en: content_translated_en
           paid_content: true
           link: link
           description: description
@@ -5769,6 +5835,7 @@ components:
           all_domain_links: []
           journalists: null
           content: content
+          title_translated_en: title_translated_en
           score: 2.3021358869347655
           word_count: 0
           domain_url: domain_url
@@ -5834,6 +5901,7 @@ components:
         total_pages: 1
         articles:
         - country: country
+          content_translated_en: content_translated_en
           paid_content: true
           link: link
           description: description
@@ -5843,6 +5911,7 @@ components:
           all_domain_links: []
           journalists: null
           content: content
+          title_translated_en: title_translated_en
           score: 2.3021358869347655
           word_count: 0
           domain_url: domain_url
@@ -5866,6 +5935,7 @@ components:
           authors: null
           parse_date: parse_date
         - country: country
+          content_translated_en: content_translated_en
           paid_content: true
           link: link
           description: description
@@ -5875,6 +5945,7 @@ components:
           all_domain_links: []
           journalists: null
           content: content
+          title_translated_en: title_translated_en
           score: 2.3021358869347655
           word_count: 0
           domain_url: domain_url
@@ -6023,6 +6094,7 @@ components:
     Articles_Property_inner:
       example:
         country: country
+        content_translated_en: content_translated_en
         paid_content: true
         link: link
         description: description
@@ -6032,6 +6104,7 @@ components:
         all_domain_links: []
         journalists: null
         content: content
+        title_translated_en: title_translated_en
         score: 2.3021358869347655
         word_count: 0
         domain_url: domain_url
@@ -6121,6 +6194,12 @@ components:
         content:
           title: Content
           type: string
+        title_translated_en:
+          title: Title Translated En
+          type: string
+        content_translated_en:
+          title: Content Translated En
+          type: string
         word_count:
           default: 0
           example: 0
@@ -6177,6 +6256,7 @@ components:
     Articles_Property_inner_1:
       example:
         country: country
+        content_translated_en: content_translated_en
         paid_content: true
         link: link
         description: description
@@ -6186,6 +6266,7 @@ components:
         all_domain_links: []
         journalists: null
         content: content
+        title_translated_en: title_translated_en
         score: 2.3021358869347655
         word_count: 0
         domain_url: domain_url
@@ -6275,6 +6356,12 @@ components:
           type: string
         content:
           title: Content
+          type: string
+        title_translated_en:
+          title: Title Translated En
+          type: string
+        content_translated_en:
+          title: Content Translated En
           type: string
         word_count:
           default: 0

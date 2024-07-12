@@ -28,6 +28,7 @@ type LatestHeadlinesApiGetRequest struct {
 	ApiService *LatestHeadlinesApiService
 	when *string
 	byParseDate *bool
+	sortBy *string
 	lang *interface{}
 	notLang *interface{}
 	countries *interface{}
@@ -75,6 +76,11 @@ func (r *LatestHeadlinesApiGetRequest) When(when string) *LatestHeadlinesApiGetR
 
 func (r *LatestHeadlinesApiGetRequest) ByParseDate(byParseDate bool) *LatestHeadlinesApiGetRequest {
 	r.byParseDate = &byParseDate
+	return r
+}
+
+func (r *LatestHeadlinesApiGetRequest) SortBy(sortBy string) *LatestHeadlinesApiGetRequest {
+	r.sortBy = &sortBy
 	return r
 }
 
@@ -325,6 +331,9 @@ func (a *LatestHeadlinesApiService) GetExecute(r LatestHeadlinesApiGetRequest) (
 	}
 	if r.byParseDate != nil {
 		localVarQueryParams.Add("by_parse_date", parameterToString(*r.byParseDate, ""))
+	}
+	if r.sortBy != nil {
+		localVarQueryParams.Add("sort_by", parameterToString(*r.sortBy, ""))
 	}
 	if r.lang != nil {
 		localVarQueryParams.Add("lang", parameterToString(*r.lang, ""))

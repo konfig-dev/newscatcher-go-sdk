@@ -27,6 +27,8 @@ Name | Type | Description | Notes
 **Media** | Pointer to **string** |  | [optional] 
 **Language** | Pointer to **string** |  | [optional] 
 **Content** | **string** |  | 
+**TitleTranslatedEn** | Pointer to **string** |  | [optional] 
+**ContentTranslatedEn** | Pointer to **string** |  | [optional] 
 **WordCount** | Pointer to **int32** |  | [optional] [default to 0]
 **IsOpinion** | Pointer to **bool** |  | [optional] 
 **TwitterAccount** | Pointer to **string** |  | [optional] 
@@ -594,6 +596,56 @@ and a boolean to check if the value has been set.
 
 SetContent sets Content field to given value.
 
+
+### GetTitleTranslatedEn
+
+`func (o *DtoResponsesAuthorSearchResponseArticleResult) GetTitleTranslatedEn() string`
+
+GetTitleTranslatedEn returns the TitleTranslatedEn field if non-nil, zero value otherwise.
+
+### GetTitleTranslatedEnOk
+
+`func (o *DtoResponsesAuthorSearchResponseArticleResult) GetTitleTranslatedEnOk() (*string, bool)`
+
+GetTitleTranslatedEnOk returns a tuple with the TitleTranslatedEn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetTitleTranslatedEn
+
+`func (o *DtoResponsesAuthorSearchResponseArticleResult) SetTitleTranslatedEn(v string)`
+
+SetTitleTranslatedEn sets TitleTranslatedEn field to given value.
+
+### HasTitleTranslatedEn
+
+`func (o *DtoResponsesAuthorSearchResponseArticleResult) HasTitleTranslatedEn() bool`
+
+HasTitleTranslatedEn returns a boolean if a field has been set.
+
+### GetContentTranslatedEn
+
+`func (o *DtoResponsesAuthorSearchResponseArticleResult) GetContentTranslatedEn() string`
+
+GetContentTranslatedEn returns the ContentTranslatedEn field if non-nil, zero value otherwise.
+
+### GetContentTranslatedEnOk
+
+`func (o *DtoResponsesAuthorSearchResponseArticleResult) GetContentTranslatedEnOk() (*string, bool)`
+
+GetContentTranslatedEnOk returns a tuple with the ContentTranslatedEn field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetContentTranslatedEn
+
+`func (o *DtoResponsesAuthorSearchResponseArticleResult) SetContentTranslatedEn(v string)`
+
+SetContentTranslatedEn sets ContentTranslatedEn field to given value.
+
+### HasContentTranslatedEn
+
+`func (o *DtoResponsesAuthorSearchResponseArticleResult) HasContentTranslatedEn() bool`
+
+HasContentTranslatedEn returns a boolean if a field has been set.
 
 ### GetWordCount
 

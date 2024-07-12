@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **When** | Pointer to **string** |  | [optional] [default to "7d"]
 **ByParseDate** | Pointer to **bool** |  | [optional] [default to false]
+**SortBy** | Pointer to **string** |  | [optional] [default to "relevancy"]
 **Lang** | Pointer to **interface{}** |  | [optional] 
 **NotLang** | Pointer to **interface{}** |  | [optional] 
 **Countries** | Pointer to **interface{}** |  | [optional] 
@@ -113,6 +114,31 @@ SetByParseDate sets ByParseDate field to given value.
 `func (o *LatestHeadlinesRequest) HasByParseDate() bool`
 
 HasByParseDate returns a boolean if a field has been set.
+
+### GetSortBy
+
+`func (o *LatestHeadlinesRequest) GetSortBy() string`
+
+GetSortBy returns the SortBy field if non-nil, zero value otherwise.
+
+### GetSortByOk
+
+`func (o *LatestHeadlinesRequest) GetSortByOk() (*string, bool)`
+
+GetSortByOk returns a tuple with the SortBy field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetSortBy
+
+`func (o *LatestHeadlinesRequest) SetSortBy(v string)`
+
+SetSortBy sets SortBy field to given value.
+
+### HasSortBy
+
+`func (o *LatestHeadlinesRequest) HasSortBy() bool`
+
+HasSortBy returns a boolean if a field has been set.
 
 ### GetLang
 

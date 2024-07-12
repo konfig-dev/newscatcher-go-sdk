@@ -40,6 +40,8 @@ type ArticlesPropertyInner struct {
 	Media *string `json:"media,omitempty"`
 	Language *string `json:"language,omitempty"`
 	Content *string `json:"content,omitempty"`
+	TitleTranslatedEn *string `json:"title_translated_en,omitempty"`
+	ContentTranslatedEn *string `json:"content_translated_en,omitempty"`
 	WordCount *int32 `json:"word_count,omitempty"`
 	IsOpinion *bool `json:"is_opinion,omitempty"`
 	TwitterAccount *string `json:"twitter_account,omitempty"`
@@ -807,6 +809,70 @@ func (o *ArticlesPropertyInner) SetContent(v string) {
 	o.Content = &v
 }
 
+// GetTitleTranslatedEn returns the TitleTranslatedEn field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner) GetTitleTranslatedEn() string {
+	if o == nil || isNil(o.TitleTranslatedEn) {
+		var ret string
+		return ret
+	}
+	return *o.TitleTranslatedEn
+}
+
+// GetTitleTranslatedEnOk returns a tuple with the TitleTranslatedEn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ArticlesPropertyInner) GetTitleTranslatedEnOk() (*string, bool) {
+	if o == nil || isNil(o.TitleTranslatedEn) {
+    return nil, false
+	}
+	return o.TitleTranslatedEn, true
+}
+
+// HasTitleTranslatedEn returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner) HasTitleTranslatedEn() bool {
+	if o != nil && !isNil(o.TitleTranslatedEn) {
+		return true
+	}
+
+	return false
+}
+
+// SetTitleTranslatedEn gets a reference to the given string and assigns it to the TitleTranslatedEn field.
+func (o *ArticlesPropertyInner) SetTitleTranslatedEn(v string) {
+	o.TitleTranslatedEn = &v
+}
+
+// GetContentTranslatedEn returns the ContentTranslatedEn field value if set, zero value otherwise.
+func (o *ArticlesPropertyInner) GetContentTranslatedEn() string {
+	if o == nil || isNil(o.ContentTranslatedEn) {
+		var ret string
+		return ret
+	}
+	return *o.ContentTranslatedEn
+}
+
+// GetContentTranslatedEnOk returns a tuple with the ContentTranslatedEn field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *ArticlesPropertyInner) GetContentTranslatedEnOk() (*string, bool) {
+	if o == nil || isNil(o.ContentTranslatedEn) {
+    return nil, false
+	}
+	return o.ContentTranslatedEn, true
+}
+
+// HasContentTranslatedEn returns a boolean if a field has been set.
+func (o *ArticlesPropertyInner) HasContentTranslatedEn() bool {
+	if o != nil && !isNil(o.ContentTranslatedEn) {
+		return true
+	}
+
+	return false
+}
+
+// SetContentTranslatedEn gets a reference to the given string and assigns it to the ContentTranslatedEn field.
+func (o *ArticlesPropertyInner) SetContentTranslatedEn(v string) {
+	o.ContentTranslatedEn = &v
+}
+
 // GetWordCount returns the WordCount field value if set, zero value otherwise.
 func (o *ArticlesPropertyInner) GetWordCount() int32 {
 	if o == nil || isNil(o.WordCount) {
@@ -1133,6 +1199,12 @@ func (o ArticlesPropertyInner) MarshalJSON() ([]byte, error) {
 	}
 	if !isNil(o.Content) {
 		toSerialize["content"] = o.Content
+	}
+	if !isNil(o.TitleTranslatedEn) {
+		toSerialize["title_translated_en"] = o.TitleTranslatedEn
+	}
+	if !isNil(o.ContentTranslatedEn) {
+		toSerialize["content_translated_en"] = o.ContentTranslatedEn
 	}
 	if !isNil(o.WordCount) {
 		toSerialize["word_count"] = o.WordCount
